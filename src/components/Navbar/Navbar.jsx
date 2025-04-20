@@ -1,24 +1,22 @@
-import { HeaderStyled, LinksContainerStyled, LogoContainerStyled, NavbarContainerStyled, UserContainerStyled } from "./NavbarStyled"
+import { HeaderStyled, LinkContainerStyled, LinksContainerStyled, LogoContainerStyled, NavbarContainerStyled, UserContainerStyled } from "./NavbarStyled"
 
-import logo from "../../assets/images/logo.png"
+import logo from "../../assets/images/logo_rayo.png"
+import { IoHomeSharp } from "react-icons/io5";
 
 export const Navbar = () => {
     return(
-
         <HeaderStyled>
             <NavbarContainerStyled>
                 <LogoContainerStyled>
-                    <img src={logo} alt="Logo" />
+                    <a href="/">
+                        <img src={logo} alt="Logo" />
+                        <p>Thunderbolt</p>
+                    </a>
                 </LogoContainerStyled>
-
-
-                <LinksContainerStyled>                
-                    <a href="/">Home</a>
-                    <a href="/about">About</a>
-
-                    <UserContainerStyled home>
-                        user
-                    </UserContainerStyled>
+                <LinksContainerStyled>
+                    <LinkContainerStyled>
+                        <a href="/">Iniciar sesión</a>
+                    </LinkContainerStyled>
                 </LinksContainerStyled>
             </NavbarContainerStyled>
         </HeaderStyled>
