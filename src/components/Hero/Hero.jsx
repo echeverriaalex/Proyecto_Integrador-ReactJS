@@ -6,7 +6,6 @@ const Hero = () => {
             <HeroContent>
                 <h1>¡Descúbrenos y déjamos sorprenderte!</h1>
             </HeroContent>
-
             <ImageContainer>
                 <iframe src="https://gifer.com/embed/YIgV" frameBorder="0" allowFullScreen></iframe>
             </ImageContainer>

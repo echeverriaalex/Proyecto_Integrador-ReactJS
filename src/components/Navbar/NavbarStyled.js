@@ -1,5 +1,35 @@
 import styled from "styled-components";
 
+
+import { HiMenu   } from "react-icons/hi";
+import { HiUser } from "react-icons/hi";
+import { HiOutlineShoppingCart } from "react-icons/hi";
+
+
+import { IoHomeSharp } from "react-icons/io5";
+import { FaRegUser } from "react-icons/fa";
+import { FaCartShopping } from "react-icons/fa6";
+
+
+export const MenuIcon = styled(HiMenu)`
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+`;
+
+export const UserIcon = styled(HiUser)`
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+`;
+
+export const CartIcon = styled(HiOutlineShoppingCart)`
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+`;
+
+
 export const HeaderStyled = styled.header`
     width: 100%;
     display: flex;
@@ -24,22 +54,22 @@ export const NavbarContainerStyled = styled.nav`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;    
+    gap: 10px;
     padding: 1rem 3rem;
+    
     @media (max-width: 768px){
         padding: 1rem 2rem;
     }
 
     @media (max-width: 576px){
-        padding: 0px;
+        padding: 0px 15px;
+        gap: 30px;
     }
 `;
 
 export const LogoContainerStyled = styled.div`
-    height: 50px;
     a{
-        width: 100%;
-        height: 100%;
+        height: 70px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -52,16 +82,26 @@ export const LogoContainerStyled = styled.div`
     }
     p{
         color: white;
-        font-size: 1.5rem;
-
+        font-size: 1.4rem;
         font-family: "Didact Gothic", sans-serif;
         font-weight: 800;
     }
 
 
-    @media (max-width: 576px){        
+    @media (max-width: 576px){
+        a{
+            padding: 0px;
+            gap: 10px;
+            display: flex;
+            height: 60px;
+        }
+
+        img{
+            height: 50%;
+        }
+
         p{
-            font-size: 1rem;
+            /* font-size: 0.6rem; */
         }
        
     }
@@ -81,7 +121,7 @@ export const LinksContainerStyled = styled.div`
 
     @media (max-width: 576px){
         /*background: lightcoral;*/
-        padding: 0.7;
+        padding: 0px;
     }
 `;
 
@@ -94,15 +134,15 @@ export const LinkContainerStyled = styled.div`
     font-family: "Didact Gothic", sans-serif;
     font-weight: 500;
     cursor: pointer;
-    border-radius: 10px;
+    border-radius: 8px;
     a{  
         padding: 8px 35px;
+        text-align: center;
     }
 
     @media (max-width: 768px){
         padding: 1rem 2rem;
     }
-
 
     @media (max-width: 576px){
         font-size: 12px;
@@ -111,7 +151,8 @@ export const LinkContainerStyled = styled.div`
         
         a{
             /*color: yellow;*/
-            font-size: 0.8rem;
+            font-size: 12px;
+            padding: 5px 8px;
         }
        
     }
@@ -124,3 +165,11 @@ export const HomeContainerStyled = styled(LinkContainerStyled)`
         display: none;
     }
 `
+
+
+export const IconContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+`;

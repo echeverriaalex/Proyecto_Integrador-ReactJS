@@ -8,8 +8,8 @@ function App(){
   return (
     <Layout>
       <Navbar />
-      { /* <Hero />
-      <Footer /> */ }
+      <Hero />
+      { /* <Footer /> */ }
     </Layout>
   )
 }

@@ -7,6 +7,8 @@ export const GlobalStyles = createGlobalStyle`
 
 
     :root{
+        --bg-gradient: linear-gradient(to left,rgb(206, 127, 175), #b39fc2, #4c5187);
+        --gb-dark: #171718;
 
     }
 
@@ -21,8 +23,10 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     body{
-        /*background: #083561;*/
-        background: linear-gradient(to left,rgb(206, 127, 175), #b39fc2, #4c5187);
+        /*background:rgb(23, 23, 24);*/
+        background: var(--gb-dark);
+
+        background: radial-gradient(#555555, #222222);
     }
 
     a{
