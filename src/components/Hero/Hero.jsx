@@ -1,4 +1,5 @@
 import { HeroContainer, HeroContent, ImageContainer } from "./HeroStyles"
+import logo_buy  from "../../assets/images/logo_buy.svg"
 
 const Hero = () => {
     return(
@@ -7,7 +8,7 @@ const Hero = () => {
                 <h1>¡Descúbrenos y déjamos sorprenderte!</h1>
             </HeroContent>
             <ImageContainer>
-                <iframe src="https://gifer.com/embed/YIgV" frameBorder="0" allowFullScreen></iframe>
+                <img src={logo_buy} alt="Imagen del hero" />
             </ImageContainer>
         </HeroContainer>
     )

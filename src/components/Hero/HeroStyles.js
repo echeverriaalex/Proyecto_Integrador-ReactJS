@@ -1,10 +1,23 @@
 import styled from "styled-components";
 
 export const HeroContainer = styled.section`
-    margin-top: 30px;
+    margin-top: 20px;
     display: flex;
+    justify-content: center;
     align-items: center;
+    gap: 10px;
     width: 100%;
+    /*max-width: 1200px;*/
+    border-radius: 10px;
+    background: #464645;
+
+    h1{
+        font-size: 3rem;
+        font-weight: 800;
+        font-family: "Didact Gothic", sans-serif;
+        text-align: left;
+    }
+
 
     @media (max-width: 576px) {
         flex-direction: column;
@@ -21,6 +34,7 @@ export const HeroContent = styled.div`
     justify-content: center;
     text-align: center;
     padding: 2rem;
+    width: 50%;
 `;
 
 export const ImageContainer = styled.div`
@@ -28,7 +42,8 @@ export const ImageContainer = styled.div`
     justify-content: center;
     align-items: center;
     height: auto;
-    iframe{
+    iframe,
+    img{
         height: 400px;
         max-width: 100%;
         max-height: 100%;
