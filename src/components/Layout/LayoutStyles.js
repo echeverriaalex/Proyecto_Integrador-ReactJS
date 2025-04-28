@@ -6,7 +6,7 @@ export const LayoutWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    gap: 20px;
     /*
     @media (max-width: 576px) {
         padding: 10px;

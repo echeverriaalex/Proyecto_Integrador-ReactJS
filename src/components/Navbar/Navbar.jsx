@@ -1,6 +1,6 @@
 import { CartIcon, HeaderStyled, IconContainer, LinkContainerStyled, LinksContainerStyled, LogoContainerStyled, MenuIcon, NavbarContainerStyled, UserContainerStyled, UserIcon } from "./NavbarStyled"
 
-import logo from "../../assets/images/logo_rayo.png"
+import logo from "../../assets/images/Pokemon_logo.png"
 
 /*
 import { HiMenuAlt2 } from "react-icons/hi";
@@ -21,7 +21,6 @@ export const Navbar = () => {
                 <LogoContainerStyled>
                     <a href="/">
                         <img src={logo} alt="Logo" />
-                        <p>Thunderbolt</p>
                     </a>
                 </LogoContainerStyled>
 
