@@ -1,13 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const INITIAL_STATE = {
-    pokemon: null,
+    pokemons: [],
     isLoading: false,
     error: null,
 };
 
-export const pokemonSlice = createSlice({
-    name: 'pokemon',
+export const pokemonsSlice = createSlice({
+    name: 'pokemons',
     initialState: INITIAL_STATE,
     reducers: {
         isFetching: (state) => {
@@ -15,13 +15,12 @@ export const pokemonSlice = createSlice({
                 ...state,
                 isLoading: true,
                 error: false,
-                pokemon: null,
             }
         },
         success: (state, action) =>{
             return{
                 ...state,
-                pokemon: [...action.payload],
+                pokemons: [...action.payload],
                 isLoading: false,
                 error: false,
             }
@@ -30,12 +29,11 @@ export const pokemonSlice = createSlice({
             return{
                 ...state,
                 isLoading: false,
-                error: "Error al cargar los pokemones",
-                pokemon: null,
+                error: "Error en Pokemons Slice al cargar los pokemones",
             }
         },
     },
 });
 
-export const { isFetching, success, isError } = pokemonSlice.actions;
-export default pokemonSlice.reducer;
+export const { isFetching, success, isError } = pokemonsSlice.actions;
+export default pokemonsSlice.reducer;
