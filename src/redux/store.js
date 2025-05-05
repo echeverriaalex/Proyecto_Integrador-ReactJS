@@ -4,22 +4,31 @@ import pokemonReducer from './slice/pokemonSlice';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
 import persistStore from 'redux-persist/es/persistStore';
+import cartReducer from './cart/cartSlice';
 
 const reducers = combineReducers({ 
     pokemons: pokemonsReducer,
     pokemon: pokemonReducer,
+    cart: cartReducer,
+    
 });
 
 const persistConfig = {
     key: 'root',
     storage,
-    whiteLsit: [],
+    whiteLsit: ['cart'],
 }
 
 const persistedReducer = persistReducer(persistConfig, reducers);
 
 export const store = configureStore({
     reducer: persistedReducer,
+
+    /* chat gpt
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware ({
+        serializableCheck: false, // 👈 Desactiva el middleware que genera la advertencia
+      }),
+    */
 });
 
 export default store;
