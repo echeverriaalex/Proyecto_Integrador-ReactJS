@@ -1,19 +1,15 @@
-import Products from "../components/Products/Products"
+import Products from "../../components/ProductCatalog/ProductCatalog"
 import { HomeWrapper, ProductsWrapper } from "./HomeStyles"
+import Hero from "../../components/Hero/Hero"
 
 const Home = () => {
     return (
         <HomeWrapper>
-
-
+            <Hero />
             <ProductsWrapper>
-                <h2>Products</h2>
+                <h2>Pokémon cards</h2>
                 <Products />
-
             </ProductsWrapper>
-
-            
-
         </HomeWrapper>
     )
 }
