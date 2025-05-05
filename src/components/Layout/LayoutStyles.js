@@ -5,8 +5,9 @@ export const LayoutWrapper = styled.div`
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    gap: 20px;
+    
     /*
     @media (max-width: 576px) {
         padding: 10px;

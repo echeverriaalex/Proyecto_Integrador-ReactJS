@@ -18,6 +18,7 @@ export const pokemonsSlice = createSlice({
             }
         },
         success: (state, action) =>{
+            //console.log("aca en success pokemonsSlice: ", action.payload);
             return{
                 ...state,
                 pokemons: [...action.payload],
