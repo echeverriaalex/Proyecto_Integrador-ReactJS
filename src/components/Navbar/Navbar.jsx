@@ -1,34 +1,49 @@
-import { CartIcon, HeaderStyled, IconContainer, LinkContainerStyled, LinksContainerStyled, LogoContainerStyled, MenuIcon, NavbarContainerStyled, UserContainerStyled, UserIcon } from "./NavbarStyled"
-
+import { 
+    HeaderStyled,
+    NavbarStyled,
+    ContainerStyled,
+    MenuIcon,
+    NavLinkContainer,
+    UserIcon,
+    CartIcon,
+    SearchContainer,
+    SearchBar,
+    SearchIcon
+    } from "./NavbarStyled"
 import logo from "../../assets/images/Pokemon_logo.png"
-
-/*
-import { HiMenuAlt2 } from "react-icons/hi";
-import { IoHomeSharp } from "react-icons/io5";
-import { FaRegUser } from "react-icons/fa";
-import { CiShoppingCart } from "react-icons/ci";
-*/
-
+import { motion } from "framer-motion"
 
 export const Navbar = () => {
     return(
         <HeaderStyled>
-            <NavbarContainerStyled>
-                <IconContainer>
-                    <MenuIcon/>
-                </IconContainer>
-
-                <LogoContainerStyled>
-                    <a href="/">
-                        <img src={logo} alt="Logo" />
-                    </a>
-                </LogoContainerStyled>
-
-                <IconContainer>
-                    <UserIcon/>
-                    <CartIcon/>
-                </IconContainer>
-            </NavbarContainerStyled>
+            <NavbarStyled>
+                <ContainerStyled>
+                    <motion.div whileTap={{ scale: 0.8 }}>
+                        <MenuIcon />
+                    </motion.div>
+                    <motion.div whileTap={{ scale: 0.8 }}>
+                        <NavLinkContainer to="/">
+                            <img src={logo} alt="Logo" />
+                        </NavLinkContainer>
+                    </motion.div>
+                </ContainerStyled>
+                <ContainerStyled>
+                    <motion.div whileTap={{ scale: 0.8 }}>
+                        <NavLinkContainer to="/login">
+                            <UserIcon/>
+                        </NavLinkContainer>
+                    </motion.div>
+                    <motion.div whileTap={{ scale: 0.8 }}>
+                        <CartIcon/>
+                    </motion.div>
+                </ContainerStyled>
+            </NavbarStyled>
+            <SearchContainer>
+                <SearchBar type="text" placeholder="Buscar"/>
+                <motion.div whileTap={{ scale: 0.8 }}>
+                    <SearchIcon/>
+                </motion.div>
+            </SearchContainer>
         </HeaderStyled>
     )
 }
