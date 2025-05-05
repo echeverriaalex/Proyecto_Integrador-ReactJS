@@ -5,9 +5,8 @@ const Hero = () => {
     return(
         <HeroContainer>
             <HeroContent>
-                <h1>Prepárate para el Mundial Pokémon</h1>
-                <p>¿Serás vos el próximo campeón?</p>
-                <p>¡Comprá tus Pokemones aquí y ahora!</p>
+                <h1>Consagrate como el próximo campeón del Mundial Pokémon</h1>
+                <h2>¡Comprá tus Pokemones aquí y entrenalos!</h2>
             </HeroContent>
             <ImageContainer>
                 <img src={ wallpaper } alt="Imagen del hero" />

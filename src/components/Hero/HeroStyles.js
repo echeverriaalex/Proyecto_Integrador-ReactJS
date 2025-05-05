@@ -20,9 +20,12 @@ export const HeroContainer = styled.section`
 
     @media (max-width: 576px) {
         flex-direction: column;
-        margin-top: 0px;
-        background:#eca41e;
-        margin: 10px;
+        margin: 0px;
+        padding: 5px;
+
+        h1{
+            font-size: 2rem;
+        }
     }
 `;
 
@@ -36,14 +39,30 @@ export const HeroContent = styled.div`
     h1{
         color: white;
         color:#ceb214;
-        text-shadow: -5px 5px 0px #0e31fa;
+        /*text-shadow: -5px 5px 0px #0e31fa;*/
+        font-family: "Special Gothic Expanded One", sans-serif;
+        font-style: normal;
     }
 
-    p{
+    h2{
         color: white;
-        font-family: monospace;
-        font-size: 1.2rem;
-        font-weight: 400;
+        font-family: "Special Gothic Expanded One", sans-serif;
+        font-size: 1.4rem;
+    }
+
+    @media (max-width: 576px) {
+        flex-direction: column;
+        padding: 10px;
+        width: 100%;
+        h1{
+            font-size: 1.8rem;
+        }
+
+        h2{
+            color: white;
+            font-family: "Special Gothic Expanded One", sans-serif;
+            font-size: 1rem;
+        }
     }
 `;
 
@@ -51,12 +70,16 @@ export const ImageContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    height: auto;
-    iframe,
     img{
-        height: 400px;
+        height: 450px;
         max-width: 100%;
         max-height: 100%;
         border-radius: 8px;
+    }
+
+    @media (max-width: 576px) {
+        img{
+            height: 300px;
+        }
     }
 `;
