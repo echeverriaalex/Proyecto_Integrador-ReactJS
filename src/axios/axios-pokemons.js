@@ -2,7 +2,7 @@ import axios from "axios";
 import { API_URL_ALL, API_URL, POKEMON_URL } from "../utils/constants";
 
 // Obtengo todos los pokemons de la API 1302 en total
-export const getAllPokemons = async () => {
+export const getAllPokemonsFromApi = async () => {
     try{
         const response = await axios.get(API_URL_ALL);
         return response.data.results;
@@ -14,9 +14,10 @@ export const getAllPokemons = async () => {
 }
 
 // Obtengo 20 pokemons de la API por pagina
-export const getPokemons = async () => {
+export const getPokemonsFromApi = async (limit, offset) => {
     try{
-        const response = await axios.get(API_URL);
+        const response = await axios.get( `${API_URL}?offset=${offset}&limit=${limit}` );
+        //const response = await axios.get(API_URL);
         return response.data.results;
     }
     catch (error) {
@@ -25,7 +26,7 @@ export const getPokemons = async () => {
     }   
 }
 
-export const getInfoPokemonByURL = async (url) => {
+export const getInfoPokemonByURLFromApi = async (url) => {
     try{
         const response = await axios.get(url);
         return response.data;

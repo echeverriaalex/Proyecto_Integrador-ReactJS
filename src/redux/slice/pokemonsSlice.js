@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const INITIAL_STATE = {
-    pokemons: [],
+    pokemonsList: [],
     isLoading: false,
     error: null,
 };
@@ -11,6 +11,8 @@ export const pokemonsSlice = createSlice({
     initialState: INITIAL_STATE,
     reducers: {
         isFetching: (state) => {
+            console.log("aca en isFetching pokemonsSlice");
+            
             return{
                 ...state,
                 isLoading: true,
@@ -21,12 +23,14 @@ export const pokemonsSlice = createSlice({
             //console.log("aca en success pokemonsSlice: ", action.payload);
             return{
                 ...state,
-                pokemons: [...action.payload],
+                pokemonsList: [...action.payload],
                 isLoading: false,
                 error: false,
             }
         },
         isError: (state) =>{
+            console.log("aca en isError pokemonsSlice");
+            
             return{
                 ...state,
                 isLoading: false,

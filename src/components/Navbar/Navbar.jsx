@@ -1,23 +1,18 @@
-import { 
-    HeaderStyled,
-    NavbarStyled,
-    ContainerStyled,
-    MenuIcon,
-    NavLinkContainer,
-    UserIcon,
-    CartIcon,
-    SearchContainer,
-    SearchBar,
-    SearchIcon
-    } from "./NavbarStyled"
+import { HeaderStyled, NavbarStyled,  MenuIcon, NavLinkContainer, UserIcon, SearchContainer, SearchBar, SearchIcon, OtherContainerStyled} from "./NavbarStyled"
 import logo from "../../assets/images/Pokemon_logo.png"
 import { motion } from "framer-motion"
+
+import ModalCart from "./ModalCart/ModalCart"
+import CartIcon from "./CartIcon/CartIcon"
+
+
 
 export const Navbar = () => {
     return(
         <HeaderStyled>
+            <ModalCart/>
             <NavbarStyled>
-                <ContainerStyled>
+                <OtherContainerStyled>
                     <motion.div whileTap={{ scale: 0.8 }}>
                         <MenuIcon />
                     </motion.div>
@@ -26,8 +21,16 @@ export const Navbar = () => {
                             <img src={logo} alt="Logo" />
                         </NavLinkContainer>
                     </motion.div>
-                </ContainerStyled>
-                <ContainerStyled>
+                </OtherContainerStyled>
+
+                <SearchContainer>
+                    <SearchBar type="text" placeholder="Buscar"/>
+                    <motion.div whileTap={{ scale: 0.8 }}>
+                        <SearchIcon/>
+                    </motion.div>
+                </SearchContainer>
+
+                <OtherContainerStyled>
                     <motion.div whileTap={{ scale: 0.8 }}>
                         <NavLinkContainer to="/login">
                             <UserIcon/>
@@ -36,14 +39,8 @@ export const Navbar = () => {
                     <motion.div whileTap={{ scale: 0.8 }}>
                         <CartIcon/>
                     </motion.div>
-                </ContainerStyled>
+                </OtherContainerStyled>
             </NavbarStyled>
-            <SearchContainer>
-                <SearchBar type="text" placeholder="Buscar"/>
-                <motion.div whileTap={{ scale: 0.8 }}>
-                    <SearchIcon/>
-                </motion.div>
-            </SearchContainer>
         </HeaderStyled>
     )
 }

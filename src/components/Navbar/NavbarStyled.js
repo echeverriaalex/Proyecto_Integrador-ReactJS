@@ -28,7 +28,7 @@ export const UserIcon = styled(HiUser)`
     user-select: none;
 `;
 
-export const CartIcon = styled(HiOutlineShoppingCart)`
+export const CartIconStyled = styled(HiOutlineShoppingCart)`
     font-size: 1.5rem;
     color: white;
     cursor: pointer;
@@ -40,12 +40,11 @@ export const CartIcon = styled(HiOutlineShoppingCart)`
 export const HeaderStyled = styled.header`
     width: 100%;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 10px;
+    justify-content: space-between;
     gap: 5px;
-    background:#a01c05;
+    padding: 10px;
+    background: #a01c05;
     border-bottom: 1px solid white;
     @media (max-width: 768px){
         padding: 1rem 2rem;
@@ -74,12 +73,12 @@ export const NavbarStyled = styled.nav`
     }
 `;
 
-export const ContainerStyled = styled.div`
+export const OtherContainerStyled = styled.div`
     display: flex;
     gap: 15px;
     align-items: center;
     padding: 5px;
-    /*background: lightblue;*/
+    background: lightblue;
 
     @media (max-width: 576px){
         gap: 10px;
@@ -144,4 +143,11 @@ export const LinksContainerStyled = styled.div`
         /*background: lightcoral;*/
         padding: 0px;
     }
+`;
+
+
+
+export const LinkContainerStyled = styled.div`
+    
+    font-size: 1.2rem;
 `;

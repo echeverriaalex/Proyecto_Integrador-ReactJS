@@ -23,6 +23,6 @@ export const ProductsWrapper = styled.section`
     padding: 10px;
 
     h2{
-        text-align: center;
+        color: aliceblue;
     }
 `;

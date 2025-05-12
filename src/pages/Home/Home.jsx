@@ -1,6 +1,7 @@
-import Products from "../../components/ProductCatalog/ProductCatalog"
+
 import { HomeWrapper, ProductsWrapper } from "./HomeStyles"
 import Hero from "../../components/Hero/Hero"
+import CardsContainer from "../../components/Products/CardsContainer/CardsContainer";
 
 const Home = () => {
     return (
@@ -8,7 +9,7 @@ const Home = () => {
             <Hero />
             <ProductsWrapper>
                 <h2>Pokémon cards</h2>
-                <Products />
+                <CardsContainer />
             </ProductsWrapper>
         </HomeWrapper>
     )
