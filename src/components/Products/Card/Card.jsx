@@ -1,8 +1,8 @@
-import pokebola from "../../assets/images/pokebola.png"
-import { ProductCardStyled, ImageContainer, ButtonStyled, CategoryStyled, CategoryContainerStyled, ContentCardStyled, ProductContainerStyled } from "./ProductCardStyles"
+import pokebola from "../../../assets/images/pokebola.png"
+import { ProductCardStyled, ImageContainer, ButtonStyled, CategoryStyled, CategoryContainerStyled, ContentCardStyled, ProductContainerStyled } from "./CardStyles"
 
 
-const ProductCard = ({id, name, sprites, weigth, types }) =>{
+const Card = ({id, name, sprites, weigth, types }) =>{
     let typeSelected = types[0].type.name;
 
     const getPriceByCategory = (typeSelected) => {
@@ -36,7 +36,7 @@ const ProductCard = ({id, name, sprites, weigth, types }) =>{
                 <ContentCardStyled key={id} typeSelected={typeSelected}>
                     <h3>{ name }</h3>
                     <ImageContainer>
-                        <img src={sprites.front_default} alt={name} />
+                        <img src={sprites.other["official-artwork"].front_default} alt={name} />
                     </ImageContainer>
                     <h3>ID: { id }</h3>
                     <p> weigth: { weigth } </p>
@@ -57,13 +57,10 @@ const ProductCard = ({id, name, sprites, weigth, types }) =>{
             <ButtonStyled whileTap={{ scale: 0.8 }}>
                 Add to Cart
                 <img src={pokebola} alt="pokebola"/>
-                <h3>
-                    $ { calculateProductPrice() }
-                </h3>
-
+                <h3>$ { calculateProductPrice() }</h3>
             </ButtonStyled>
         </ProductContainerStyled>
     )
 }
 
-export default ProductCard;
+export default Card;

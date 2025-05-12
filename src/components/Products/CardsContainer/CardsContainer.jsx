@@ -1,26 +1,71 @@
 import { useEffect, useState } from "react";
-import { ProductsContainer } from "./ProductCatalogStyles";
+import { ProductsContainer } from "./CardsContainerStyles";
 import { useDispatch, useSelector } from "react-redux";
-import { getInfoPokemonByURL, getPokemons } from "../../axios/axios-pokemons";
-import { isError, success } from "../../redux/slice/pokemonsSlice";
-import ProductCard from "../ProductCard/ProductCard";
+import { isError, isFetching, success } from "../../../redux/slice/pokemonsSlice";
+import { getInfoPokemonByURLFromApi, getPokemonsFromApi } from "../../../axios/axios-pokemons";
+import Card from "../Card/Card";
 
-const ProductCatalog = () => {
+const CardsContainer = () => {
     const dispatch = useDispatch()    
-    const { pokemons, error } = useSelector((state) => state.pokemons)
+    const { pokemonsList, error } = useSelector((state) => state.pokemons)
     const [pokemonListInfo, setPokemonListInfo] = useState([])
+
+    const limit = 20;
+    const [offset, setOffset] = useState(0);
+
+    console.log("Offset: ", offset);
+    console.log("Limit: ", limit);
+    
+
+
     //let pokemons = useSelector((state) => state.pokemons)
     //console.log(pokemons);
     //const { data } = useSelector((state) => state.data)
 
+    const getPokemonsList = async () => {
+        try {
+            //dispatch(isFetching())
+            //console.log("Primero Voy a traer los pokemones desde la API");
+            const pokemonsFromAPI = await getPokemonsFromApi(limit, offset);
+            dispatch(success(pokemonsFromAPI))
+            //console.log("Pokemons del state: ", pokemonsList);
+            //setPokemonListInfo(pokemonsWithInfo)
+            //return pokemonsList;
+        } 
+        catch (erro) {
+            console.error("Error fetching pokemons:", erro);
+            dispatch(isError(error));
+        }
+    }
+
+    const getInfoPokemons = async () => {
+        try {
+            let pokemonsWithInfo = await getPokemonsList()
+            //console.log("Segundo voy a traer la info de los pokemones por URL");
+            pokemonsWithInfo = await Promise.all(
+                pokemonsList.map(async (pokemon) => {
+                    const info = await getInfoPokemonByURLFromApi(pokemon.url)
+                    return { ...pokemon, ...info };
+                })
+            );
+            setPokemonListInfo(pokemonsWithInfo)
+            dispatch(success(pokemonsWithInfo))
+        } 
+        catch (erro) {
+            console.error("Error fetching pokemons:", erro);
+            dispatch(isError(error));
+        }
+    }
+    
+
     useEffect(() => {
+        /*
         const fetchPokemons = async () => {
             try {
                 console.log("Primero Voy a traer los pokemones desde la API");
-                const pokemonsList = await getPokemons();
+                const pokemonsList = await getPokemons(limit, offset);
                 dispatch(success(pokemonsList))
                 //console.log("Hice el dispatch de los pokemones: ", pokemons);
-                
 
                 console.log("Segundo voy a traer la info de los pokemones por URL");
                 const pokemonsWithInfo = await Promise.all(
@@ -29,13 +74,11 @@ const ProductCatalog = () => {
                         return { ...pokemon, ...info };
                     })
                 );
-                setPokemonListInfo(pokemonsWithInfo)
-                
-                
 
+                //return pokemonsWithInfo;
+                setPokemonListInfo(pokemonsWithInfo)
                 //dispatch(success(pokemonsWithInfo))
                 //console.log("Hice el dispatch de los pokemones con la info: ", pokemons);
-
 
                 /*
                 console.log("Aca con dispatch el pokemonsList: ", pokemonsList);
@@ -44,13 +87,11 @@ const ProductCatalog = () => {
                 console.log("Finalmente el pokemons del slice: ", pokemons);
                 */
 
-
                 /*
                 //const data = await getAllPokemons()
                 const data = await getPokemons()
                 console.log( data );
                 dispatch(success(data));
-
                 
                 const pokemonsWithInfo = await Promise.all(
                     data.map(async (pokemon) => {
@@ -79,7 +120,7 @@ const ProductCatalog = () => {
                 );
                 console.log( pokemonsWithInfo );
                 setPokemonListInfo(pokemonsWithInfo)
-                */
+                
                 
             } catch (erro) {
                 console.error("Error fetching pokemons:", erro);
@@ -88,24 +129,31 @@ const ProductCatalog = () => {
         }
 
         fetchPokemons();
-        /*
-        if(pokemonListInfo){
-            dispatch(success(pokemonListInfo));
-        }
         */
+
+        //setPokemonListInfo(fetchPokemons())
+
+
+        getInfoPokemons();
+        console.log("Pokemon state: ", pokemonsList);
+
+
+        console.log("Pokemon List Info: ", pokemonListInfo);
+        
 
     }, [dispatch, error])
 
 
-    console.log("PokemonListInfo: ", pokemonListInfo);
+    
     
 
 
     return(
+        <>
         <ProductsContainer>
             {
                 pokemonListInfo.map((item) => (
-                    <ProductCard
+                    <Card
                         key = {item.id}
                         id = {item.id}
                         name = {item.name}
@@ -116,7 +164,9 @@ const ProductCatalog = () => {
                 ))
             }
         </ProductsContainer>
+        <button onClick={() => setOffset(offset + limit)}>Load More</button>
+        </>
     )
 }
 
-export default ProductCatalog;
+export default CardsContainer;

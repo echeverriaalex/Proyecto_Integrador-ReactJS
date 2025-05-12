@@ -23,7 +23,7 @@ const getCategoryColorByCategory = (typeSelected) => {
 const getCardColorByCategory = (typeSelected) => {
     switch (typeSelected) {
         case "grass": return "linear-gradient(90deg, #72ac34, #5f9a23);";
-        case "fire": return "linear-gradient(90deg, #c0224c, #ab113d);";
+        case "fire": return "linear-gradient(to bottom right, #ffcccb, #ffa07a);";
         case "water": return "linear-gradient(90deg, #7296db, #5f85c9);";
         case "bug": return "linear-gradient(90deg, #efd84c, #e7c530);";
         case "normal": return "linear-gradient(90deg, #dbd7ee, #c9c2e6);";
@@ -44,13 +44,12 @@ export const ProductContainerStyled = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 5px;
-
 `;
 
 export const ProductCardStyled = styled.div`
     width: 100%;
-    padding: 10px;
-    background:rgb(228, 158, 66);
+    border-radius: 10px;
+    border: 4px solid #e44742;
 `;
 
 export const ContentCardStyled = styled.div`
@@ -60,15 +59,12 @@ export const ContentCardStyled = styled.div`
     align-items: center;
     gap: 10px;
     background-color: white;
-    padding: 20px;
-    /*box-shadow: 0 4px 8px #000000;
+    padding: 15px 5px;
+    border-radius: 6px;
+    /*
+    box-shadow: 0 4px 8px #000000;
     transition: transform 0.2s ease-in-out;
     */
-    background: #33b3ca;
-    padding: 10px;
-    &:hover {
-        transform: scale(1.05);
-    }
 
     h3{
         width: 100%;
@@ -83,15 +79,6 @@ export const ContentCardStyled = styled.div`
         font-size: 1.2rem;
         font-family: 'Arial', sans-serif;
     }
-
-    /*
-    types? "grass" : "fuego"{
-        background: #d902cd;
-    }
-    */
-
-    background: #0ba6ac;
-
 
     /*
     // Creo una funcion que me devuleva el color segun el tipo de pokemon
