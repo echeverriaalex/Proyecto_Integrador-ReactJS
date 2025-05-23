@@ -1,24 +1,28 @@
-import { FormStyled, LoginContainer, RegisterWrapper } from "./RegisterStyles"
+import { NavLink } from "react-router-dom"
+import { FormStyled, HeaderStyled, LoginWrapper, RegisterWrapper } from "./RegisterStyles"
+import pikachu from "../../assets/images/pikachu.png"
+
 
 const Register = () => {
     return(
         <RegisterWrapper>
-            <h2>Register</h2>
-            <FormStyled action="/register" method="POST">
+            <HeaderStyled>
+                <h2>Register</h2>
+                <img src={pikachu} alt="Pikachu"/>
+            </HeaderStyled>
+            <FormStyled>
                 <input type="text" placeholder="Username" />
                 <input type="email" placeholder="Email" />
                 <input type="password" placeholder="Password" />
                 <input type="password" placeholder="Repeat password" />
                 <button type="submit">Register</button>
             </FormStyled>
-
-            <LoginContainer>
+            <LoginWrapper>
                 <p>Already have an account?</p>
-                <a href="/login">Login</a>
-            </LoginContainer>
-
-            
-
+                <NavLink to="/login">
+                    <button type="button">Login</button>
+                </NavLink>
+            </LoginWrapper>
         </RegisterWrapper>
     )
 }
