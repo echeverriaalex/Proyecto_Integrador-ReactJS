@@ -6,16 +6,17 @@ export const LoginWrapper = styled.div`
     display: flex;
     flex-direction: column;
     gap: 20px;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     width: 100%;
     max-width: 500px;
     padding: 20px;
     min-height: 60vh;
+
     h2{
         font-size: 2rem;
     }
-`
+`;
 
 export const HeaderStyled = styled.div`
     display: flex;
@@ -24,7 +25,7 @@ export const HeaderStyled = styled.div`
     justify-content: center;
     align-items: center;
     gap: 30px;
-    background:#c04666;
+    background: #c04666;
     border-radius: 10px;
     border: 2px solid black;
 
@@ -43,17 +44,16 @@ export const HeaderStyled = styled.div`
 export const FormStyled = styled.form`
     display: flex;
     flex-direction: column;
-    gap: 10px;
     justify-content: center;
     align-items: center;
+    gap: 10px;
     width: 80%;
-
 
     input{
         width: 100%;
         padding: 10px;
         border-radius: 10px;
-        border: 2px solid black;
+        border: 1px solid black;
         font-size: 1rem;
     }
 
@@ -76,8 +76,6 @@ export const FormStyled = styled.form`
 `
 
 export const RegisterWrapper = styled(FormStyled)`
-    width: 100%;
-    background: lightcoral;
     button{
         background: #32c0d3;
     }

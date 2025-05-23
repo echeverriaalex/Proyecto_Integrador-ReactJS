@@ -8,23 +8,19 @@ const Login = () => {
         <LoginWrapper>
             <HeaderStyled>
                 <h2>Login</h2>
-                <img src={charizard} alt="" />
+                <img src={charizard} alt="Charizard" />
             </HeaderStyled>
-            
             <FormStyled>
                 <input type="text" placeholder="Usuario" />
                 <input type="password" placeholder="Contraseña" />
                 <button type="submit">Iniciar Sesión</button>
             </FormStyled>
-            
             <RegisterWrapper>
                 <p>¿No tenés cuenta?</p>
                 <NavLink to="/register">
-                    
                     <button type="button">Registrarse</button>
                 </NavLink>
             </RegisterWrapper>
-
         </LoginWrapper>
     )
 }
