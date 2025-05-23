@@ -39,6 +39,7 @@ const ModalCart = () => {
                                 onClick={() => dispatch(toggleCartHidden())}
                             >
                                 <IoIosCloseCircle size={40} />
+                                <h2>Cerrar</h2>
                             </CloseButtonStyled>
                         </CloseButtonContainerStyled>
 

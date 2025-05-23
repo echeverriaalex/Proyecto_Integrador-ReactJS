@@ -38,12 +38,14 @@ export const CartIconStyled = styled(HiOutlineShoppingCart)`
 
 
 export const HeaderStyled = styled.header`
+    /*position: fixed;*/
+    z-index: 70;
     width: 100%;
+    height: 140px;
+    padding: 0px 10px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 5px;
-    padding: 10px;
+    justify-content: center;
     background: #a01c05;
     border-bottom: 1px solid white;
     @media (max-width: 768px){
@@ -58,9 +60,11 @@ export const HeaderStyled = styled.header`
 export const NavbarStyled = styled.nav`
     width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    gap: 15px;
+    gap: 10px;
+    max-width: 1200px;
     /*padding: 1rem 3rem;*/;
     
     @media (max-width: 768px){
@@ -73,16 +77,18 @@ export const NavbarStyled = styled.nav`
     }
 `;
 
-export const OtherContainerStyled = styled.div`
+export const MenuContainerStyled = styled.div`
     display: flex;
-    gap: 15px;
     align-items: center;
-    padding: 5px;
-    background: lightblue;
+    gap: 20px;
+`;
 
-    @media (max-width: 576px){
-        gap: 10px;
-    }
+export const ContainerStyled = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
 `;
 
 /* Nav Link cumple la misma funcion que un a con href */
@@ -122,9 +128,9 @@ export const SearchContainer = styled.div`
 
 export const SearchBar = styled.input`
     width: 100%;
-    padding: 10px;
-    font-size: 1.1rem;
-    border-radius: 10px;
+    padding: 5px 10px;
+    font-size: 1rem;
+    border-radius: 5px;
 `;
 
 export const LinksContainerStyled = styled.div`
