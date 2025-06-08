@@ -43,6 +43,7 @@ export const HeaderStyled = styled.header`
     width: 100%;
     height: 140px;
     padding: 0px 10px;
+    position: fixed;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -151,9 +152,6 @@ export const LinksContainerStyled = styled.div`
     }
 `;
 
-
-
-export const LinkContainerStyled = styled.div`
-    
+export const LinkContainerStyled = styled.div`    
     font-size: 1.2rem;
 `;
