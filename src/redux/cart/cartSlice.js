@@ -20,6 +20,8 @@ const cartSlice = createSlice({
             }
         },
         removeFromCart: (state, action) => {
+            console.log("Removing item from cart:", action.payload.id);
+            
             return {
                 ...state,
                 cartItems: removeItemFromCart(state.cartItems, action.payload.id),

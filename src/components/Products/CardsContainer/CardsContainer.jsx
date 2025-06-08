@@ -1,170 +1,106 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ProductsContainer } from "./CardsContainerStyles";
 import { useDispatch, useSelector } from "react-redux";
 import { isError, isFetching, success } from "../../../redux/slice/pokemonsSlice";
-import { getInfoPokemonByURLFromApi, getPokemonsFromApi } from "../../../axios/axios-pokemons";
+import { getData, getInfoPokemonByURLFromApi } from "../../../axios/axios-pokemons";
 import Card from "../Card/Card";
+
+import Button from "../../UI/Button/Button";
 
 const CardsContainer = () => {
     const dispatch = useDispatch()    
     const { pokemonsList, error } = useSelector((state) => state.pokemons)
     const [pokemonListInfo, setPokemonListInfo] = useState([])
+    const [nextUrl, setNextUrl] = useState(null);
+    const [prevUrl, setPrevUrl] = useState(null);
+    const [currentUrl, setCurrentUrl] = useState("https://pokeapi.co/api/v2/pokemon");
 
-    const limit = 20;
-    const [offset, setOffset] = useState(0);
-
-    console.log("Offset: ", offset);
-    console.log("Limit: ", limit);
-    
+    const containerRef = useRef(); // 👈 Referencia al contenedor
 
 
-    //let pokemons = useSelector((state) => state.pokemons)
-    //console.log(pokemons);
-    //const { data } = useSelector((state) => state.data)
-
-    const getPokemonsList = async () => {
-        try {
-            //dispatch(isFetching())
-            //console.log("Primero Voy a traer los pokemones desde la API");
-            const pokemonsFromAPI = await getPokemonsFromApi(limit, offset);
-            dispatch(success(pokemonsFromAPI))
-            //console.log("Pokemons del state: ", pokemonsList);
-            //setPokemonListInfo(pokemonsWithInfo)
-            //return pokemonsList;
-        } 
-        catch (erro) {
-            console.error("Error fetching pokemons:", erro);
-            dispatch(isError(error));
+    const goToStart = () => {
+        if (containerRef.current) {
+            containerRef.current.scrollIntoView({ behavior: "smooth" });
         }
     }
 
-    const getInfoPokemons = async () => {
+    const fetchPokemons = async (url) => {
         try {
-            let pokemonsWithInfo = await getPokemonsList()
-            //console.log("Segundo voy a traer la info de los pokemones por URL");
-            pokemonsWithInfo = await Promise.all(
-                pokemonsList.map(async (pokemon) => {
-                    const info = await getInfoPokemonByURLFromApi(pokemon.url)
+            dispatch(isFetching());
+            const dataAPI = await getData(url); // Este debe aceptar una URL
+            const detailedPokemons = await Promise.all(
+                dataAPI.results.map(async (pokemon) => {
+                    const info = await getInfoPokemonByURLFromApi(pokemon.url);
                     return { ...pokemon, ...info };
                 })
             );
-            setPokemonListInfo(pokemonsWithInfo)
-            dispatch(success(pokemonsWithInfo))
-        } 
-        catch (erro) {
-            console.error("Error fetching pokemons:", erro);
-            dispatch(isError(error));
-        }
-    }
-    
+            setPokemonListInfo(detailedPokemons);
+            setNextUrl(dataAPI.next);
+            setPrevUrl(dataAPI.previous);
+            dispatch(success(detailedPokemons));
 
-    useEffect(() => {
-        /*
-        const fetchPokemons = async () => {
-            try {
-                console.log("Primero Voy a traer los pokemones desde la API");
-                const pokemonsList = await getPokemons(limit, offset);
-                dispatch(success(pokemonsList))
-                //console.log("Hice el dispatch de los pokemones: ", pokemons);
 
-                console.log("Segundo voy a traer la info de los pokemones por URL");
-                const pokemonsWithInfo = await Promise.all(
-                    pokemons.map(async (pokemon) => {
-                        const info = await getInfoPokemonByURL(pokemon.url)
-                        return { ...pokemon, ...info };
-                    })
-                );
-
-                //return pokemonsWithInfo;
-                setPokemonListInfo(pokemonsWithInfo)
-                //dispatch(success(pokemonsWithInfo))
-                //console.log("Hice el dispatch de los pokemones con la info: ", pokemons);
-
-                /*
-                console.log("Aca con dispatch el pokemonsList: ", pokemonsList);
-                dispatch(success(pokemonsWithInfo))
-                console.log("Aca con dispatch el pokemonsList: ", pokemonsWithInfo);
-                console.log("Finalmente el pokemons del slice: ", pokemons);
-                */
-
-                /*
-                //const data = await getAllPokemons()
-                const data = await getPokemons()
-                console.log( data );
-                dispatch(success(data));
-                
-                const pokemonsWithInfo = await Promise.all(
-                    data.map(async (pokemon) => {
-                        const info = await getInfoPokemonByURL(pokemon.url)
-                        return { ...pokemon, ...info };
-                    })
-                );
-
-                console.log( pokemonsWithInfo );
-                //dispatch(success(pokemonsWithInfo));
-                */
-               
-                // Aca empiezo a testear con axios traer los pokemones y luego traer info de unos 20
-                // Dio el resultado que busaba, ahora lo quiero hacer con dispacth
-                /*
-                const response = await axios.get("https://pokeapi.co/api/v2/pokemon");
-                console.log("aca en prodcuts ");
-                let results = response.data.results
-                console.log(results);
-                console.log("Voy a traer info de los pokemones por URL");
-                const pokemonsWithInfo = await Promise.all(
-                    results.map(async (pokemon) => {
-                        const info = await getInfoPokemonByURL(pokemon.url)
-                        return { ...pokemon, ...info };
-                    })
-                );
-                console.log( pokemonsWithInfo );
-                setPokemonListInfo(pokemonsWithInfo)
-                
-                
-            } catch (erro) {
-                console.error("Error fetching pokemons:", erro);
-                dispatch(isError(error));
+            /*
+            // 👇 Hace scroll hacia el contenedor al principio
+            if (containerRef.current) {
+                containerRef.current.scrollIntoView({ behavior: "smooth" });
             }
+            */
+            
+
+
+        } catch (err) {
+            console.error("Error al obtener pokémons:", err);
+            dispatch(isError(err.message));
         }
+    };
 
-        fetchPokemons();
-        */
+     // 👇 Funciones para paginación con scroll manual
+    const handleNext = () => {
+        if (nextUrl) {
+            setCurrentUrl(nextUrl);
+            containerRef.current?.scrollIntoView({ behavior: "smooth"});
+        }
+    };
 
-        //setPokemonListInfo(fetchPokemons())
+    const handlePrevious = () => {
+        if (prevUrl) {
+            setCurrentUrl(prevUrl);
+            containerRef.current?.scrollIntoView({ behavior: "smooth" });
+        }
+    };
 
+    useEffect( () => {
 
-        getInfoPokemons();
-        console.log("Pokemon state: ", pokemonsList);
+        fetchPokemons(currentUrl);
 
-
-        console.log("Pokemon List Info: ", pokemonListInfo);
-        
-
-    }, [dispatch, error])
-
-
+    }, [currentUrl])
     
-    
-
-
     return(
         <>
-        <ProductsContainer>
-            {
-                pokemonListInfo.map((item) => (
-                    <Card
-                        key = {item.id}
-                        id = {item.id}
-                        name = {item.name}
-                        sprites = {item.sprites}
-                        weigth ={ item.weight }
-                        types = {item.types}
-                    />
-                ))
-            }
-        </ProductsContainer>
-        <button onClick={() => setOffset(offset + limit)}>Load More</button>
+            <ProductsContainer ref={containerRef}>
+                {
+                    pokemonListInfo.map((item) => (
+                        <Card
+                            key = {item.id}
+                            id = {item.id}
+                            name = {item.name}
+                            sprites = {item.sprites}
+                            weigth ={ item.weight }
+                            types = {item.types}
+                        />
+                    ))
+                }
+            </ProductsContainer>
+
+            <div style={{ display: "flex", justifyContent: "center", gap: "1rem", marginTop: "1rem" }}>
+                <Button onClick={handlePrevious} disabled={!prevUrl}>
+                    Anterior
+                </Button>
+                <Button onClick={handleNext} disabled={!nextUrl}>
+                    Siguiente
+                </Button>
+            </div>
         </>
     )
 }

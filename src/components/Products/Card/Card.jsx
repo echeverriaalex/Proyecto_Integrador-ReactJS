@@ -1,9 +1,15 @@
+import { useDispatch } from "react-redux";
 import pokebola from "../../../assets/images/pokebola.png"
 import { ProductCardStyled, ImageContainer, ButtonStyled, CategoryStyled, CategoryContainerStyled, ContentCardStyled, ProductContainerStyled } from "./CardStyles"
+import { addToCart } from "../../../redux/cart/cartSlice";
 
 
 const Card = ({id, name, sprites, weigth, types }) =>{
     let typeSelected = types[0].type.name;
+
+    const dispatch = useDispatch();
+
+    const image = sprites.other["official-artwork"].front_default;
 
     const getPriceByCategory = (typeSelected) => {
         switch(typeSelected) {
@@ -30,13 +36,15 @@ const Card = ({id, name, sprites, weigth, types }) =>{
         }, 0)
     }
 
+    const price = calculateProductPrice();
+
     return(
         <ProductContainerStyled>
             <ProductCardStyled>
                 <ContentCardStyled key={id} typeSelected={typeSelected}>
                     <h3>{ name }</h3>
                     <ImageContainer>
-                        <img src={sprites.other["official-artwork"].front_default} alt={name} />
+                        <img src={ image } alt={name} />
                     </ImageContainer>
                     <h3>ID: { id }</h3>
                     <p> weigth: { weigth } </p>
@@ -51,13 +59,12 @@ const Card = ({id, name, sprites, weigth, types }) =>{
                             ))
                         }
                     </CategoryContainerStyled>
-                    
                 </ContentCardStyled>
             </ProductCardStyled>
-            <ButtonStyled whileTap={{ scale: 0.8 }}>
+            <ButtonStyled whileTap={{ scale: 0.8 }} onClick={() => dispatch(addToCart({ id, name, image, price }))}>
                 Add to Cart
                 <img src={pokebola} alt="pokebola"/>
-                <h3>$ { calculateProductPrice() }</h3>
+                <h3>$ { price }</h3>
             </ButtonStyled>
         </ProductContainerStyled>
     )
