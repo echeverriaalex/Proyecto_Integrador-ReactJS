@@ -32,7 +32,7 @@ export const ModalOverLayStyled = styled.div`
 
 export const ContainerStyled = styled.div`
     position: fixed;
-    top: 30px;
+    top: 20px;
     right: 10px;
     z-index: 99;
     display: flex;
@@ -55,11 +55,9 @@ export const ContainerStyled = styled.div`
     }
 `;
 
-export const CloseButtonContainerStyled = styled.div`    
-    /*background: lightpink;*/
-
+export const HeadContainerStyled = styled.div`    
     display: flex;
-    justify-content: flex-start;
+    gap: 15px;
     align-items: center;
     width: 2rem;
     /*height: 2rem;*/
@@ -67,25 +65,10 @@ export const CloseButtonContainerStyled = styled.div`
     border: none;
     /*border-radius: 10px;*/
     width: 100%;
-    /*cursor: pointer;*/
     color: white;
 `;
 
-export const CloseButtonStyled = styled.button`
-    /*width: 50px;*/
-    height: 30px;
-    /*background: cyan;*/
-    cursor: pointer;
-    padding: 5px 10px;
-    border-radius: 10px;
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    background: transparent;
-`;
-
 export const MainContainerStyled = styled.div`
-    background: lightpink;
     width: 100%;
     height: 100%;
     display: flex;
@@ -100,10 +83,29 @@ export const ProductsCartContainerStyled = styled.div`
     display: flex;
     flex-direction: column;
     gap: 10px;
+    overflow-y: auto;
+
+    p{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+`;
+
+/*
+export const ListProductsCartContainerStyled = styled.div`
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     background: #c247d3;
     overflow-y: auto;
     padding: 10px;
 `;
+*/
 
 export const CardCartStyled = styled.div`
     background: white;
@@ -121,18 +123,16 @@ export const CardCartStyled = styled.div`
         border-radius: 10px;
     }
 
+    /* Reseteo los estilos porque cuando dice no hay productos 
+    es un flex centrado ocupando todo el contenedor */
+    p{
+        display: block;
+    }
+
     h3{
         text-transform: capitalize;
     }
 `;
-
-
-export const TitleStyled = styled.div`
-    background: orange;
-    width: 100%;
-    height: 50px;
-    text-align: center;
-`
 
 export const Increase = styled.div`
 
@@ -181,7 +181,6 @@ export const ButtonContainerStyled = styled.div`
         padding: 10px;
         border-radius: 10px;
         color: white;
-        background: ${({ background }) => background || 'green'};
     }
 
 

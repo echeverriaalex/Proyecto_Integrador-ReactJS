@@ -1,6 +1,6 @@
 import { AnimatePresence } from "framer-motion";
 import { clearCart, removeFromCart, toggleCartHidden } from "../../../redux/cart/cartSlice";
-import { ButtonContainerStyled, CardCartStyled, CloseButtonContainerStyled, CloseButtonStyled, ContainerStyled, DataContainerStyled, Increase, MainContainerStyled, ModalOverLayStyled, ProductsCartContainerStyled, TitleStyled, TotalContainerStyled } from "./ModalCartStyles";
+import { ButtonContainerStyled, CardCartStyled, ContainerStyled, DataContainerStyled, HeadContainerStyled, Increase, MainContainerStyled, ModalOverLayStyled, ProductsCartContainerStyled, TotalContainerStyled } from "./ModalCartStyles";
 import { useDispatch, useSelector } from "react-redux";
 
 import { FaTrashAlt } from "react-icons/fa";
@@ -36,46 +36,38 @@ const ModalCart = () => {
                         transition={{ type: "spring", damping: 27 }}
                         key="cart-modal"
                     >
-                        <CloseButtonContainerStyled>
-                            <CloseButtonStyled
+                        <HeadContainerStyled>
+                            <IoIosCloseCircle 
+                                size={30} 
+                                color= "white"
                                 className="close_modal"
                                 whileTap={{ scale: 0.90 }}
                                 onClick={() => dispatch(toggleCartHidden())}
-                            >
-                                <IoIosCloseCircle size={20} />
-                                <h2>Cerrar</h2>
-                            </CloseButtonStyled>
-                        </CloseButtonContainerStyled>
+                            />
+                            <h2>Carrito</h2>
+                        </HeadContainerStyled>
 
                         <MainContainerStyled>
-                            <TitleStyled>
-                                <h2>Tus productos</h2>
-                                <Increase
-                                    onClick={() => dispatch(clearCart())}
-                                    bgColor="red"
-                                    disabled="true"
-                                >
-                                    
-                                </Increase>
-                            </TitleStyled>
-
                             <ProductsCartContainerStyled>
                                 {cartItems.length === 0 ? (
                                     <p>No hay productos en el carrito</p>
-                                ) : (
+                                ) :
+                                (
                                     cartItems.map((item) => (
                                         <CardCartStyled key={item.id} className="cart-item">
                                                 <img src={item.image} alt={item.name} />
                                                 <div className="cart-item-details">
                                                     <h3>{item.name}</h3>
-                                                    <p>Precio: ${item.price}</p>
-                                                    <p>Cantidad: {item.quantity}</p>
+                                                    <p>Precio unidad: ${item.price}</p>
+                                                    <p>Cantidades: {item.quantity}</p>
+                                                    <p>Total: $ {item.quantity * item.price }</p>
                                                 </div>
-                                                <button
+                                                <Button
                                                     onClick={() => dispatch(removeFromCart(item))}
+                                                    background = "#a81106"
                                                 >
-                                                    Eliminar
-                                                </button>
+                                                    <FaTrashAlt />
+                                                </Button>
                                         </CardCartStyled>
                                     ))
                                 )}
@@ -105,15 +97,15 @@ const ModalCart = () => {
 
 
                         <ButtonContainerStyled>
-                            <Button
-                                background = "blue"
+                            <Button                                
                                 onClick={()=> dispatch(clearCart())}
+                                background = "#a81106"
                             >
                                 Vaciar carrito
                                 <FaTrashAlt />
                             </Button>
                             <Button
-                                background = "yellow"
+                                background = "#0f78a8"
                             >
                                 Finalizar compra
                             </Button>
