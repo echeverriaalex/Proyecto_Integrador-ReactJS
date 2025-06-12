@@ -1,6 +1,9 @@
 import { AnimatePresence } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
-import { ContainerStyled, HeadContainerStyled } from "./ModlaMenuStyles";
+import { ModalOverLayStyled, ContainerStyled, HeadContainerStyled } from "./ModlaMenuStyles";
+import { toggleMenuHidden } from "../../../redux/menu/menuSlice"
+import { LinksContainerStyled, NavLinkStyled } from "../NavbarStyled";
+import { IoIosCloseCircle } from "react-icons/io";
 
 const ModalMenu = () => {
 
@@ -10,7 +13,7 @@ const ModalMenu = () => {
     return (
         <>
             {!hiddenMenu && (
-                <ModalOveerlayStyled 
+                <ModalOverLayStyled
                     onClick={() => dispatch(toggleMenuHidden())}
                     isHidden={hiddenMenu}
                 />
@@ -19,34 +22,34 @@ const ModalMenu = () => {
             <AnimatePresence>
                 {!hiddenMenu && (
                     <ContainerStyled
-                        initial={{ translateX: 1600 }}
-                        animate={{ translateX: 400 }}
-                        exit={{ translateX: 1600 }}
+                        initial={{ translateX: -600 }}
+                        animate={{ translateX: 0 }}
+                        exit={{ translateX: -600 }}
                         transition={{ type: "spring", damping: 27 }}
                         key="menu-modal"
                     >
-                        <HeadContainerStyled>
+                        <HeadContainerStyled
+                            className="close_modal"
+                            whileTap={{ scale: 0.90 }}
+                            onClick={() =>  dispatch(toggleMenuHidden())}
+                        >
+                            <h2>Menu</h2>
                             <IoIosCloseCircle 
                                 size={30} 
-                                color="white"
+                                color= "white"
                                 className="close_modal"
                                 whileTap={{ scale: 0.90 }}
-                                onClick={() => dispatch(toggleMenuHidden())}
+                                onClick={() => dispatch(toggleCartHidden())}
                             />
-                            <h2>Menu</h2>
                         </HeadContainerStyled>
 
 
-
-                        <div className="modal-menu">
-                            <h2>Menu</h2>
-                            <ul>
-                                <li><a href="#home">Home</a></li>
-                                <li><a href="#about">About</a></li>
-                                <li><a href="#services">Services</a></li>
-                                <li><a href="#contact">Contact</a></li>
-                            </ul>
-                        </div>
+                        <LinksContainerStyled>
+                            <NavLinkStyled to="/">Home</NavLinkStyled>
+                            <NavLinkStyled to="/about">About</NavLinkStyled>
+                            <NavLinkStyled to="/services">Services</NavLinkStyled>
+                            <NavLinkStyled to="/contact">Contact</NavLinkStyled>
+                        </LinksContainerStyled>
                     </ContainerStyled>
                 )}
 
