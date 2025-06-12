@@ -1,38 +1,50 @@
-import { HeaderStyled, NavbarStyled,  MenuIcon, NavLinkContainer, UserIcon, SearchContainer, SearchBar, SearchIcon, ContainerStyled, MenuContainerStyled} from "./NavbarStyled"
+import { HeaderStyled, NavbarStyled,  MenuIconStyled, IconsContainerStyled, UserIcon, SearchContainer, SearchBar, SearchIcon, ContainerStyled, MenuContainerStyled, NavLinkStyled, LogoLinkContainer} from "./NavbarStyled"
 import logo from "../../assets/images/Pokemon_logo.png";
 import { motion } from "framer-motion";
 import ModalCart from "./ModalCart/ModalCart";
 import CartIcon from "./CartIcon/CartIcon";
 import ModalMenu from "./ModalMenu/ModalMenu";
+import MenuIcon from "./MenuIcon/MenuIcon"
+import { useDispatch, useSelector } from "react-redux";
+import { toggleMenuHidden } from "../../redux/menu/menuSlice"
 
 export const Navbar = () => {
+
+    const dispatch = useDispatch();
+    const hiddenMenu = useSelector((state) => state.menu.hidden);
+
+
+
     return(
         <HeaderStyled>
             <ModalCart/>
             <ModalMenu/>
             <NavbarStyled>
                 <ContainerStyled>
-                    <MenuContainerStyled whileTap={{ scale: 0.8 }}>
+                    <MenuContainerStyled
+                        whileTap={{ scale: 0.8 }}
+                        onClick={() => dispatch(toggleMenuHidden())}
+                    >
                         <MenuIcon />
                         <h2>Menu</h2>
                     </MenuContainerStyled>
 
                     <motion.div whileTap={{ scale: 0.8 }}>
-                        <NavLinkContainer to="/">
+                        <LogoLinkContainer to="/">
                             <img src={logo} alt="Logo" />
-                        </NavLinkContainer>
+                        </LogoLinkContainer>
                     </motion.div>
 
-                    <MenuContainerStyled>
+                    <IconsContainerStyled>
                         <motion.div whileTap={{ scale: 0.8 }}>
-                            <NavLinkContainer to="/login">
+                            <NavLinkStyled  to="/login">
                                 <UserIcon/>
-                            </NavLinkContainer>
+                            </NavLinkStyled >
                         </motion.div>
                         <motion.div whileTap={{ scale: 0.8 }}>
                             <CartIcon/>
                         </motion.div>
-                    </MenuContainerStyled>
+                    </IconsContainerStyled>
 
                 </ContainerStyled>
                 <SearchContainer>

@@ -9,39 +9,77 @@ import { motion } from "framer-motion";
 export const SearchIcon = styled(HiOutlineSearch)`
     font-size: 2rem;
     color: white;
-    cursor: pointer;
-    margin: 0px 10px;
+    cursor: pointer;    
     user-select: none;
+    
+    padding: 0px;
+    margin: 0px;
+    height: 100%;
+    max-height: 20px;
+    width: 100%
+    max-width: 20px;
+    display: flex;
+    align-items: center;
 `;
 
-export const MenuIcon = styled(HiMenu)`
+export const MenuIconStyled = styled(HiMenu)`
     font-size: 2rem;
     color: white;
     cursor: pointer;
     user-select: none;
+
+
+
+    padding: 0px;
+    margin: 0px;
+    height: 100%;
+    max-height: 20px;
+    width: 100%
+    max-width: 20px;
+    display: flex;
+    align-items: center;
 `;
 
 export const UserIcon = styled(HiUser)`
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: white;
     cursor: pointer;
     min-width: 50px;
     user-select: none;
+
+
+    padding: 0px;
+    margin: 0px;
+    height: 100%;
+    max-height: 20px;
+    width: 100%
+    max-width: 20px;
+    display: flex;
+    align-items: center;
 `;
 
 export const CartIconStyled = styled(HiOutlineShoppingCart)`
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: white;
     cursor: pointer;
-    margin: 0px 10px;
     user-select: none;
+
+
+    padding: 0px;
+    margin: 0px;
+    height: 100%;
+    max-height: 20px;
+    width: 100%
+    max-width: 20px;
+    display: flex;
+    align-items: center;
 `;
 
 export const HeaderStyled = styled.header`
     /*position: fixed;*/
     z-index: 70;
     width: 100%;
-    padding: 20px;
+    padding: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -52,7 +90,7 @@ export const HeaderStyled = styled.header`
     }
 
     @media (max-width: 576px){
-        padding: 8px;
+        padding: 0px;
     }
 `;
 
@@ -62,7 +100,7 @@ export const NavbarStyled = styled.nav`
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    gap: 10px;
+    gap: 5px;
     max-width: 1200px;
     /*padding: 1rem 3rem;*/;
     
@@ -72,7 +110,7 @@ export const NavbarStyled = styled.nav`
 
     @media (max-width: 576px){
         padding: 5px;
-        gap: 30px;
+        gap: 10px;
     }
 `;
 
@@ -81,17 +119,29 @@ export const MenuContainerStyled = styled(motion.div)`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 5px;
     cursor: pointer;
+    /*padding: 10px;*/
 
     h2{
-        font-size: 2rem;
+        font-size: 1.2rem;
         color: white;
         user-select: none;
     }
 `;
 
-export const ContainerStyled = styled.div`
+export const IconsContainerStyled = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    /*padding: 10px;*/
+    height: 100%;
+`;
+
+export const ContainerStyled = styled(motion.div)`
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -99,12 +149,9 @@ export const ContainerStyled = styled.div`
     width: 100%;
 `;
 
-/* Nav Link cumple la misma funcion que un a con href */
-export const NavLinkContainer = styled(NavLink)`
-    height: 60px;
+export const LogoLinkContainer = styled(NavLink)`
     display: flex;
-    align-items: center;
-    gap: 10px;
+    height: 50px;
 
     img{
         max-width: 100%;
@@ -114,6 +161,13 @@ export const NavLinkContainer = styled(NavLink)`
     @media (max-width: 576px){
         height: 40px;
     }
+`;
+
+/* Nav Link cumple la misma funcion que un a con href */
+export const NavLinkStyled = styled(NavLink)`
+    display: flex;
+    align-items: center;
+    gap: 10px;
 `;
 
 export const SearchContainer = styled.div`
@@ -137,20 +191,25 @@ export const SearchContainer = styled.div`
 export const SearchBar = styled.input`
     width: 100%;
     padding: 5px 10px;
-    font-size: 1rem;
+    font-size: .8rem;
     border-radius: 5px;
 `;
 
 export const LinksContainerStyled = styled.div`
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
     gap: 10px;
     padding: 0px 10px;
+    width: 100%
+    max-height: 100%;
+
     a{
+        width: 100%;
         font-size: 1.2rem;
         color: white;
-        padding: 1rem 1.5rem;
+        /* padding: 1rem 1.5rem;*/
+        background: red;
     }
 
     @media (max-width: 576px){
