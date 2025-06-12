@@ -10,8 +10,9 @@ export const HeroContainer = styled.section`
     border-radius: 10px;
     background: #464645;
     padding: 10px;
+
     h1{
-        font-size: 3rem;
+        font-size: 2rem;
         font-weight: 800;
         font-family: "Didact Gothic", sans-serif;
         text-align: left;
