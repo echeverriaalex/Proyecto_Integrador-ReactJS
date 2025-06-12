@@ -25,7 +25,7 @@ export const HeaderStyled = styled.div`
     justify-content: center;
     align-items: center;
     gap: 30px;
-    background: #c04666;
+    background: #8daed2;
     border-radius: 10px;
     border: 2px solid black;
 

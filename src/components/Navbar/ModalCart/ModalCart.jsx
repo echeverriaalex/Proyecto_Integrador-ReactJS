@@ -22,7 +22,7 @@ const ModalCart = () => {
         <>
             {!hiddenCart && (
                 <ModalOverLayStyled
-                    onclick={() => dispatch(toggleCartHidden())}
+                    onClick={() => dispatch(toggleCartHidden())}
                     isHidden={hiddenCart}
                 />
             )}
@@ -31,7 +31,7 @@ const ModalCart = () => {
                 {!hiddenCart && (
                     <ContainerStyled
                         initial={{ translateX: 600 }}
-                        animate={{ translateX: 60 }}
+                        animate={{ translateX: 0 }}
                         exit={{ translateX: 600 }}
                         transition={{ type: "spring", damping: 27 }}
                         key="cart-modal"

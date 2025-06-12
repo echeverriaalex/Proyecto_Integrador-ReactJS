@@ -1,7 +1,8 @@
+import { motion } from "framer-motion";
 import styled, { css } from "styled-components";
 
 
-export const ModalOverLayStyled = styled.div`
+export const ModalOverLayStyled = styled(motion.div)`
     position: fixed;
     top: 0;
     left: 0;
@@ -30,7 +31,7 @@ export const ModalOverLayStyled = styled.div`
     }
 `;
 
-export const ContainerStyled = styled.div`
+export const ContainerStyled = styled(motion.div)`
     position: fixed;
     top: 20px;
     right: 10px;

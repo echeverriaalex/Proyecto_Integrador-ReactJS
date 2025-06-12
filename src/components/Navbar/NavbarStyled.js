@@ -4,6 +4,7 @@ import { HiUser } from "react-icons/hi";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import { HiOutlineSearch } from "react-icons/hi";
 import { NavLink } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export const SearchIcon = styled(HiOutlineSearch)`
     font-size: 2rem;
@@ -36,14 +37,11 @@ export const CartIconStyled = styled(HiOutlineShoppingCart)`
     user-select: none;
 `;
 
-
 export const HeaderStyled = styled.header`
     /*position: fixed;*/
     z-index: 70;
     width: 100%;
-    height: 140px;
-    padding: 0px 10px;
-    position: fixed;
+    padding: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -78,10 +76,19 @@ export const NavbarStyled = styled.nav`
     }
 `;
 
-export const MenuContainerStyled = styled.div`
+export const MenuContainerStyled = styled(motion.div)`
     display: flex;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
     gap: 20px;
+    cursor: pointer;
+
+    h2{
+        font-size: 2rem;
+        color: white;
+        user-select: none;
+    }
 `;
 
 export const ContainerStyled = styled.div`
