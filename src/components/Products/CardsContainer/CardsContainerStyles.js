@@ -11,6 +11,4 @@ export const ProductsContainer = styled.div`
     justify-content: center;
     /*background: gray;*/
     padding: 20px;
-
-
 `;
