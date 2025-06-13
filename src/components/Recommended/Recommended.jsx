@@ -8,11 +8,12 @@ const Recommended = () => {
 
     //const recommended = getRandomsPokemonsFromAPI(10);
     const { recommended } = useSelector((state) => state.recommended)
+
     return(
         <>
             <RecommendedContainerStyled>
                 {
-                    recommended.map( (item) => {
+                    recommended.map((item) => (
                         <Card
                             key = {item.id}
                             id = {item.id}
@@ -21,7 +22,7 @@ const Recommended = () => {
                             weigth ={ item.weight }
                             types = {item.types}
                         />
-                    })                
+                    ))
                 }
             </RecommendedContainerStyled>
         </>
