@@ -6,7 +6,7 @@ import storage from 'redux-persist/lib/storage'; // defaults to localStorage for
 import persistStore from 'redux-persist/es/persistStore';
 import cartReducer from './cart/cartSlice';
 import menuReducer from './menu/menuSlice';
-import recommendedSlice from './recommended/recommendedSlice';
+import recommendedReducer  from './recommended/recommendedSlice';
 
 const reducers = combineReducers({ 
     pokemons: pokemonsReducer,
@@ -19,7 +19,7 @@ const reducers = combineReducers({
 const persistConfig = {
     key: 'root',
     storage,
-    whiteLsit: ['cart'],
+    whitelist: ['cart'],
 }
 
 const persistedReducer = persistReducer(persistConfig, reducers);
