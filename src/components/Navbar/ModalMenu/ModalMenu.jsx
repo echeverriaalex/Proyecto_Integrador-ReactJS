@@ -2,8 +2,8 @@ import { AnimatePresence } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 import { ModalOverLayStyled, ContainerStyled, HeadContainerStyled } from "./ModlaMenuStyles";
 import { toggleMenuHidden } from "../../../redux/menu/menuSlice"
-import { LinksContainerStyled, NavLinkStyled } from "../NavbarStyled";
-import { IoIosCloseCircle } from "react-icons/io";
+import { CloseIcon, LinksContainerStyled, NavLinkStyled } from "../NavbarStyled";
+
 
 const ModalMenu = () => {
 
@@ -31,20 +31,18 @@ const ModalMenu = () => {
                         <HeadContainerStyled
                             className="close_modal"
                             whileTap={{ scale: 0.90 }}
-                            onClick={() =>  dispatch(toggleMenuHidden())}
                         >
                             <h2>Menu</h2>
-                            <IoIosCloseCircle 
+                            <CloseIcon
                                 size={30} 
                                 color= "white"
-                                className="close_modal"
                                 whileTap={{ scale: 0.90 }}
-                                onClick={() => dispatch(toggleCartHidden())}
+                                onClick={() => dispatch(toggleMenuHidden())}
                             />
                         </HeadContainerStyled>
 
 
-                        <LinksContainerStyled>
+                        <LinksContainerStyled onClick={() => dispatch(toggleMenuHidden())}>
                             <NavLinkStyled to="/">Home</NavLinkStyled>
                             <NavLinkStyled to="/about">About</NavLinkStyled>
                             <NavLinkStyled to="/services">Services</NavLinkStyled>

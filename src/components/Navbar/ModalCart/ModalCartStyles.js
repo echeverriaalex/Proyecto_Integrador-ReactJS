@@ -49,10 +49,11 @@ export const ContainerStyled = styled(motion.div)`
     box-shadow: 0 0 50px 20px rgba(0, 0, 0, 0.3);
 
     @media (max-width: 576px){
-        top: 10px;
-        width: 80vw;
-        height: calc( 100vh - 70px);
-        right: 5px;
+        top: 0px;
+        right: 0px;
+        border-radius: 0px;
+        width: 100vw;
+        height: calc( 100vh - 50px);
     }
 `;
 

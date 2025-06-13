@@ -6,14 +6,11 @@ import CartIcon from "./CartIcon/CartIcon";
 import ModalMenu from "./ModalMenu/ModalMenu";
 import MenuIcon from "./MenuIcon/MenuIcon"
 import { useDispatch, useSelector } from "react-redux";
-import { toggleMenuHidden } from "../../redux/menu/menuSlice"
 
 export const Navbar = () => {
 
     const dispatch = useDispatch();
     const hiddenMenu = useSelector((state) => state.menu.hidden);
-
-
 
     return(
         <HeaderStyled>
@@ -23,7 +20,6 @@ export const Navbar = () => {
                 <ContainerStyled>
                     <MenuContainerStyled
                         whileTap={{ scale: 0.8 }}
-                        onClick={() => dispatch(toggleMenuHidden())}
                     >
                         <MenuIcon />
                         <h2>Menu</h2>

@@ -7,6 +7,7 @@ import { FaTrashAlt } from "react-icons/fa";
 import { IoIosCloseCircle } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import Button from "../../UI/Button/Button";
+import { CloseIcon } from "../NavbarStyled";
 
 const ModalCart = () => {
     const navigate = useNavigate();
@@ -37,7 +38,7 @@ const ModalCart = () => {
                         key="cart-modal"
                     >
                         <HeadContainerStyled>
-                            <IoIosCloseCircle 
+                            <CloseIcon 
                                 size={30} 
                                 color= "white"
                                 className="close_modal"

@@ -3,8 +3,25 @@ import { HiMenu   } from "react-icons/hi";
 import { HiUser } from "react-icons/hi";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import { HiOutlineSearch } from "react-icons/hi";
+import { IoIosCloseCircle } from "react-icons/io";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
+
+export const CloseIcon = styled(IoIosCloseCircle)`
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    
+    padding: 0px;
+    margin: 0px;
+    height: 100%;
+    max-height: 20px;
+    width: 100%
+    max-width: 20px;
+    display: flex;
+    align-items: center;    
+`;
 
 export const SearchIcon = styled(HiOutlineSearch)`
     font-size: 2rem;
@@ -119,7 +136,7 @@ export const MenuContainerStyled = styled(motion.div)`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 5px;
+    gap: 15px;
     cursor: pointer;
     /*padding: 10px;*/
 
@@ -209,7 +226,7 @@ export const LinksContainerStyled = styled.div`
         font-size: 1.2rem;
         color: white;
         /* padding: 1rem 1.5rem;*/
-        background: red;
+        /*background: red;*/
     }
 
     @media (max-width: 576px){

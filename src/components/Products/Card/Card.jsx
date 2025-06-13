@@ -9,7 +9,7 @@ const Card = ({id, name, sprites, weigth, types }) =>{
 
     const dispatch = useDispatch();
 
-    const image = sprites.other["official-artwork"].front_default;
+    const image = sprites.other["dream_world"].front_default || sprites.other["official-artwork"].front_default;
 
     const getPriceByCategory = (typeSelected) => {
         switch(typeSelected) {
