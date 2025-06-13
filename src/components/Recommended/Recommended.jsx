@@ -1,4 +1,5 @@
 import Card from "../Products/Card/Card";
+import { useSelector } from "react-redux";
 //import { getRandomsPokemonsFromAPI } from "../../../utils/getRandomsPokemons/getRandomsPokemonsFromAPI"
 //import { getRandomsPokemonsFromAPI } from "../../../utils/getRandomsPokemons";
  
@@ -18,7 +19,7 @@ const Recommended = () => {
                         weigth ={ item.weight }
                         types = {item.types}
                     />
-                })
+                })                
             }
         </>
     )

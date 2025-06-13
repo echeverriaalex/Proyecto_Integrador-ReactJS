@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { getRandomsPokemonsFromAPI } from "../../utils/getRandomsPokemons/getRandomsPokemonsFromAPI";
+import { getRandomsPokemonsFromAPI } from "../../utils/getRandomsPokemons/";
 
 const INITIAL_STATE = {
     recommended: getRandomsPokemonsFromAPI(10)
