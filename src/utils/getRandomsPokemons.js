@@ -2,7 +2,7 @@ import { getData, getInfoPokemonByID } from "../axios/axios-pokemons.js";
 import { API_URL } from "./constants";
 import { useState } from "react";
 
-const getPokemonRandom = async (id) => {
+export const getPokemonRandom = async (id) => {
     try{
         const pokemon = getInfoPokemonByID(id);
         return pokemon;
@@ -12,26 +12,18 @@ const getPokemonRandom = async (id) => {
     }
 }
 
-const getRandomsPokemonsFromAPI = (quantity) => {
+export const getRandomsPokemonsFromAPI = (quantity) => {
 
-    const [total, setTotal] = useState(null);
-    const [collectionRandoms, setCollectionRandoms] = useState([]);
+    const collectionRandoms = []
 
     try{
         const data = getData(API_URL);
-        setTotal(data.count);
+        const total = data.count;
 
         for(let i =0; i < quantity ; i++){
             const idPokemon = Math.floor(Math.random() * total);
             const pokemon  = getPokemonRandom(idPokemon);
-
-
-            // Hacer un checkeo para que no haya pokemones repetidos
-
-
-            setCollectionRandoms(pokemon, ...collectionRandoms);
-
-
+            collectionRandoms.push(pokemon);
             return collectionRandoms;
         }
     }
@@ -39,5 +31,3 @@ const getRandomsPokemonsFromAPI = (quantity) => {
         console.log("Error en crear la lista de randoms", error);
     }
 }
-
-export default {getRandomsPokemonsFromAPI, getPokemonRandom}
