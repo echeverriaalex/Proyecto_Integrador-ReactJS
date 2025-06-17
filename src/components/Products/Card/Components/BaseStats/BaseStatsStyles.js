@@ -6,6 +6,11 @@ export  const ContainerDataStatisticStyled = styled.div`
     width: 100%;
     gap: 10px;
     padding: 8px;
+
+    @media(max-width: 576px){
+        gap: 5px;
+        padding: 5px;
+    }
 `;
 
 export  const BaseStatsContainerStyled = styled.div`
@@ -25,7 +30,6 @@ export  const DataTextContainerStyled = styled.div`
 
 export  const LineStatisticStyled = styled.div`
     display: flex;
-    
     align-items: center;
     width: 100%;
     background:rgb(120, 24, 230);

@@ -7,12 +7,12 @@ const AspectContainer = ({height, weigth}) =>{
         <AspectContainerStyled>
             <div>
                 <p> { height } </p>
-                <TfiRuler size={ 30 } />
+                <TfiRuler />
                 <p> Height </p>
             </div>
             <div>
                 <p> { weigth } </p>
-                <GiWeight size={ 30 } />
+                <GiWeight />
                 <p> Weigth </p>
             </div>
         </AspectContainerStyled>

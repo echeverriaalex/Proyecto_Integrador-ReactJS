@@ -11,4 +11,9 @@ export const ProductsContainer = styled.div`
     justify-content: center;
     /*background: gray;*/
     padding: 20px;
+
+    @media (max-width: 576px){
+        padding: 10px;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 100%));
+    }
 `;

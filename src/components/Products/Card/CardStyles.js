@@ -124,7 +124,19 @@ export const ContentCardStyled = styled.div`
     // Invoco una funcion que cree fuera del componente
     background: ${({ typeSelected }) => getCardColorByCategory(typeSelected)};
 
+    @media(max-width: 576px){
+        gap: 5px;
+        padding: 10px 5px;
 
+        h3{
+            font-size: 1rem;
+            padding: 0px;
+        }
+
+        p{
+            font-size: 1rem;
+        }
+    }
 `;
 
 export const ImageContainer = styled.div`
@@ -154,9 +166,6 @@ export  const InfoContainerStyled = styled.div`
     padding: 10px 5px;
 `;
 
-
-
-
 export const CategoryContainerStyled = styled.div`
     display: flex;
     justify-content: center;
@@ -175,19 +184,19 @@ export const CategoryStyled = styled.p`
     text-transform: capitalize;
 `;
 
-
 export const ButtonStyled = styled(motion.button)`
     display: flex;
     gap: 20px;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    font-size: 1.3rem;
-    padding: 10px;
+    width: 80%;
+    font-size: 1rem;
+    padding: 5px;
     border-radius: 10px;
     background:rgb(0, 0, 0);
     color: white;
     cursor: pointer;
+    border: none;
 
     img{
         height: 1.2rem;

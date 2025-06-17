@@ -17,7 +17,19 @@ export  const AspectContainerStyled = styled.div`
         }
 
         svg{
-            /*color: white;*/
+            heigh: 60px;
+            font-size: 30px;
+        }
+    }
+
+    @media(max-width: 576px){
+    
+        div{
+            gap: 6px;
+
+            svg{
+                font-size: 20px;
+            }
         }
     }
 `;
