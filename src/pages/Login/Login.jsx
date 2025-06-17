@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { FormStyled, HeaderStyled, LoginWrapper, RegisterWrapper } from "./LoginStyles"
 //import charizard from "../../assets/images/charizard.png"
-import charizard from "../../assets/images/charizard-gif.gif"
+import Pokemon from "../../assets/images/Mew-gif.gif";
 
 
 const Login = () => {
@@ -9,7 +9,7 @@ const Login = () => {
         <LoginWrapper>
             <HeaderStyled>
                 <h2>Login</h2>
-                <img src="https://i.gifer.com/9M4X.gif" alt="Charizard" />
+                <img src={ Pokemon } alt="Charizard" />
             </HeaderStyled>
             <FormStyled>
                 <input type="text" placeholder="Usuario" />

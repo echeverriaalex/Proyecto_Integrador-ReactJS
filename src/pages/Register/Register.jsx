@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom"
 import { FormStyled, HeaderStyled, LoginWrapper, RegisterWrapper } from "./RegisterStyles"
-import pikachu from "../../assets/images/pikachu.png"
+//import Pokemon from "../../assets/images/pikachu.png"
+import Pokemon from "../../assets/images/pikachu.gif"
 
 
 const Register = () => {
@@ -8,7 +9,7 @@ const Register = () => {
         <RegisterWrapper>
             <HeaderStyled>
                 <h2>Register</h2>
-                <img src={pikachu} alt="Pikachu"/>
+                <img src={Pokemon} alt="Pikachu"/>
             </HeaderStyled>
             <FormStyled>
                 <input type="text" placeholder="Username" />
