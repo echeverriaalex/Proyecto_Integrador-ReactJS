@@ -1,7 +1,7 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import pokemonsReducer from './slice/pokemonsSlice';
 import pokemonReducer from './slice/pokemonSlice';
-import { persistReducer } from 'redux-persist';
+import { FLUSH, PAUSE, PERSIST, persistReducer, PURGE, REGISTER, REHYDRATE } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
 import persistStore from 'redux-persist/es/persistStore';
 import cartReducer from './cart/cartSlice';
@@ -26,12 +26,12 @@ const persistedReducer = persistReducer(persistConfig, reducers);
 
 export const store = configureStore({
     reducer: persistedReducer,
-
-    /* chat gpt
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware ({
-        serializableCheck: false, // 👈 Desactiva el middleware que genera la advertencia
-      }),
-    */
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+        serializableCheck: {
+            ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+        },
+    }),
 });
 
 export default store;

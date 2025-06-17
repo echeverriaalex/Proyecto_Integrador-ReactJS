@@ -11,8 +11,7 @@ export const pokemonsSlice = createSlice({
     initialState: INITIAL_STATE,
     reducers: {
         isFetching: (state) => {
-            console.log("aca en isFetching pokemonsSlice");
-            
+            //console.log("aca en isFetching pokemonsSlice");
             return{
                 ...state,
                 isLoading: true,
@@ -29,8 +28,7 @@ export const pokemonsSlice = createSlice({
             }
         },
         isError: (state) =>{
-            console.log("aca en isError pokemonsSlice");
-            
+            //console.log("aca en isError pokemonsSlice");            
             return{
                 ...state,
                 isLoading: false,

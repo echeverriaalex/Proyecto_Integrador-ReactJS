@@ -10,12 +10,13 @@ const Home = () => {
         <HomeWrapper>
             <Hero />
 
+            { /*
             <ProductsWrapper>
                 <h2>Recomendados</h2>
                 <Recommended />
 
             </ProductsWrapper>
-
+            */ }
 
 
             <ProductsWrapper>

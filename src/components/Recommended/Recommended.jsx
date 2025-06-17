@@ -1,4 +1,4 @@
-import Card from "../Card/Card";
+import Card from "../Products/Card/Card";
 import { useSelector } from "react-redux";
 import { RecommendedContainerStyled } from "./RecommendedStyles"
 //import { getRandomsPokemonsFromAPI } from "../../../utils/getRandomsPokemons/getRandomsPokemonsFromAPI"
@@ -13,6 +13,9 @@ const Recommended = () => {
         <>
             <RecommendedContainerStyled>
                 {
+                    console.log("Recommended", recommended)
+                    
+                    /*
                     recommended.map((item) => (
                         <Card
                             key = {item.id}
@@ -23,6 +26,7 @@ const Recommended = () => {
                             types = {item.types}
                         />
                     ))
+                    */
                 }
             </RecommendedContainerStyled>
         </>

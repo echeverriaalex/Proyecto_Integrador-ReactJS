@@ -6,17 +6,16 @@ import { getData, getInfoPokemonByURLFromApi } from "../../../axios/axios-pokemo
 import Card from "../Card/Card";
 
 import Button from "../../UI/Button/Button";
+import { data, pre } from "framer-motion/client";
 
 const CardsContainer = () => {
     const dispatch = useDispatch()    
-    const { pokemonsList, error } = useSelector((state) => state.pokemons)
-    const [pokemonListInfo, setPokemonListInfo] = useState([])
+    const { pokemonsList, isLoading, error } = useSelector((state) => state.pokemons)
+    //const [pokemonListInfo, setPokemonListInfo] = useState([])
     const [nextUrl, setNextUrl] = useState(null);
     const [prevUrl, setPrevUrl] = useState(null);
     const [currentUrl, setCurrentUrl] = useState("https://pokeapi.co/api/v2/pokemon");
-
     const containerRef = useRef(); // 👈 Referencia al contenedor
-
 
     const goToStart = () => {
         if (containerRef.current) {
@@ -24,38 +23,42 @@ const CardsContainer = () => {
         }
     }
 
-    const fetchPokemons = async (url) => {
-        try {
-            dispatch(isFetching());
-            const dataAPI = await getData(url); // Este debe aceptar una URL
-            const detailedPokemons = await Promise.all(
-                dataAPI.results.map(async (pokemon) => {
-                    const info = await getInfoPokemonByURLFromApi(pokemon.url);
-                    return { ...pokemon, ...info };
-                })
-            );
-            setPokemonListInfo(detailedPokemons);
-            setNextUrl(dataAPI.next);
-            setPrevUrl(dataAPI.previous);
-            dispatch(success(detailedPokemons));
-
-
-            /*
-            // 👇 Hace scroll hacia el contenedor al principio
-            if (containerRef.current) {
-                containerRef.current.scrollIntoView({ behavior: "smooth" });
-            }
-            */
-            
-
-
+    const fetchData = async (url) => {
+        try{
+            const dataAPI = await getData(url);
+            return dataAPI;
         } catch (err) {
             console.error("Error al obtener pokémons:", err);
             dispatch(isError(err.message));
         }
     };
 
-     // 👇 Funciones para paginación con scroll manual
+    const fetchPokemons = async (url) => {
+        try{
+            dispatch(isFetching());
+            const dataAPI = await fetchData(url);
+            setNextUrl(dataAPI.next);
+            setPrevUrl(dataAPI.previous);
+
+            const detailedPokemons = await Promise.all(
+                dataAPI.results.map(async (pokemon) => {
+                    const info = await getInfoPokemonByURLFromApi(pokemon.url);
+                    return { ...pokemon, ...info };
+                })
+            );
+
+            //setPokemonListInfo(detailedPokemons);
+            dispatch(success(detailedPokemons));
+        }
+        catch (err) {
+            console.error("Error al obtener pokémons:", err);
+            dispatch(isError(err.message));
+        }
+    }
+
+
+
+    // 👇 Funciones para paginación con scroll manual
     const handleNext = () => {
         if (nextUrl) {
             setCurrentUrl(nextUrl);
@@ -71,16 +74,23 @@ const CardsContainer = () => {
     };
 
     useEffect( () => {
-
+        //fetchData(currentUrl);
         fetchPokemons(currentUrl);
 
-    }, [currentUrl])
+
+        /*
+        console.log("nextUrl: ", nextUrl);
+        console.log("nextUrl: ", prevUrl);
+        console.log("pokemonList de slice : ", pokemonsList);
+        */
+
+    }, [currentUrl, dispatch, error]);
     
     return(
         <>
             <ProductsContainer ref={containerRef}>
-                {
-                    pokemonListInfo.map((item) => (
+                {   
+                    pokemonsList.map((item) => (
                         <Card
                             key = {item.id}
                             id = {item.id}
@@ -88,7 +98,10 @@ const CardsContainer = () => {
                             sprites = {item.sprites}
                             weigth ={ item.weight }
                             types = {item.types}
-                        />
+                            height = { item.height }
+                            stats = { item.stats }
+                            
+                        /> 
                     ))
                 }
             </ProductsContainer>
