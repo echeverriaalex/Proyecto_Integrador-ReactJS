@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const getCategoryColorByCategory = (typeSelected) => {
     switch (typeSelected) {
         case "grass": return "#189c0c";
-        case "fire": return "#96002d";
+        case "fire": return "#f01d1d ";
         case "water": return "#0ba6ac";
         case "bug": return "#c98811";
         case "normal": return "#b4b4b4";
@@ -49,7 +49,15 @@ export const ProductContainerStyled = styled.div`
 export const ProductCardStyled = styled.div`
     width: 100%;
     border-radius: 10px;
-    border: 4px solid #e44742;
+    cursor: pointer;
+
+    /*
+    &:hover {
+        box-shadow: 0 14px 18px rgb(200, 212, 34);
+        transform: scale(0.95);
+        transition: all 1s;
+    }
+    */
 `;
 
 export const ContentCardStyled = styled.div`
@@ -73,12 +81,23 @@ export const ContentCardStyled = styled.div`
         font-size: 1.2rem;
         color: white;
         font-family: 'Arial', sans-serif;
+        color: black;
     }
 
     p{
         font-size: 1.2rem;
         font-family: 'Arial', sans-serif;
     }
+
+    /*
+    div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+    }
+    */
 
     /*
     // Creo una funcion que me devuleva el color segun el tipo de pokemon
@@ -117,33 +136,41 @@ export const ImageContainer = styled.div`
     display: flex;
     justify-content: center;
 
+    background: transparent;
+
     img{
         max-width: 100%;
         max-height: 100%;
     }
 `;
 
+export  const InfoContainerStyled = styled.div`
+    background: #f0f0f0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 10px;
+    padding: 10px 5px;
+`;
+
+
+
 
 export const CategoryContainerStyled = styled.div`
     display: flex;
-    width: 100%;
     justify-content: center;
-    align-items: center;
     gap: 10px;
-    font-size: 1.2rem;
-    /*border: 1px solid black;*/
-    padding: 5px 10px;
-    border-radius: 10px;
 `;
 
 export const CategoryStyled = styled.p`
     display: flex;
-    font-size: 1.2rem;
-    border: 1px solid black;
-    padding: 8px 30px;
-    border-radius: 10px;
+    font-size: 16px;
+    font-family: "Times New Roman";
+    font-weight: bold;
+    padding: 4px 16px;
+    border-radius: 20px;
     background: ${({ type }) => getCategoryColorByCategory(type)};
-    opacity: 0.8;
     color: white;
     text-transform: capitalize;
 `;

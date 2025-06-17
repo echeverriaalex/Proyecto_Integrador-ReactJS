@@ -1,15 +1,18 @@
 import { useDispatch } from "react-redux";
 import pokebola from "../../../assets/images/pokebola.png"
-import { ProductCardStyled, ImageContainer, ButtonStyled, CategoryStyled, CategoryContainerStyled, ContentCardStyled, ProductContainerStyled } from "./CardStyles"
+import { ProductCardStyled, ImageContainer, ButtonStyled, CategoryStyled, CategoryContainerStyled, ContentCardStyled, ProductContainerStyled, InfoContainerStyled } from "./CardStyles"
 import { addToCart } from "../../../redux/cart/cartSlice";
 
+import BaseStats from "./Components/BaseStats/BaseStats";
+import AspectContainer from "./Components/AspectContainer/AspectContainer";
 
-const Card = ({id, name, sprites, weigth, types }) =>{
+const Card = ({id, name, sprites, weigth, types, height, stats}) =>{
+    
     let typeSelected = types[0].type.name;
-
     const dispatch = useDispatch();
-
     const image = sprites.other["dream_world"].front_default || sprites.other["official-artwork"].front_default;
+
+  
 
     const getPriceByCategory = (typeSelected) => {
         switch(typeSelected) {
@@ -40,28 +43,44 @@ const Card = ({id, name, sprites, weigth, types }) =>{
 
     return(
         <ProductContainerStyled>
+
             <ProductCardStyled>
                 <ContentCardStyled key={id} typeSelected={typeSelected}>
                     <h3>{ name }</h3>
                     <ImageContainer>
                         <img src={ image } alt={name} />
                     </ImageContainer>
-                    <h3>ID: { id }</h3>
-                    <p> weigth: { weigth } </p>
+
                     <CategoryContainerStyled>
                         {
                             types.map((item) => (
-                                <li key={item.type.name}>
-                                    <CategoryStyled type={item.type.name}>
-                                        { item.type.name }
-                                    </CategoryStyled>
-                                </li>
+                                <CategoryStyled type={item.type.name}>
+                                    { item.type.name }
+                                </CategoryStyled>
                             ))
                         }
                     </CategoryContainerStyled>
+
+
+                    <h3>ID: { id }</h3>
+
+
+                    <InfoContainerStyled>
+                        <AspectContainer 
+                            height={height}
+                            weigth={weigth} 
+                        />
+                        <BaseStats 
+                            stats={stats}
+                        />
+                    </InfoContainerStyled>
+                    
                 </ContentCardStyled>
             </ProductCardStyled>
-            <ButtonStyled whileTap={{ scale: 0.8 }} onClick={() => dispatch(addToCart({ id, name, image, price }))}>
+
+
+
+            <ButtonStyled whileTap={{ scale: 0.9 }} onClick={() => dispatch(addToCart({ id, name, image, price }))}>
                 Add to Cart
                 <img src={pokebola} alt="pokebola"/>
                 <h3>$ { price }</h3>
