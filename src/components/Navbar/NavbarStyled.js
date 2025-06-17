@@ -185,6 +185,8 @@ export const NavLinkStyled = styled(NavLink)`
     display: flex;
     align-items: center;
     gap: 10px;
+    padding: 15px;
+    border-bottom: 2px solid white;
 `;
 
 export const SearchContainer = styled.div`
@@ -216,8 +218,6 @@ export const LinksContainerStyled = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
-    padding: 0px 10px;
     width: 100%
     max-height: 100%;
 

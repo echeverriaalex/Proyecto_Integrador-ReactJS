@@ -4,7 +4,6 @@ import { ModalOverLayStyled, ContainerStyled, HeadContainerStyled } from "./Modl
 import { toggleMenuHidden } from "../../../redux/menu/menuSlice"
 import { CloseIcon, LinksContainerStyled, NavLinkStyled } from "../NavbarStyled";
 
-
 const ModalMenu = () => {
 
     const dispatch = useDispatch();
@@ -34,25 +33,22 @@ const ModalMenu = () => {
                         >
                             <h2>Menu</h2>
                             <CloseIcon
-                                size={30} 
+                                size={50} 
                                 color= "white"
                                 whileTap={{ scale: 0.90 }}
                                 onClick={() => dispatch(toggleMenuHidden())}
                             />
                         </HeadContainerStyled>
 
-
                         <LinksContainerStyled onClick={() => dispatch(toggleMenuHidden())}>
                             <NavLinkStyled to="/">Home</NavLinkStyled>
+                            <NavLinkStyled to="/products">All products</NavLinkStyled>
                             <NavLinkStyled to="/about">About</NavLinkStyled>
                             <NavLinkStyled to="/services">Services</NavLinkStyled>
-                            <NavLinkStyled to="/contact">Contact</NavLinkStyled>
+                            <NavLinkStyled to="/contact">Contact Us</NavLinkStyled>                            
                         </LinksContainerStyled>
                     </ContainerStyled>
                 )}
-
-
-             
             </AnimatePresence>
        </>
     );
