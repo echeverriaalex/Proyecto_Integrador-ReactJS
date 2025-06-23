@@ -1,28 +1,29 @@
 
-import { HomeWrapper, ProductsWrapper } from "./HomeStyles"
+import { HomeWrapper, SectionWrapper } from "./HomeStyles"
 import Hero from "../../components/Hero/Hero"
 import CardsContainer from "../../components/Products/CardsContainer/CardsContainer";
 import Recommended from "../../components/Recommended/Recommended";
-
+import CategoriesContainer from "../../components/Categories/CategoriesContainer/CategoriesContainer";
+import CategoriesRecommended from "../../components/CategoriesRecommended/CategoriesRecommended";
 
 const Home = () => {
     return (
         <HomeWrapper>
             <Hero />
 
-            { /*
-            <ProductsWrapper>
-                <h2>Recomendados</h2>
-                <Recommended />
-
-            </ProductsWrapper>
-            */ }
+            <CategoriesContainer />
 
 
-            <ProductsWrapper>
+            <SectionWrapper>                
+                <h2>Recommended Categories</h2>
+                <CategoriesRecommended />
+            </SectionWrapper>
+
+
+            <SectionWrapper>
                 <h2>Pokémon cards</h2>
                 <CardsContainer />
-            </ProductsWrapper>
+            </SectionWrapper>
         </HomeWrapper>
     )
 }

@@ -12,7 +12,7 @@ export const HomeWrapper = styled.div`
     */
 `;
 
-export const ProductsWrapper = styled.section`
+export const SectionWrapper = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: center;
