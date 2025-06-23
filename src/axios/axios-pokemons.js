@@ -13,6 +13,17 @@ export const getData = async (url) => {
     }
 }
 
+export const getDataFromType = async (url) => {
+    try {
+        const response = await axios.get(url);
+        return response.data;
+    }
+    catch (error) {
+        console.error("Error en get data ", error);
+        throw error;
+    }
+}
+
 
 // Obtengo todos los pokemons de la API 1302 en total
 export const getAllPokemonsFromApi = async () => {

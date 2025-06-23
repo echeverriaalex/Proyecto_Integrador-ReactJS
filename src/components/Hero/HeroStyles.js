@@ -71,11 +71,13 @@ export const ImageContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+
     img{
-        height: 450px;
+        /*height: 450px;*/
         max-width: 100%;
         max-height: 100%;
         border-radius: 8px;
+        max-height: calc(100vh - 70px);
     }
 
     @media (max-width: 576px) {
