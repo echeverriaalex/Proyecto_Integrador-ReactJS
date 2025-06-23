@@ -1,5 +1,5 @@
 import CardsContainer from "../../components/Products/CardsContainer/CardsContainer";
-import { ProductsWrapper } from "../Home/HomeStyles";
+import { SectionWrapper } from "../Home/HomeStyles";
 
 const Products = () => {
   return (
@@ -9,10 +9,10 @@ const Products = () => {
         <p>This is the products page where you can find various items.</p>
         </div>
         
-        <ProductsWrapper>
+        <SectionWrapper>
             <h2>Pokémon cards</h2>
             <CardsContainer />
-        </ProductsWrapper>
+        </SectionWrapper>
     </>
   );
 }
