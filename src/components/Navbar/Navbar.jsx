@@ -1,4 +1,4 @@
-import { HeaderStyled, NavbarStyled,  MenuIconStyled, IconsContainerStyled, UserIcon, SearchContainer, SearchBar, SearchIcon, ContainerStyled, MenuContainerStyled, NavLinkStyled, LogoLinkContainer} from "./NavbarStyled"
+import { HeaderStyled, NavbarStyled, IconsContainerStyled, UserIcon, SearchContainer, SearchBar, SearchIcon, ContainerStyled, MenuContainerStyled, LogoLinkContainer, NavbarContainerStyled, NavLinkStyled, IconNavLinkStyled } from "./NavbarStyled"
 import logo from "../../assets/images/Pokemon_logo.png";
 import { motion } from "framer-motion";
 import ModalCart from "./ModalCart/ModalCart";
@@ -16,8 +16,9 @@ export const Navbar = () => {
         <HeaderStyled>
             <ModalCart/>
             <ModalMenu/>
-            <NavbarStyled>
+            <NavbarContainerStyled>
                 <ContainerStyled>
+                    
                     <MenuContainerStyled
                         whileTap={{ scale: 0.8 }}
                     >
@@ -31,11 +32,20 @@ export const Navbar = () => {
                         </LogoLinkContainer>
                     </motion.div>
 
+                    <NavbarStyled>
+                        <NavLinkStyled to="/">Home</NavLinkStyled>
+                        <NavLinkStyled to="/about">About</NavLinkStyled>
+                        <NavLinkStyled to="/products">All products</NavLinkStyled>
+                        <NavLinkStyled to="/">Categories</NavLinkStyled>
+                        <NavLinkStyled to="/services">Services</NavLinkStyled>
+                        <NavLinkStyled to="/contact">Contact us</NavLinkStyled>
+                    </NavbarStyled>
+                    
                     <IconsContainerStyled>
                         <motion.div whileTap={{ scale: 0.8 }}>
-                            <NavLinkStyled  to="/login">
-                                <UserIcon/>
-                            </NavLinkStyled >
+                            <IconNavLinkStyled to="/login">
+                                <UserIcon />
+                            </IconNavLinkStyled >
                         </motion.div>
                         <motion.div whileTap={{ scale: 0.8 }}>
                             <CartIcon/>
@@ -49,7 +59,7 @@ export const Navbar = () => {
                         <SearchIcon/>
                     </motion.div>
                 </SearchContainer>
-            </NavbarStyled>
+            </NavbarContainerStyled>
         </HeaderStyled>
     );
 };

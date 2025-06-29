@@ -111,7 +111,7 @@ export const HeaderStyled = styled.header`
     }
 `;
 
-export const NavbarStyled = styled.nav`
+export const NavbarContainerStyled = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -131,8 +131,37 @@ export const NavbarStyled = styled.nav`
     }
 `;
 
-export const MenuContainerStyled = styled(motion.div)`
+export const NavbarStyled = styled.nav`
     display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    padding: 10px;
+
+    @media (max-width: 576px){
+        display: none;
+    }
+`;
+
+/* Nav Link cumple la misma funcion que un a con href */
+export const NavLinkStyled = styled(NavLink)`
+    padding: 10px 20px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-align: center;
+    color: white;
+
+    &:hover {
+        transition: all .5s;
+        border-radius: 5px;
+        background:rgb(121, 20, 3);
+        text-decoration: underline;
+        text-underline-offset: 5px; /* ajusta la separación */
+    }
+`;
+
+export const MenuContainerStyled = styled(motion.div)`
+    display: none;
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -144,6 +173,10 @@ export const MenuContainerStyled = styled(motion.div)`
         font-size: 1.2rem;
         color: white;
         user-select: none;
+    }
+
+    @media (max-width: 576px){
+        display: flex;
     }
 `;
 
@@ -162,7 +195,7 @@ export const ContainerStyled = styled(motion.div)`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
+    gap: 30px;
     width: 100%;
 `;
 
@@ -180,13 +213,11 @@ export const LogoLinkContainer = styled(NavLink)`
     }
 `;
 
-/* Nav Link cumple la misma funcion que un a con href */
-export const NavLinkStyled = styled(NavLink)`
+export const IconNavLinkStyled = styled(NavLink)`
     display: flex;
     align-items: center;
     gap: 10px;
     padding: 15px;
-    border-bottom: 2px solid white;
 `;
 
 export const SearchContainer = styled.div`
@@ -198,7 +229,7 @@ export const SearchContainer = styled.div`
     border: 1px solid black;
     border-radius: 10px;
     width: 100%;
-    max-width: 600px;
+    max-width: 300px;
 
     @media (max-width: 576px){
         width: 100%;
