@@ -7,6 +7,7 @@ import Card from "../Card/Card";
 
 import Button from "../../UI/Button/Button";
 import { data, pre } from "framer-motion/client";
+import CardsCatalog from "../CardsCatalog/CardsCatalog";
 
 const CardsContainer = () => {
     const dispatch = useDispatch()    
@@ -20,6 +21,7 @@ const CardsContainer = () => {
     const goToStart = () => {
         if (containerRef.current) {
             containerRef.current.scrollIntoView({ behavior: "smooth" });
+            containerRef.current.style.margin = "12rem";
         }
     }
 
@@ -88,23 +90,7 @@ const CardsContainer = () => {
     
     return(
         <>
-            <ProductsContainer ref={containerRef}>
-                {   
-                    pokemonsList.map((item) => (
-                        <Card
-                            key = {item.id}
-                            id = {item.id}
-                            name = {item.name}
-                            sprites = {item.sprites}
-                            weigth ={ item.weight }
-                            types = {item.types}
-                            height = { item.height }
-                            stats = { item.stats }
-                            
-                        /> 
-                    ))
-                }
-            </ProductsContainer>
+            <CardsCatalog ref={containerRef} productsList = {pokemonsList} />
 
             <div style={{ display: "flex", justifyContent: "center", gap: "1rem", marginTop: "1rem" }}>
                 <Button onClick={handlePrevious} disabled={!prevUrl}>
