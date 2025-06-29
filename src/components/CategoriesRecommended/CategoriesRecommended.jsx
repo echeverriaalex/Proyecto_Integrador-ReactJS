@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { CardContainerStyled, CardsContainerStyled, CategoriesRecommendedContainerStyled, CategoryContainerStyled, ImgContainerStyled } from "./CategoriesRecommendedStyles";
+import { CardContainerStyled, CardsContainerStyled, CategoriesRecommendedContainerStyled, CategoryContainerStyled, ImgContainerStyled, TitleContainerStyled } from "./CategoriesRecommendedStyles";
 import { POKEMON_TYPE } from "../../utils/constants";
 import { getDataFromType, getInfoPokemonByURLFromApi } from "../../axios/axios-pokemons";
 import TypeLabelContainer from "../../components/Products/Card/Components/TypeLabelContainer/TypeLabelContainer";
@@ -40,10 +40,7 @@ const CategoriesRecommended = () => {
                     category: categoriesList[i],
                     pokemons: dataCategory,
                 });
-
-                
-                
-                
+                                
                 //setDataList( ...dataList, { category: categoriesList[i], pokemon: dataCategory } )
 
             } catch (error) {
@@ -85,10 +82,11 @@ const CategoriesRecommended = () => {
             {
                 dataList.map((item, index) => (
                     <CategoryContainerStyled key={index}>
-                        <h3>
-                            Pokemons type {item.category.toUpperCase()}
+                        <TitleContainerStyled>
                             <img src={typeIcons[item.category]} alt={item.category} />
-                        </h3>
+                            <h3>Pokemons type  <a href={`/pagecategory/${item.category}`}> {item.category}  </a>  </h3>
+                            <img src={typeIcons[item.category]} alt={item.category} />
+                        </TitleContainerStyled>
                         <CardsContainerStyled
                             ref={containerRef}
                             onMouseDown={handleMouseDown}

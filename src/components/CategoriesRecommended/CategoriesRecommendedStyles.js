@@ -26,20 +26,7 @@ export const CategoryContainerStyled = styled.div`
     
     /*background-color: green;*/
 
-    h3{
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        color: white;
-        font-size: 1.5rem;
-        font-weight: 700;
-        font-family: monospace;
-
-        img{
-            width: 30px;
-            height: 30px;
-        }
-    }
+    
 
     @media (max-width: 576px) {
         padding: 0px;
@@ -50,6 +37,32 @@ export const CategoryContainerStyled = styled.div`
             font-weight: 700;
             font-family: monospace;
         }
+    }
+`;
+
+export const TitleContainerStyled = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    
+    h3{
+        color: white;
+        font-size: 1.5rem;
+        font-weight: 700;
+        font-family: monospace;
+    }
+    
+    a{
+        color: white;
+        text-decoration: dotted underline;
+        font-weight: 700;
+        font-family: monospace;
+        text-transform: capitalize;
+    }
+
+    img{
+        width: 30px;
+        height: 30px;
     }
 `;
 
@@ -89,7 +102,7 @@ export const CardContainerStyled = styled.div`
     background: ${({ type }) => getCardColorByCategory(type)};
     border: 1px solid black;
     border-radius: 10px;
-    user-select: none;
+    /*user-select: none;*/
 
     p{
         font-size: 1.2rem;
