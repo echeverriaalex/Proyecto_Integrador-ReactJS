@@ -6,6 +6,7 @@ import Register from "../pages/Register/Register";
 import About from "../pages/About/About";
 import Products from "../pages/Products/Products";
 import CategoryPage from "../pages/CategoryPage/CategoryPage";
+import CardPage from "../pages/Products/CardPage/CardPage";
 
 function Routes(){
     return(
@@ -15,6 +16,7 @@ function Routes(){
             <Route path="/register" element={<Register />} />
             <Route path="/about" element={<About />} />
             <Route path="/products" element={<Products />} />
+            <Route path="/products/:id" element={<CardPage />} />
             <Route path="/pagecategory/:category" element={<CategoryPage />} />
             <Route path="*" element={<ErrorNotFound />} />
         </ReactDomRoutes>
