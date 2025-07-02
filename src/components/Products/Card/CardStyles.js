@@ -2,22 +2,20 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import { getCardColorByCategory, getCategoryColorByCategory } from "../../../utils/setColorBackground";
 
-
-
-
-
-
 export const ProductContainerStyled = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 5px;
+    height: 100%;
 `;
 
 export const ContentCardStyled = styled.div`
     width: 100%;
     border-radius: 10px;
     cursor: pointer;
+
+    height: 100%;
 
     /*
     &:hover {
@@ -27,9 +25,14 @@ export const ContentCardStyled = styled.div`
     }
     */
 
+
+
+    background-image: url("https://img.freepik.com/vector-gratis/diseno-fondo-fuego_1189-229.jpg");
+
+
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     gap: 10px;
     background-color: white;

@@ -6,6 +6,7 @@ import BaseStats from "./Components/BaseStats/BaseStats";
 import AspectContainer from "./Components/AspectContainer/AspectContainer";
 import { calculateProductPrice } from "../../../utils/setPricePokemonByType";
 import TypeLabelContainer from "./Components/TypeLabelContainer/TypeLabelContainer";
+import { useNavigate } from "react-router-dom";
 
 const Card = ({id, name, sprites, weigth, types, height, stats}) =>{
     
@@ -13,10 +14,15 @@ const Card = ({id, name, sprites, weigth, types, height, stats}) =>{
     const dispatch = useDispatch();
     const image = sprites.other["dream_world"].front_default || sprites.other["official-artwork"].front_default;
     const price = calculateProductPrice(types);
+    const navigate = useNavigate();
 
     return(
         <ProductContainerStyled>
-            <ContentCardStyled key={id} typeSelected={typeSelected}>
+            <ContentCardStyled 
+                key={id} 
+                typeSelected={typeSelected}
+                onClick={() => navigate(`/products/${id}`)}
+            >
                 <h3>{ name }</h3>
                 <ImageContainer>
                     <img src={ image } alt={name} />
