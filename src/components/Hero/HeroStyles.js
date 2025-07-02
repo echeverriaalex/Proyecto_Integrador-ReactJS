@@ -9,7 +9,7 @@ export const HeroContainer = styled.section`
     /*max-width: 1200px;*/
     border-radius: 10px;
     background: #464645;
-    padding: 10px;
+    /*padding: 10px;*/
 
     h1{
         font-size: 2rem;
@@ -74,10 +74,10 @@ export const ImageContainer = styled.div`
 
     img{
         /*height: 450px;*/
-        max-width: 100%;
-        max-height: 100%;
+        width: 100%;
+        height: 100%;
         border-radius: 8px;
-        max-height: calc(100vh - 70px);
+        /*max-height: calc(100vh - 70px);*/
     }
 
     @media (max-width: 576px) {

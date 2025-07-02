@@ -7,7 +7,7 @@ export const getCardColorByCategory = (typeSelected) => {
         case "normal": return "linear-gradient(90deg, #dbd7ee, #c9c2e6);";
         case "flying": return "linear-gradient(90deg, #1de2c0, #40e9d0);";
         case "poison":   return "linear-gradient(90deg, #36db12, #24c80c);";
-        case "electric": return "linear-gradient(90deg, #a8ffff, #85f8ef);";
+        case "electric": return "linear-gradient(90deg, #fac430, #e9b408);";
         case "ground":   return "linear-gradient(90deg, , );";
         case "fairy": return "linear-gradient(90deg, , );";
         case "psychic": return "linear-gradient(90deg,#ca128d,#ec720d);";
@@ -27,7 +27,7 @@ export const getCategoryColorByCategory = (typeSelected) => {
         case "normal": return "#b4b4b4";
         case "flying": return "#33b3ca";
         case "poison":   return "#24c80c";
-        case "electric": return "#33b3ca";
+        case "electric": return " #c99506 ";
         case "ground":   return "#33b3ca";
         case "fairy": return "#33b3ca";
         case "psychic": return "#33b3ca";
