@@ -5,12 +5,16 @@ export const CardPageContainer = styled.div`
     flex-direction: column;
     align-items: center;    
     justify-content: center;
-    padding: 20px;
+    padding: 10px;
     background-color: #f0f0f0;
     width: 100%;
     max-width: 1200px;
-    margin: 0 auto;
     border-radius: 30px;
+    
+    @media (max-width: 576px) {
+        flex-direction: column;
+        align-items: center;
+    }
 `;
 
 export const ProductContainerStyled = styled.div`
@@ -18,8 +22,13 @@ export const ProductContainerStyled = styled.div`
     align-items: center;
     gap: 20px;
     background-color: lightblue;
-    padding: 20px;
+    padding: 10px;
     border-radius: 30px;
+
+    @media (max-width: 576px) {
+        flex-direction: column;
+        align-items: center;
+    }
 `;
 
 export const InfoContainerStyled = styled.div`
@@ -46,8 +55,10 @@ export const ImageContainerStyled = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 400px;
-    height: 400px;
+    width: 100%;
+    height: 100%;
+    max-width: 400px;
+    max-height: 400px;
 
     img {
         max-width: 100%;

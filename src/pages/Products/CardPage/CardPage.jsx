@@ -28,20 +28,24 @@ const CardPage = () => {
     return (
         <CardPageContainer>
             <ProductContainerStyled>
-                
                 <ImageContainerStyled>
                     <img src={dataPokemon.sprites?.other["dream_world"].front_default || dataPokemon.sprites?.other["official-artwork"].front_default} alt={dataPokemon.name} />
                 </ImageContainerStyled>
-
                 <InfoContainerStyled>
                     <h2> { dataPokemon.name }</h2>
                     <p>ID Pokemon: { id }</p>
+
+                    <p>XP: { dataPokemon.base_experience }</p>
+                    
 
 
                     <AspectContainer
                         height={ dataPokemon.height }
                         weight={ dataPokemon.weight } 
                     />
+
+
+                    
                 </InfoContainerStyled>
 
                 
