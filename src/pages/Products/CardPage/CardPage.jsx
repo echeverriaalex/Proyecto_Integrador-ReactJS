@@ -5,11 +5,16 @@ import TypeLabelContainer from "../../../components/Products/Card/Components/Typ
 import BaseStats from "../../../components/Products/Card/Components/BaseStats/BaseStats";
 import { CardPageContainer, ImageContainerStyled, InfoContainerStyled, ProductContainerStyled } from "./CardPageStyles";
 import AspectContainer from "../../../components/Products/Card/Components/AspectContainer/AspectContainer";
+import { ButtonStyled } from "../../../components/Products/Card/CardStyles";
+import { useDispatch } from "react-redux";
+import pokebola from "../../../assets/images/pokebola.png"
+import { addToCart } from "../../../redux/cart/cartSlice";
 
-const CardPage = () => {
+const CardPage = ({typeSelected, price}) => {
 
     const { id } = useParams();
     const [ dataPokemon, setDataPokemon ] = useState([]);
+    const dispatch = useDispatch();
 
     const fetchData = async () => {
         try {
@@ -36,20 +41,11 @@ const CardPage = () => {
                     <p>ID Pokemon: { id }</p>
 
                     <p>XP: { dataPokemon.base_experience }</p>
-                    
-
-
                     <AspectContainer
                         height={ dataPokemon.height }
                         weight={ dataPokemon.weight } 
                     />
-
-
-                    
                 </InfoContainerStyled>
-
-                
-
                 { 
                 /*
                 <TypeLabelContainer types={ dataPokemon.types } />
@@ -59,9 +55,13 @@ const CardPage = () => {
 
 
                 
-
-
             </ProductContainerStyled>
+            
+            <ButtonStyled whileTap={{ scale: 0.9 }} onClick={() => dispatch(addToCart({ id, name, image, price }))}>
+                Add to Cart
+                <img src={pokebola} alt="pokebola"/>
+                <h3>$ { price }</h3>
+            </ButtonStyled>
         </CardPageContainer>
     );
 }

@@ -12,7 +12,7 @@ const CardsCatalog = forwardRef(({ productsList }, ref) => {
                         id = {item.id}
                         name = {item.name}
                         sprites = {item.sprites}
-                        weigth ={ item.weight }
+                        weight ={ item.weight }
                         types = {item.types}
                         height = { item.height }
                         stats = { item.stats }

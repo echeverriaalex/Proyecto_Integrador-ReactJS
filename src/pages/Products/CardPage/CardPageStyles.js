@@ -10,6 +10,7 @@ export const CardPageContainer = styled.div`
     width: 100%;
     max-width: 1200px;
     border-radius: 30px;
+    height: 80vh;
     
     @media (max-width: 576px) {
         flex-direction: column;

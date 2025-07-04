@@ -2,46 +2,22 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import { getCardColorByCategory, getCategoryColorByCategory } from "../../../utils/setColorBackground";
 
-export const ProductContainerStyled = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-    height: 100%;
-`;
-
-export const ContentCardStyled = styled.div`
-    width: 100%;
-    border-radius: 10px;
-    cursor: pointer;
-
-    height: 100%;
-
-    /*
-    &:hover {
-        box-shadow: 0 14px 18px rgb(200, 212, 34);
-        transform: scale(0.95);
-        transition: all 1s;
-    }
-    */
-
-
-
-    background-image: url("https://img.freepik.com/vector-gratis/diseno-fondo-fuego_1189-229.jpg");
-
-
+export const ContentCardStyled = styled.a`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     gap: 10px;
-    background-color: white;
     padding: 15px 5px;
-    border-radius: 6px;
-    /*
-    box-shadow: 0 4px 8px #000000;
-    transition: transform 0.2s ease-in-out;
-    */
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+    height: 100%;
+
+    &:hover {
+        transform: scale(0.95);
+        transition: all 1s;
+    }
 
     h3{
         width: 100%;
@@ -57,16 +33,6 @@ export const ContentCardStyled = styled.div`
         font-size: 1.2rem;
         font-family: 'Arial', sans-serif;
     }
-
-    /*
-    div{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-        width: 100%;
-    }
-    */
 
     /*
     // Creo una funcion que me devuleva el color segun el tipo de pokemon
@@ -106,6 +72,8 @@ export const ContentCardStyled = styled.div`
             font-size: 1rem;
         }
     }
+
+    //background-image: url("https://img.freepik.com/vector-gratis/diseno-fondo-fuego_1189-229.jpg");
 `;
 
 export const ImageContainer = styled.div`
@@ -133,6 +101,18 @@ export  const InfoContainerStyled = styled.div`
     gap: 10px;
     border-radius: 10px;
     padding: 10px 5px;
+
+
+    h2{
+        text-align: center;
+        padding: 10px;
+        color: #000;
+        background:rgb(202, 200, 200);
+        border-radius: 20px;
+        font-weight: 800;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
 `;
 
 export const CategoryContainerStyled = styled.div`
