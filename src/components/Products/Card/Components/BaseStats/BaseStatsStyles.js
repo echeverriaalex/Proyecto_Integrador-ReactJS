@@ -20,11 +20,20 @@ export  const BaseStatsContainerStyled = styled.div`
 
 export  const DataTextContainerStyled = styled.div`
     display: flex;
+    align-items: center;
     gap: 10px;
+    width: 100%;
+
+    h4{
+        font-size: 1rem;
+        width: 50px;
+        font-size: 1rem;
+        font-family: monospace, 'Arial', sans-serif;
+    }
 
     p{
-        /*background:rgb(15, 233, 26);*/
-        width: 40px;
+        text-align: right;
+        width: 50px;
     }
 `;
 
@@ -32,7 +41,17 @@ export  const LineStatisticStyled = styled.div`
     display: flex;
     align-items: center;
     width: 100%;
-    background:rgb(120, 24, 230);
+    background:rgb(0, 0, 0);
     height: 15px;
     border-radius: 10px;
+`;
+
+export  const LevelStatisticStyled = styled.div`
+    width: ${({ width }) => (width) };
+    background: rgb(121, 121, 121);
+    /*
+    background: ${({ background }) => (background) };
+    */
+    height: 15px;
+    border-radius: 5px;
 `;

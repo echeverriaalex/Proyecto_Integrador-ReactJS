@@ -19,14 +19,14 @@ export const ContentCardStyled = styled.a`
         transition: all 1s;
     }
 
-    h3{
+    h2{
         width: 100%;
+        background: rgba(0, 0, 0, 0.7);
         padding: 5px 20px;
-        text-transform: capitalize;
-        font-size: 1.2rem;
+        text-align: center;
+        font-size: 1rem;
         color: white;
         font-family: 'Arial', sans-serif;
-        color: black;
     }
 
     p{
@@ -94,7 +94,7 @@ export const ImageContainer = styled.div`
 `;
 
 export  const InfoContainerStyled = styled.div`
-    background: #f0f0f0;
+    background: #d1d1d1;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -102,17 +102,15 @@ export  const InfoContainerStyled = styled.div`
     border-radius: 10px;
     padding: 10px 5px;
 
-
-    h2{
+    h3{
         text-align: center;
         padding: 10px;
         color: #000;
-        background:rgb(202, 200, 200);
+        background: #b1b1b1;
         border-radius: 20px;
-        font-weight: 800;
+        font-weight: 600;
         font-family: Arial, Helvetica, sans-serif;
     }
-
 `;
 
 export const CategoryContainerStyled = styled.div`
@@ -138,11 +136,12 @@ export const ButtonStyled = styled(motion.button)`
     gap: 20px;
     justify-content: center;
     align-items: center;
-    width: 80%;
+    height: 50px;
+    width: 200px;
     font-size: 1rem;
     padding: 5px;
     border-radius: 10px;
-    background:rgb(0, 0, 0);
+    background: #000;
     color: white;
     cursor: pointer;
     border: none;

@@ -14,24 +14,27 @@ const Card = ({id, name, sprites, weight, types, height, stats}) =>{
 
     return(
         <ContentCardStyled
-            typeSelected={typeSelected}
-            price={price}
-            onClick={() => navigate(`/products/${id}`)}
+            typeSelected = {typeSelected}
+            onClick={() => navigate(`/products/${id}`, {
+                state: {
+                    price,
+                    typeSelected,
+                    stats
+                }
+            })}
         >
-            <h3>{ name.charAt(0).toUpperCase() + name.slice(1) }</h3>
             <ImageContainer>
                 <img src={ image } alt={name} />
             </ImageContainer>
+            <h2>{ name.charAt(0).toUpperCase() + name.slice(1) }</h2>
             <TypeLabelContainer types={types} />
             <InfoContainerStyled>
                 <AspectContainer 
                     height={height}
                     weight={weight} 
                 />
-                <BaseStats 
-                    stats={stats}
-                />
-                <h2>${ price }</h2>
+                <BaseStats stats={stats} />
+                <h3>${ price }</h3>
             </InfoContainerStyled>
         </ContentCardStyled>
     )

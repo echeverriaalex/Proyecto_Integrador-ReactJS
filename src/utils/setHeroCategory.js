@@ -1,6 +1,6 @@
 import electric from "../assets/Hero category/electric.jpg";
 import fire from "../assets/Hero category/fire 2.jpg";
-import psychic from "../assets/Hero category/psychic 2.jpg";
+import psychic from "../assets/Hero category/psychic 3.jpg";
 import dark from "../assets/Hero category/dark 1.jpg";
 import water from "../assets/Hero category/water.png";
 import dragon from "../assets/Hero category/dragon.jpg";

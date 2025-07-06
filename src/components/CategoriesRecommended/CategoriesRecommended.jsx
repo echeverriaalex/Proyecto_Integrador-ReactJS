@@ -4,6 +4,7 @@ import { POKEMON_TYPE } from "../../utils/constants";
 import { getDataFromType, getInfoPokemonByURLFromApi } from "../../axios/axios-pokemons";
 import TypeLabelContainer from "../../components/Products/Card/Components/TypeLabelContainer/TypeLabelContainer";
 import typeIcons from "../../utils/setIcon";
+import { useNavigate } from "react-router-dom";
 
 const CategoriesRecommended = () => {
 
@@ -11,8 +12,9 @@ const CategoriesRecommended = () => {
     const [isDragging, setIsDragging] = useState(false);
     const [startX, setStartX] = useState(0);
     const [scrollLeft, setScrollLeft] = useState(0);
+    const navigate = useNavigate();
 
-    const categoriesList = [ "fire", "water", "rock", "electric", "psychic", "dark"];
+    const categoriesList = [ "fire", "water", "rock", "electric", "psychic", "dark", "fairy", "poison"];
     const [ dataList, setDataList ] = useState([]);
 
     const fetchData = async () => {
@@ -95,14 +97,12 @@ const CategoriesRecommended = () => {
                             onMouseMove={handleMouseMove}
                         >
                         { 
-                            item.pokemons.map((pokemon, idx) => (
-                                <CardContainerStyled key={idx} type={pokemon.type}>
+                            item.pokemons.map((pokemon) => (
+                                <CardContainerStyled key={pokemon.id} type={pokemon.type} onClick={() => navigate(`/products/${pokemon.id}`)}>
                                     <ImgContainerStyled>
                                         <img src={pokemon.sprites.other["dream_world"].front_default || pokemon.sprites.other["official-artwork"].front_default} />
                                     </ImgContainerStyled>
-                                    <p>{pokemon.id}</p>
-                                    <p>{pokemon.name}</p>
-
+                                    <h2>{pokemon.name}</h2>
                                     <TypeLabelContainer types={pokemon.types} />
                                 </CardContainerStyled>
                             ))

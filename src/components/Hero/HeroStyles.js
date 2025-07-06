@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import wallpaper  from "../../assets/images/wallpaper.jpg";
 
 export const HeroContainer = styled.section`
     display: flex;
@@ -6,11 +7,11 @@ export const HeroContainer = styled.section`
     align-items: center;
     gap: 10px;
     width: 100%;
-    /*max-width: 1200px;*/
-    border-radius: 10px;
-    background: #464645;
-    /*padding: 10px;*/
-
+    height: 480px;
+    background-image: url(${wallpaper});
+    background-size: cover;
+    background-position: bottom;
+    
     h1{
         font-size: 2rem;
         font-weight: 800;
@@ -18,11 +19,8 @@ export const HeroContainer = styled.section`
         text-align: left;
     }
 
-
     @media (max-width: 576px) {
-        flex-direction: column;
-        margin: 0px;
-        padding: 5px;
+        max-height: 200px;
 
         h1{
             font-size: 2rem;
@@ -33,10 +31,12 @@ export const HeroContainer = styled.section`
 export const HeroContent = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 20px;
-    padding: 2rem;
-    width: 50%;
+    padding: 15px;
+    width: 100%;
+    background-color:rgba(19, 19, 19, .5);
+
     h1{
         color: white;
         color:#ceb214;
@@ -52,9 +52,6 @@ export const HeroContent = styled.div`
     }
 
     @media (max-width: 576px) {
-        flex-direction: column;
-        padding: 10px;
-        width: 100%;
         h1{
             font-size: 1.8rem;
         }
@@ -71,11 +68,12 @@ export const ImageContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    max-width: 100%;
 
     img{
         /*height: 450px;*/
-        width: 100%;
-        height: 100%;
+        max-width: 100%;
+        max-height: 100%;
         border-radius: 8px;
         /*max-height: calc(100vh - 70px);*/
     }

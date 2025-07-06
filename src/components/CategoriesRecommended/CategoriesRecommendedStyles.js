@@ -95,27 +95,24 @@ export const CardContainerStyled = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-    padding: 10px 5px;
-    min-width: 270px;
-    width: 270px;
+    gap: 20px;
+    padding: 10px;
+    min-width: 300px;
     background: ${({ type }) => getCardColorByCategory(type)};
     border: 1px solid black;
     border-radius: 10px;
     /*user-select: none;*/
 
-    p{
+    h2{
         font-size: 1.2rem;
         font-weight: 700;
         text-transform: capitalize;
         font-family: 'Courier New', Courier, monospace;
+        color: #fff;
     }
 
     @media (max-width: 576px) {
-        gap: 5px;
-        padding: 5px;
         min-width: 250px;
-        padding: 10px;
     }
 `;
 

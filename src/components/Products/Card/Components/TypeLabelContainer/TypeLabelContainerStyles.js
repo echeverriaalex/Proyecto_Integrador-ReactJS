@@ -5,23 +5,26 @@ export const CategoryContainerStyled = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
+    gap: 8px;
 `;
 
-export const CategoryStyled = styled.p`
+export const CategoryStyled = styled.div`
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 16px;
-    font-family: "Times New Roman";
-    font-weight: bold;
-    padding: 10px 20px;
-    border-radius: 20px;
+    gap: 8px;    
+    padding: 10px 15px;
+    border-radius: 10px;
     background: ${({ type }) => getCategoryColorByCategory(type)};
-    color: white;
-    text-transform: capitalize;
+    
+    p{
+        font-size: 1.1rem;
+        font-family: "Times New Roman";
+        font-weight: 600;
+        text-transform: capitalize;
+        color: white;
+    }
 
     img{
-        height: 30px;
+        height: 20px;
     }
 `;

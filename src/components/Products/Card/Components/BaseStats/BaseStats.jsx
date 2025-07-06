@@ -1,6 +1,6 @@
-import { BaseStatsContainerStyled, ContainerDataStatisticStyled, DataTextContainerStyled, LineStatisticStyled } from "./BaseStatsStyles";
+import { BaseStatsContainerStyled, ContainerDataStatisticStyled, DataTextContainerStyled, LevelStatisticStyled, LineStatisticStyled } from "./BaseStatsStyles";
 
-const BaseStats = ({ stats }) => {
+const BaseStats = ({ stats = [], typeSelected }) => {
     
     const maxStat = 250;
 
@@ -19,18 +19,16 @@ const BaseStats = ({ stats }) => {
                 stats.map((stat, index) => (
                     <BaseStatsContainerStyled key={ index }>
                         <DataTextContainerStyled>
-                            <p>{ baseStatNames[stat.stat.name] }</p>
+                            <h4>{ baseStatNames[stat.stat.name].toUpperCase() }</h4>
+                            
+                            <LineStatisticStyled>
+                                <LevelStatisticStyled
+                                    width = { (stat.base_stat / maxStat) * 100 + "%" }
+                                    background = { typeSelected }
+                                />
+                            </LineStatisticStyled>
                             <p>{ stat.base_stat }</p>
                         </DataTextContainerStyled>
-                        <LineStatisticStyled>
-                            <div style={{ 
-                                width: `${ (stat.base_stat / maxStat) * 100 }%`, 
-                                backgroundColor: "#f142e1", 
-                                height: "15px", 
-                                borderRadius: "5px" }}
-                            />
-                        </LineStatisticStyled>
-
                     </BaseStatsContainerStyled>
                 ))
             }
