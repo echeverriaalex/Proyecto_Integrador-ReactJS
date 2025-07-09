@@ -24,9 +24,6 @@ export const ModalOverLayStyled = styled(motion.div)`
         background: pink;
         height: 100%;
         */
-        
-
-        
     }
 `;
 
@@ -45,6 +42,8 @@ export const ContainerStyled = styled(motion.div)`
     background: #3c3c3d;
     border-radius: 1rem;
     box-shadow: 0 0 50px 20px rgba(0, 0, 0, 0.3);
+
+    overflow-y: auto;
 
     @media (max-width: 576px){
         top: 0px;
@@ -66,4 +65,41 @@ export const HeadContainerStyled = styled.div`
     /*border-radius: 10px;*/
     width: 100%;
     color: white;
+`;
+
+export const NavLinkContainerStyled = styled.div`
+    padding: 10px 20px;
+    color: white;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 1.2rem;
+
+    
+    &:hover {
+        transition: all .5s;
+        border-radius: 5px;
+        text-underline-offset: 5px;
+    }
+
+    div{
+        display: none;
+        flex-direction: column;
+        width: 200px;
+        gap: 10px;
+        color: white;
+        padding: 10px 20px;
+    }
+
+    &:hover div{
+        display: flex;
+    }
+
+    a{
+        font-size: 1.1rem;
+        border-bottom: 1px solid white;
+    }
 `;
