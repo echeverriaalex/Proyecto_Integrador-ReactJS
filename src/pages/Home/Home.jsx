@@ -7,9 +7,6 @@ const Home = () => {
     return (
         <HomeWrapper>
             <Hero />
-
-            <CategoriesContainer />
-            
             <SectionWrapper>                
                 <h2>Recommended Categories</h2>
                 <CategoriesRecommended />

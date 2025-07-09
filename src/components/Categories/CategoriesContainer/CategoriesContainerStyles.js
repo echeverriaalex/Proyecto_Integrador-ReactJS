@@ -22,7 +22,7 @@ export const CategoryContainerStyled = styled.div`
     padding: 10px 30px;
     color: #fff;
     border-radius: 10px;
-    background: #b91515;
+    background:rgb(21, 132, 139);
     text-transform: Capitalize;
     cursor: pointer;
     transition: all 1s ease;

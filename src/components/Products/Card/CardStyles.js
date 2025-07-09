@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { getCardColorByCategory, getCategoryColorByCategory } from "../../../utils/setColorBackground";
+import { cardColorByCategory } from "../../../utils/setColorBackground";
 
 export const ContentCardStyled = styled.a`
     display: flex;
@@ -13,6 +13,7 @@ export const ContentCardStyled = styled.a`
     border-radius: 10px;
     cursor: pointer;
     height: 100%;
+    background: ${({ typeSelected }) => cardColorByCategory[typeSelected]};
 
     &:hover {
         transform: scale(0.95);
@@ -55,10 +56,7 @@ export const ContentCardStyled = styled.a`
         }
     }};
     */
-
-    // Invoco una funcion que cree fuera del componente
-    background: ${({ typeSelected }) => getCardColorByCategory(typeSelected)};
-
+   
     @media(max-width: 576px){
         gap: 5px;
         padding: 10px 5px;
@@ -72,8 +70,6 @@ export const ContentCardStyled = styled.a`
             font-size: 1rem;
         }
     }
-
-    //background-image: url("https://img.freepik.com/vector-gratis/diseno-fondo-fuego_1189-229.jpg");
 `;
 
 export const ImageContainer = styled.div`
@@ -102,33 +98,13 @@ export  const InfoContainerStyled = styled.div`
     border-radius: 10px;
     padding: 10px 5px;
 
-    h3{
-        text-align: center;
-        padding: 10px;
-        color: #000;
-        background: #b1b1b1;
-        border-radius: 20px;
-        font-weight: 600;
-        font-family: Arial, Helvetica, sans-serif;
-    }
+   
 `;
 
 export const CategoryContainerStyled = styled.div`
     display: flex;
     justify-content: center;
     gap: 10px;
-`;
-
-export const CategoryStyled = styled.p`
-    display: flex;
-    font-size: 16px;
-    font-family: "Times New Roman";
-    font-weight: bold;
-    padding: 4px 16px;
-    border-radius: 20px;
-    background: ${({ type }) => getCategoryColorByCategory(type)};
-    color: white;
-    text-transform: capitalize;
 `;
 
 export const ButtonStyled = styled(motion.button)`

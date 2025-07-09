@@ -4,6 +4,7 @@ import AspectContainer from "./Components/AspectContainer/AspectContainer";
 import { calculateProductPrice } from "../../../utils/setPricePokemonByType";
 import TypeLabelContainer from "./Components/TypeLabelContainer/TypeLabelContainer";
 import { useNavigate } from "react-router-dom";
+import PriceContainer from "./Components/PriceContainer/PriceContainer";
 
 const Card = ({id, name, sprites, weight, types, height, stats}) =>{
     
@@ -34,7 +35,7 @@ const Card = ({id, name, sprites, weight, types, height, stats}) =>{
                     weight={weight} 
                 />
                 <BaseStats stats={stats} />
-                <h3>${ price }</h3>
+                <PriceContainer types = { types }/>
             </InfoContainerStyled>
         </ContentCardStyled>
     )

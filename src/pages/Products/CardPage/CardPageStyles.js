@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { getCardColorByCategory, getCategoryColorByCategory } from "../../../utils/setColorBackground";
+import { colorCategory } from "../../../utils/setColorBackground";
 
 export const CardPageContainer = styled.div`
     width: 100%;
@@ -17,7 +17,7 @@ export const ProductContainerStyled = styled.div`
     gap: 20px;
     padding: 15px;
     border-radius: 10px;
-    background: ${({ typeSelected }) => getCardColorByCategory(typeSelected)};
+    background: ${({ typeSelected }) => colorCategory[typeSelected]};
 
     @media (max-width: 576px) {
         flex-direction: column;

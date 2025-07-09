@@ -12,6 +12,10 @@ export const CardsCatalogStyled = styled.div`
     /*background: gray;*/
     padding: 20px;
 
+    h2{
+        color: #fff;
+    }
+
     @media (max-width: 576px){
         padding: 10px;
         grid-template-columns: repeat(auto-fit, minmax(200px, 100%));

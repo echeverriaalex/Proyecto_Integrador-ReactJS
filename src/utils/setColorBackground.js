@@ -1,39 +1,47 @@
-export const getCardColorByCategory = (typeSelected) => {
-    switch (typeSelected) {
-        case "grass": return "linear-gradient(90deg, #72ac34, #5f9a23);";
-        case "fire": return "linear-gradient(to bottom right, #f72b28,#800202);";
-        case "water": return "linear-gradient(90deg, #7296db, #5f85c9);";
-        case "bug": return "linear-gradient(90deg, #efd84c, #e7c530);";
-        case "normal": return "linear-gradient(90deg, #dbd7ee, #c9c2e6);";
-        case "flying": return "linear-gradient(90deg, #1de2c0, #40e9d0);";
-        case "poison":   return "linear-gradient(90deg, #36db12, #24c80c);";
-        case "electric": return "linear-gradient(90deg, #fac430, #e9b408);";
-        case "ground":   return "linear-gradient(90deg, , );";
-        case "fairy": return "linear-gradient(90deg, , );";
-        case "psychic": return "linear-gradient(90deg,#ca128d,#ec720d);";
-        case "rock": return "linear-gradient(90deg, #5e7c66, #4d6a55);";
-        case "ghost": return "linear-gradient(90deg, #c1e0e3, #a7d1d5);";
-        case "dark": return "linear-gradient(90deg,#3d3535, #474444);";
-        default: return "linear-gradient(90deg, #105d5f, #0c4e50);";
-    }
+export const cardColorByCategory = {
+    grass: "linear-gradient(90deg, #72ac34, #5f9a23);",
+    fire: "linear-gradient(to bottom right, #f72b28,#800202);",
+    water: "linear-gradient(90deg, #7296db, #5f85c9);",
+    bug: "linear-gradient(90deg, #efd84c, #e7c530);",
+    normal: "linear-gradient(90deg, #dbd7ee, #c9c2e6);",
+    flying: "linear-gradient(90deg, #1de2c0, #40e9d0);",
+    poison: "linear-gradient(90deg, #2d8519, #07693c);",
+    electric: "linear-gradient(90deg, #fac430, #e9b408);",
+    ground: "linear-gradient(90deg, #4e3213,rgb(73, 45, 9) );",
+    fairy: "linear-gradient(90deg, #8b0885, #500449);",
+    psychic: "linear-gradient(90deg,#ca128d,#ec720d);",
+    rock: "linear-gradient(90deg, #5e7c66, #4d6a55);",
+    ghost: "linear-gradient(90deg, #c1e0e3, #a7d1d5);",
+    dark: "linear-gradient(90deg, #3d3535, #474444);",
+    dragon: "linear-gradient(90deg, #570303, #7c3d08);",
+    fighting: "linear-gradient(90deg, #5d0796, #7c0872);",
+    ice: "linear-gradient(90deg,rgb(122, 177, 194), #0a93e2);",
+    steel: "linear-gradient(90deg, #4b4b4b, #505050);",
+    unknown: "linear-gradient(90deg, #252525, #222222);",
+    shadow: "linear-gradient(90deg, #1b0850, #27164e);",
+    stellar: "linear-gradient(90deg, #0a4b70, #186c72);",
 }
 
-export const getCategoryColorByCategory = (typeSelected) => {
-    switch (typeSelected) {
-        case "grass": return "#189c0c";
-        case "fire": return "#f01d1d ";
-        case "water": return "#0ba6ac";
-        case "bug": return "#c98811";
-        case "normal": return "#b4b4b4";
-        case "flying": return "#33b3ca";
-        case "poison":   return "#24c80c";
-        case "electric": return " #c99506 ";
-        case "ground":   return "#33b3ca";
-        case "fairy": return "#33b3ca";
-        case "psychic": return "#33b3ca";
-        case "rock": return "#612e2a";
-        case "ghost": return "#706f6f";
-        case "dark": return "#612e2a";
-        default: return "#33b3ca";
-    }
+export const colorCategory = {
+    grass:  " #189c0c",
+    fire: " #f01d1d ",
+    water: " #0ba6ac",
+    bug: " #c98811",
+    normal: " #b4b4b4",
+    flying: " #33b3ca",
+    poison: " #1d9c09",
+    electric: " #c99506",
+    ground: " #854e10",
+    fairy: " #ad0ea5",
+    psychic: " #33b3ca",
+    rock: " #612e2a",
+    ghost: " #706f6f",
+    dark: " #612e2a",
+    dragon: " #a34e08",
+    fighting: " #30054d",
+    ice: " #0f8ead",
+    steel: " #8d8d8d",
+    unknown: " #333333",
+    shadow: " #42136e",
+    stellar: " #0f76bb"
 }

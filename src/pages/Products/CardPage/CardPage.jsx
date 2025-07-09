@@ -9,6 +9,7 @@ import { ButtonStyled } from "../../../components/Products/Card/CardStyles";
 import { useDispatch } from "react-redux";
 import pokebola from "../../../assets/images/pokebola.png"
 import { addToCart } from "../../../redux/cart/cartSlice";
+import PriceContainer from "../../../components/Products/Card/Components/PriceContainer/PriceContainer";
 
 const CardPage = () => {
 
@@ -72,7 +73,7 @@ const CardPage = () => {
                             weight={ pokemon.weight } 
                         />
                         <BaseStats stats={ pokemon.stats } typeSelected = { typeSelected } />
-                        <h3>$ { price }</h3>
+                        <PriceContainer types={ pokemon.types } />
                     </InfoContainerStyled>
                     <ButtonStyled whileTap={{ scale: 0.9 }} onClick={() => {
                         dispatch(addToCart({

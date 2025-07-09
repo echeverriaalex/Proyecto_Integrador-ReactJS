@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { getCardColorByCategory } from "../../utils/setColorBackground";
+import { cardColorByCategory } from "../../utils/setColorBackground";
 
 export const CategoriesRecommendedContainerStyled = styled.div`
     display: flex;
@@ -73,6 +73,7 @@ export const CardsContainerStyled = styled.div`
     padding: 20px 0px;
     scroll-behavior: smooth;
     cursor: grab;
+    cursor: pointer;
     /*box-shadow: 0px 15px 15px 0px rgba(92, 92, 92, 0.93);*/
 
     /*
@@ -98,7 +99,7 @@ export const CardContainerStyled = styled.div`
     gap: 20px;
     padding: 10px;
     min-width: 300px;
-    background: ${({ type }) => getCardColorByCategory(type)};
+    background: ${({ type }) => cardColorByCategory[type]};
     border: 1px solid black;
     border-radius: 10px;
     /*user-select: none;*/

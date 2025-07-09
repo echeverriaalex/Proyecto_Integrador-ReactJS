@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { getCategoryColorByCategory } from "../../../../../utils/setColorBackground";
+import { colorCategory } from "../../../../../utils/setColorBackground";
 
 export const CategoryContainerStyled = styled.div`
     display: flex;
@@ -14,7 +14,7 @@ export const CategoryStyled = styled.div`
     gap: 8px;    
     padding: 10px 15px;
     border-radius: 10px;
-    background: ${({ type }) => getCategoryColorByCategory(type)};
+    background: ${({ type }) => colorCategory[type]};
     
     p{
         font-size: 1.1rem;

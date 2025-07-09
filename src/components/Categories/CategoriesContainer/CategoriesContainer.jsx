@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { getAllCategoriesFromApi } from "../../../axios/Categories/axios-categories";
 import { CategoriesContainerStyled, CategoryContainerStyled } from "./CategoriesContainerStyles";
 import typeIcons from "../../../utils/setIcon";
-import TypeLabelContainer from "../../Products/Card/Components/TypeLabelContainer/TypeLabelContainer";
 
 const CategoriesContainer = () => {
 
@@ -20,7 +19,6 @@ const CategoriesContainer = () => {
         }
     };
 
-
     useEffect(() => {
         fectchCategories();
     }, []);
@@ -31,14 +29,7 @@ const CategoriesContainer = () => {
                 categoriesList.map((category, index) => (
                     <CategoryContainerStyled key={index}>
                         <h3>{category.name}</h3>
-
-
                         <img src={ typeIcons[category.name] } alt={category.name} />
-
-                       
-
-
-                        {/*<p>{category.url}</p> */}
                     </CategoryContainerStyled>
                 ))
             }

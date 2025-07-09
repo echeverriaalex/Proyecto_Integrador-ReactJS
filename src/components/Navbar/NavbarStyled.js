@@ -6,6 +6,7 @@ import { HiOutlineSearch } from "react-icons/hi";
 import { IoIosCloseCircle } from "react-icons/io";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
+import { style } from "framer-motion/client";
 
 export const CloseIcon = styled(IoIosCloseCircle)`
     font-size: 2rem;
@@ -151,12 +152,61 @@ export const NavLinkStyled = styled(NavLink)`
     text-align: center;
     color: white;
 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+
     &:hover {
         transition: all .5s;
         border-radius: 5px;
         background:rgb(121, 20, 3);
         text-decoration: underline;
         text-underline-offset: 5px; /* ajusta la separación */
+    }
+
+    img{
+        width: 1rem;
+    }
+`;
+
+export const NavLinkContainerStyled = styled.div`
+    padding: 10px 20px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-align: center;
+    color: white;
+    
+    &:hover {
+        transition: all .5s;
+        border-radius: 5px;
+        background:rgb(121, 20, 3);
+        text-decoration: underline;
+        text-underline-offset: 5px;
+    }
+
+    div{
+        display: none;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 120px));
+        width: 500px;
+        max-width: 100%;
+        justify-content: center;
+        gap: 10px;
+        color: white;
+        padding: 10px;
+        margin-top: 10px;
+        background: #921a05;
+        border-radius: 10px;
+        position: absolute;
+        left: 40%;
+    }
+
+    &:hover div{
+        display: grid;
+    }
+
+    a{
+        border: 1px solid white;
     }
 `;
 
@@ -250,7 +300,7 @@ export const LinksContainerStyled = styled.div`
     flex-direction: column;
     align-items: center;
     width: 100%
-    max-height: 100%;
+    min-height: 100%;
 
     a{
         width: 100%;

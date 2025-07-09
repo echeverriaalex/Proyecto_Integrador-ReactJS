@@ -5,6 +5,7 @@ import { getDataFromType, getInfoPokemonByURLFromApi } from "../../axios/axios-p
 import TypeLabelContainer from "../../components/Products/Card/Components/TypeLabelContainer/TypeLabelContainer";
 import typeIcons from "../../utils/setIcon";
 import { useNavigate } from "react-router-dom";
+import PriceContainer from "../Products/Card/Components/PriceContainer/PriceContainer";
 
 const CategoriesRecommended = () => {
 
@@ -104,6 +105,7 @@ const CategoriesRecommended = () => {
                                     </ImgContainerStyled>
                                     <h2>{pokemon.name}</h2>
                                     <TypeLabelContainer types={pokemon.types} />
+                                    <PriceContainer types={pokemon.types}/>
                                 </CardContainerStyled>
                             ))
                         }
