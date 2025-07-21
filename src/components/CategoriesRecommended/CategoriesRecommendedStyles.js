@@ -5,29 +5,25 @@ export const CategoriesRecommendedContainerStyled = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px;
-    width: 90%;
-    /*
-    background-color: brown;
-    padding: 20px;
-    */
+    gap: 20px;
+    width: 100%;
 
+    /*
     @media (max-width: 576px) {
         width: 100%;
     }
+    */
 `;
 
 export const CategoryContainerStyled = styled.div`
     display: flex;
     flex-direction: column;
     gap: 10px;
-    padding: 10px;
+    padding: 30px;
     width: 100%;
+    background-color: #000000ff;
+    border-radius: 10px;
     
-    /*background-color: green;*/
-
-    
-
     @media (max-width: 576px) {
         padding: 0px;
 
@@ -44,6 +40,8 @@ export const TitleContainerStyled = styled.div`
     display: flex;
     align-items: center;
     gap: 5px;
+
+    //background-color: #18bb61ff;
     
     h3{
         color: white;
@@ -66,15 +64,43 @@ export const TitleContainerStyled = styled.div`
     }
 `;
 
+
+export const SliderContainerStyled = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    overflow: auto;
+    padding: 5px;
+    //background-color: #d68010ff;
+
+    ::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Edge */
+    }
+
+    -- scrollbar-width: none; /* Firefox */
+    -- -ms-overflow-style: none; /* IE y Edge antiguos */
+`;
+
 export const CardsContainerStyled = styled.div`
     display: flex;
     gap: 10px;
     overflow: auto;
-    padding: 20px 0px;
+    //padding: 20px 0px;
     scroll-behavior: smooth;
     cursor: grab;
     cursor: pointer;
     /*box-shadow: 0px 15px 15px 0px rgba(92, 92, 92, 0.93);*/
+
+ 
+    
+
+    &::-webkit-scrollbar {
+        position: relative;
+        left: 300px;
+        
+        
+        
+    }
 
     /*
     &::-webkit-scrollbar {
@@ -85,11 +111,38 @@ export const CardsContainerStyled = styled.div`
     @media (max-width: 576px) {
         scrollbar: none;
         gap: 5px;
+
         &::-webkit-scrollbar {
             display: none;
         }
+
+        &::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Edge */
+        }
+
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE y Edge antiguos */
     }
 `;
+
+/*
+export const SliderButtonContainerStyled = styled.button`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #4e4e4eff;
+    cursor: pointer;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    color: white;
+    font-size: 2rem;
+
+    @media (max-width: 576px){
+        display: none;
+    }
+`;
+*/
 
 export const CardContainerStyled = styled.div`
     display: flex;

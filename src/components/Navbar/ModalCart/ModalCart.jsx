@@ -1,6 +1,6 @@
 import { AnimatePresence } from "framer-motion";
 import { clearCart, removeFromCart, toggleCartHidden } from "../../../redux/cart/cartSlice";
-import { ButtonContainerStyled, CardCartStyled, ContainerStyled, DataContainerStyled, HeadContainerStyled, Increase, MainContainerStyled, ModalOverLayStyled, ProductsCartContainerStyled, TotalContainerStyled } from "./ModalCartStyles";
+import { ButtonContainerStyled, CardCartStyled, ContainerStyled, DataContainerStyled, HeadContainerStyled, MainContainerStyled, ModalOverLayStyled, ProductsCartContainerStyled, TotalContainerStyled } from "./ModalCartStyles";
 import { useDispatch, useSelector } from "react-redux";
 
 import { FaTrashAlt } from "react-icons/fa";

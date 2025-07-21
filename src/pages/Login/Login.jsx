@@ -3,14 +3,12 @@ import { FormStyled, HeaderStyled, LoginWrapper, RegisterWrapper } from "./Login
 //import charizard from "../../assets/images/charizard.png"
 import Pokemon from "../../assets/images/Mew-gif.gif";
 
+import LoginForm from "../../components/Users/LoginForm/LoginForm";
+
 
 const Login = () => {
     return(
         <LoginWrapper>
-            <HeaderStyled>
-                <h2>Login</h2>
-                <img src={ Pokemon } alt="Charizard" />
-            </HeaderStyled>
             <FormStyled>
                 <input type="text" placeholder="Usuario" />
                 <input type="password" placeholder="Contraseña" />
@@ -22,6 +20,10 @@ const Login = () => {
                     <button type="button">Registrarse</button>
                 </NavLink>
             </RegisterWrapper>
+
+            <LoginForm />
+
+
         </LoginWrapper>
     )
 }

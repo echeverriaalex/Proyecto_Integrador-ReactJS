@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { POKEMONS_TYPES } from '../../utils/constants';
+import { POKEMONS_TYPES } from '../utils/constants';
 
 export const getAllCategoriesFromApi = async () => {
     try {

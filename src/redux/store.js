@@ -7,6 +7,7 @@ import persistStore from 'redux-persist/es/persistStore';
 import cartReducer from './cart/cartSlice';
 import menuReducer from './menu/menuSlice';
 import recommendedReducer  from './recommended/recommendedSlice';
+import userReducer from './slice/userSlice';
 
 const reducers = combineReducers({ 
     pokemons: pokemonsReducer,
@@ -14,12 +15,13 @@ const reducers = combineReducers({
     recommended: recommendedReducer,
     cart: cartReducer,
     menu: menuReducer,
+    user: userReducer,
 });
 
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: ['cart'],
+    whitelist: ['cart', 'user'], //  persistente en loalStorage
 }
 
 const persistedReducer = persistReducer(persistConfig, reducers);
