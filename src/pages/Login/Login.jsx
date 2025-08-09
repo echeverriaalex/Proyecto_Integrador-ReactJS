@@ -1,31 +1,41 @@
-import { NavLink } from "react-router-dom";
-import { FormStyled, HeaderStyled, LoginWrapper, RegisterWrapper } from "./LoginStyles"
-//import charizard from "../../assets/images/charizard.png"
+import InputContainer from "../../components/UI/InputContainer/InputContainer"
+import { ButtonStyled, FormBox, FormStyled, HeaderStyled, RegisterWrapper } from "./LoginStyles";
+import{ useFormik } from "formik";
 import Pokemon from "../../assets/images/Mew-gif.gif";
-
-import LoginForm from "../../components/Users/LoginForm/LoginForm";
-
+import { NavLink } from "react-router-dom";
 
 const Login = () => {
+
+    const { values, handleChange, handleSubmit, errors } = useFormik({
+        initialValues: {
+            email: "",
+            password: ""
+        },
+        onSubmit: (values) => {
+            console.log("Form submitted with values:", values);
+        }
+    });
+
+    console.log("LoginForm values:", values);    
+
     return(
-        <LoginWrapper>
+        <FormBox>
+            <HeaderStyled>
+                <img src={Pokemon} alt="Mew" />
+            </HeaderStyled>
             <FormStyled>
-                <input type="text" placeholder="Usuario" />
-                <input type="password" placeholder="Contraseña" />
-                <button type="submit">Iniciar Sesión</button>
+                <InputContainer label="Email" type="email" name="email" value={values.email} onChange={handleChange} isError={errors.email}/>
+                <InputContainer label="Password" type="password" name="password" value={values.password} onChange={handleChange} isError={errors.password}/>
+                <ButtonStyled type="submit" onClick={handleSubmit}>Log in</ButtonStyled>
             </FormStyled>
             <RegisterWrapper>
                 <p>¿No tenés cuenta?</p>
                 <NavLink to="/register">
-                    <button type="button">Registrarse</button>
+                    <ButtonStyled type="button">Registrarse</ButtonStyled>
                 </NavLink>
             </RegisterWrapper>
-
-            <LoginForm />
-
-
-        </LoginWrapper>
-    )
+        </FormBox>
+    );
 }
 
 export default Login;
