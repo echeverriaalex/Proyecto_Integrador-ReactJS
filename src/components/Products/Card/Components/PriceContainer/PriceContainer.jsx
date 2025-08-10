@@ -10,7 +10,6 @@ const PriceContainer = ({ types = [], price, discount }) => {
     return (
         <PriceContainerStyled>
             <h3>${finalPrice.toFixed(2)}</h3>
-
             { /* discount && <span className="original-price">${price.toFixed(2)}</span> */}
         </PriceContainerStyled>
     );

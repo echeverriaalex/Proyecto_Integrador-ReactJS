@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const PriceContainerStyled = styled.div`
+    position: relative;
+    bottom: 0;
     width: 100%;
 
     h3{
@@ -12,4 +14,4 @@ export const PriceContainerStyled = styled.div`
         font-weight: 700;
         font-family: monospace, 'Arial', sans-serif;
     }
-`;
+`;  

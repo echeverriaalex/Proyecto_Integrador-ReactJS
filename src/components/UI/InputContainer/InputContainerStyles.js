@@ -5,23 +5,16 @@ export const InputContainerStyled = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 3px;
     max-width: 350px;
-
-
+    
     p{
-        display: flex;
-        align-items: center;
-        justify-content: center;
         color: white;
         background-color: #000;
-        height: 100%;
-        padding: 0px 15px;
+        padding: 8px 15px;
+        text-align: center;
+        border-radius: 10px;
     }
-   
-    /*
-    background-color: #ac0c0cff;
-    padding: 10px;
-    */
 `;
 
 export const LabelStyled = styled.label`
@@ -29,7 +22,6 @@ export const LabelStyled = styled.label`
     padding: 5px;
     color: white;
     font-size: 1rem;
-    
 `;
 
 export const InputStyled = styled.input`
@@ -37,8 +29,7 @@ export const InputStyled = styled.input`
     font-size: 1rem;
     border-radius: 10px;
     width: 100%;
-
-
+    height: 100%;
 `;
 
 export const ErrorStyled = styled.p`

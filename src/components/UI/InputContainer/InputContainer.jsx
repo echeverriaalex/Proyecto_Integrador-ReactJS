@@ -6,7 +6,7 @@ const InputContainer = ({ label, type, name, ...field }) => {
         { /* <LabelStyled htmlFor={label}>{label}</LabelStyled> */ }
         
         <InputStyled type={type} id={label} placeholder={label} name={name} {...field} />
-        
+                
         { type == "password" && <p>Mostrar</p> }
         { false && <ErrorStyled>Error</ErrorStyled>}
     </InputContainerStyled>
