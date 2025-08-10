@@ -7,7 +7,8 @@ import persistStore from 'redux-persist/es/persistStore';
 import cartReducer from './cart/cartSlice';
 import menuReducer from './menu/menuSlice';
 import recommendedReducer  from './recommended/recommendedSlice';
-import userReducer from './slice/userSlice';
+import userReducer from './users/userSlice';
+import categoriesSlice from './slice/categoriesSlice';
 
 const reducers = combineReducers({ 
     pokemons: pokemonsReducer,
@@ -16,6 +17,7 @@ const reducers = combineReducers({
     cart: cartReducer,
     menu: menuReducer,
     user: userReducer,
+    categories: categoriesSlice,
 });
 
 const persistConfig = {
