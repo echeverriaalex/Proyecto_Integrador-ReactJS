@@ -1,12 +1,23 @@
-import { ErrorWrapper } from "./ErrorNotFoundStyles";
+import { useNavigate } from "react-router-dom";
+import { ErrorWrapper, ImagesContainerStyled, LinksContainerStyled, TextContainerStyled } from "./ErrorNotFoundStyles";
+import Button from "../../components/UI/Button/Button"
 
 const ErrorNotFound = () => {
+
+    const navigate = useNavigate();
+
     return(
         <ErrorWrapper>
-            <h2>404</h2>
-            <h2>Page Not Found</h2>
-            <p>The page you are looking for does not exist.</p>
-            <p>Please check the URL or return to the homepage.</p>
+            <ImagesContainerStyled>
+                <img src="https://i.gifer.com/5SvD.gif" alt="404 Not Found" />
+            </ImagesContainerStyled>
+            <TextContainerStyled>
+                <h2>¡UPPPSS! that was a Error 404</h2>
+                <p>Page Not Found</p>
+            </TextContainerStyled>
+            <LinksContainerStyled>
+                <Button onClick={() => navigate("/")}>Go Home</Button>
+            </LinksContainerStyled>
         </ErrorWrapper>
     )
 }
