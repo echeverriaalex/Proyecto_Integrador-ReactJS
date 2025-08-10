@@ -1,10 +1,31 @@
-import { DeveloperContainer, FooterStyled, Project, ProjectContainer } from "./FooterStyles"
+
+import CategoryCard from "../Categories/CategoryCard/CategoryCard";
+import { CategoriesFooterContainer, CategoriesFooterSection, DeveloperContainer, FooterStyled, Project, ProjectContainer } from "./FooterStyles"
+import { useSelector } from "react-redux";
 
 const Footer = () => {
+
+    const { categories } = useSelector((state) => state.categories);
+
+    //console.log(categories);
+
     return(
         <FooterStyled>
-            <h2>Explora mis otros Proyectos</h2>
+            <CategoriesFooterSection>
+                <h2>Categories</h2>
+                <CategoriesFooterContainer>
+                    {
+                        categories.map((category) => (
+                            <CategoryCard category={category} key={category.name}>
+                                <p>{category.name}</p>
+                            </CategoryCard>
+                        ))
+                    }
+                </CategoriesFooterContainer>
+            </CategoriesFooterSection>
+
             <ProjectContainer>
+                <h2>Explora mis otros Proyectos</h2>
                 <Project>
                     <img src="https://carstorepremium.vercel.app/assets/images/logo.webp"/>
                     <p>Luxury vehículos de lujo</p>
@@ -13,10 +34,9 @@ const Footer = () => {
                     <img src="https://statics.redaccionmayo.com.ar/2023/01/crop/63c1c82aca69a__680x453.webp"/>
                     <p>MEGA_BUY</p>
                 </Project>
+                <a href="https://github.com/echeverriaalex">👉 Más de mis proyectos 👈</a>
             </ProjectContainer>
-            
-            <a href="https://github.com/echeverriaalex">👉 Conocé más de mis proyectos 👈</a>
-            
+
             <DeveloperContainer>
                 <p>Developed with ReactJS by <a href="https://alexnahuelecheverria.vercel.app/">Alex Nahuel Echeverria</a></p>
                 <p>Todos los derechos reservados &copy; 2025</p>

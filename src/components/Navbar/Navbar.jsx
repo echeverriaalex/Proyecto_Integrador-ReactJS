@@ -1,4 +1,5 @@
-import { HeaderStyled, NavbarStyled, IconsContainerStyled, UserIcon, SearchContainer, SearchBar, SearchIcon, MenuContainerStyled, LogoLinkContainer, NavbarContainerStyled, NavLinkStyled, IconNavLinkStyled, NavLinkContainerStyled, MobileCainerStyled, NavbarMobileContainerStyled, ContainerStyled } from "./NavbarStyled"
+import { HeaderStyled, NavbarStyled, IconsContainerStyled, UserIcon, MenuContainerStyled, LogoLinkContainer, NavbarContainerStyled, NavLinkStyled, IconNavLinkStyled, 
+    NavLinkContainerStyled, NavbarMobileContainerStyled, ContainerStyled, MobileContainerStyled } from "./NavbarStyled"
 import logo from "../../assets/images/Pokemon_logo.png";
 import { motion } from "framer-motion";
 import ModalCart from "./ModalCart/ModalCart";
@@ -8,7 +9,8 @@ import MenuIcon from "./MenuIcon/MenuIcon"
 import { useDispatch, useSelector } from "react-redux";
 import { getAllCategoriesFromApi } from "../../axios/axios-categories";
 import { useEffect, useState } from "react";
-import typeIcons from "../../utils/setIcon";
+import SearchBar from "../UI/SearchBar/SearchBar";
+import CategoryCard from "../Categories/CategoryCard/CategoryCard";
 
 export const Navbar = () => {
 
@@ -45,14 +47,7 @@ export const Navbar = () => {
                             <img src={logo} alt="Logo" />
                         </LogoLinkContainer>
                     </motion.div>
-
-                    <SearchContainer>
-                        <SearchBar type="text" placeholder="Buscar"/>
-                        <motion.div whileTap={{ scale: 0.8 }}>
-                            <SearchIcon/>
-                        </motion.div>
-                    </SearchContainer>
-                    
+                    <SearchBar/>
                     <IconsContainerStyled>
                         <motion.div whileTap={{ scale: 0.8 }}>
                             <IconNavLinkStyled to="/login">
@@ -69,19 +64,15 @@ export const Navbar = () => {
                     <NavLinkStyled to="/about">About</NavLinkStyled>
                     <NavLinkStyled to="/products">Products</NavLinkStyled>
                     <NavLinkContainerStyled>
-                        Categories
+                        <p>Categories</p>
                         <div>
                             {
                                 categories.map((category, index) => (
-                                    <NavLinkStyled key={ index } to={`/pagecategory/${category.name}`}>
-                                        { category.name.charAt(0).toUpperCase() + category.name.slice(1) }
-                                        <img src={ typeIcons[category.name] } alt={category.name} />
-                                    </NavLinkStyled>
+                                    <CategoryCard category={category} key={index} />
                                 ))
                             }
                         </div>
                     </NavLinkContainerStyled>
-                    <NavLinkStyled to="/services">Services</NavLinkStyled>
                     <NavLinkStyled to="/contact">Contact</NavLinkStyled>
                 </NavbarStyled>
             </NavbarContainerStyled>
@@ -90,7 +81,7 @@ export const Navbar = () => {
 
 
             <NavbarMobileContainerStyled>
-                <MobileCainerStyled>
+                <MobileContainerStyled>
                     <MenuContainerStyled
                         whileTap={{ scale: 0.8 }}
                     >
@@ -111,13 +102,20 @@ export const Navbar = () => {
                             <CartIcon/>
                         </motion.div>
                     </IconsContainerStyled>
-                </MobileCainerStyled>
+                </MobileContainerStyled>
+
+                <SearchBar/>
+
+                { /*
                 <SearchContainer>
                     <SearchBar type="text" placeholder="Buscar"/>
                     <motion.div whileTap={{ scale: 0.8 }}>
                         <SearchIcon/>
                     </motion.div>
                 </SearchContainer>
+                
+                </SearchContainer>
+                */ }
             </NavbarMobileContainerStyled>
 
 

@@ -44,7 +44,7 @@ export const ContainerStyled = styled(motion.div)`
     /* height: calc(100vh - 4rem); */
     height: calc( 100vh - 40px);
     padding: 15px;
-    background: #3c3c3d;
+    background: #494949ff;
     border-radius: 1rem;
     box-shadow: 0 0 50px 20px rgba(0, 0, 0, 0.3);
 
@@ -84,6 +84,8 @@ export const ProductsCartContainerStyled = styled.div`
     height: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 10px;
     overflow-y: auto;
 
@@ -93,6 +95,29 @@ export const ProductsCartContainerStyled = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+`;
+
+export const EmptyContainerStyled = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+
+    //background: #c247d3;
+
+    img{
+        max-width: 100px;
+        max-height: 100px;
+    }
+
+    p{
+        font-size: 1.2rem;
+        color: #fff;
+        font-weight: 600;
+        font-family: 'Poppins', sans-serif;
     }
 `;
 

@@ -1,11 +1,11 @@
 export const cardColorByCategory = {
-    grass: "linear-gradient(90deg, #72ac34, #5f9a23);",
-    fire: "linear-gradient(to bottom right, #f72b28,#800202);",
-    water: "linear-gradient(90deg, #7296db, #5f85c9);",
+    grass: "linear-gradient(90deg, #58c92cff, #4c9206ff);",
+    fire: "linear-gradient(to bottom right, #ee3835ff, #e20707ff);",
+    water: "linear-gradient(90deg, #5482d8ff, #2f6edbff);",
     bug: "linear-gradient(90deg, #efd84c, #e7c530);",
     normal: "linear-gradient(90deg, #dbd7ee, #c9c2e6);",
     flying: "linear-gradient(90deg, #1de2c0, #40e9d0);",
-    poison: "linear-gradient(90deg, #2d8519, #07693c);",
+    poison: "linear-gradient(90deg, #263d21ff, #05522eff);",
     electric: "linear-gradient(90deg, #fac430, #e9b408);",
     ground: "linear-gradient(90deg, #4e3213,rgb(73, 45, 9) );",
     fairy: "linear-gradient(90deg, #8b0885, #500449);",
@@ -23,13 +23,13 @@ export const cardColorByCategory = {
 }
 
 export const colorCategory = {
-    grass:  " #189c0c",
-    fire: " #f01d1d ",
-    water: " #0ba6ac",
+    grass:  " #3b8808ff",
+    fire: " #b61313ff ",
+    water: " #0077ffff",
     bug: " #c98811",
     normal: " #b4b4b4",
     flying: " #33b3ca",
-    poison: " #1d9c09",
+    poison: " #396133ff",
     electric: " #c99506",
     ground: " #854e10",
     fairy: " #ad0ea5",

@@ -1,4 +1,4 @@
-import { HeroContainer, HeroContent, ImageContainer } from "./HeroStyles"
+import { AccessLinkStyled, HeroContainer, HeroContent, ImageContainer, NavLinkStyled } from "./HeroStyles"
 import wallpaper  from "../../assets/images/wallpaper.jpg"
 
 const Hero = () => {
@@ -6,10 +6,18 @@ const Hero = () => {
         <HeroContainer>
             
             <HeroContent>
-                <h1>Gana el Mundial Pokémon</h1>
-                <h2>¡Comprá tus Pokemones aquí y entrenalos!</h2>
+                <h1>The Pokémon World Cup is coming</h1>
+                <h2>Buy your Pokémon here, train them and become the new Champion!</h2>
             </HeroContent>
+
             { /*
+            <AccessLinkStyled>
+                <NavLinkStyled to="/about">
+                    About
+                </NavLinkStyled>
+            </AccessLinkStyled>
+
+           
             <ImageContainer>
                 <img src={ wallpaper } alt="Imagen del hero" />
             </ImageContainer>

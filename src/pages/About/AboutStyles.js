@@ -91,7 +91,7 @@ export const TextContainerStyled = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 40%;
+  width: 45%;
   gap: 15px;
   padding: 10px;
 
@@ -102,7 +102,7 @@ export const TextContainerStyled = styled.div`
 
   h2{
     font-family: Montserrat, sans-serif;
-    font-size: 3.2rem;
+    font-size: 3rem;
   }
 
   p{
@@ -127,6 +127,7 @@ export const TextContainerStyled = styled.div`
     h2{
       font-size: 2rem;
     }
+
     p{
       font-size: 1rem;
     }

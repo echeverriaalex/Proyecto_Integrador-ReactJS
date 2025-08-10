@@ -24,22 +24,6 @@ export const CloseIcon = styled(IoIosCloseCircle)`
     align-items: center;    
 `;
 
-export const SearchIcon = styled(HiOutlineSearch)`
-    font-size: 2rem;
-    color: white;
-    cursor: pointer;    
-    user-select: none;
-    
-    padding: 0px;
-    margin: 0px;
-    height: 100%;
-    max-height: 20px;
-    width: 100%
-    max-width: 20px;
-    display: flex;
-    align-items: center;
-`;
-
 export const MenuIconStyled = styled(HiMenu)`
     font-size: 2rem;
     color: white;
@@ -93,13 +77,13 @@ export const HeaderStyled = styled.header`
     /*position: fixed;*/
     z-index: 70;
     width: 100%;
-    
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background: #a01c05;
     border-bottom: 1px solid white;
+    padding: 5px 20px;
 
     @media (max-width: 768px){
         padding: 10px;
@@ -111,13 +95,13 @@ export const HeaderStyled = styled.header`
 `;
 
 export const NavbarContainerStyled = styled.div`
-   
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     //gap: 10px;
     max-width: 1400px;
     width: 100%;
-
     //background: #d404d4ff;
 
     @media (max-width: 576px){
@@ -125,10 +109,7 @@ export const NavbarContainerStyled = styled.div`
     }
 `;
 
-
-
-
-export const NavbarMobileContainerStyled = styled(motion.NavLink)`
+export const NavbarMobileContainerStyled = styled.div`
     display: none;
     flex-direction: column;
     justify-content: space-between;
@@ -141,7 +122,7 @@ export const NavbarMobileContainerStyled = styled(motion.NavLink)`
     }
 `;
 
-export const MobileCainerStyled = styled(motion.NavLink)`
+export const MobileContainerStyled = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -149,21 +130,15 @@ export const MobileCainerStyled = styled(motion.NavLink)`
 `;
 
 export const NavbarStyled = styled.nav`
-    //background: #b6d314ff;
-    //padding: 15px;
     display: flex;
-    gap: 5px;
+    gap: 10px;
+    align-items: center;
     justify-content: center;
+    width: 100%;
 
     @media (max-width: 882px){
-        background: #50d404ff;
-        display: grid;
-        flex-wrap: unset;
-        grid-template-columns: repeat(auto-fit, 110px);
-        justify-content: center;
-        width: 100%;
+        gap: 5px;
     }
-
 
     @media (max-width: 576px){
         display: none;
@@ -172,15 +147,13 @@ export const NavbarStyled = styled.nav`
 
 /* Nav Link cumple la misma funcion que un a con href */
 export const NavLinkStyled = styled(NavLink)`
-
-    //background: #04a3d4ff;
-
-    padding: 10px 20px;
     font-weight: 700;
-    font-size: 1rem;
-    text-align: center;
     color: white;
+    font-family: montserrat;
+    text-align: center;
+    padding: 10px 25px;
     display: flex;
+    align-items: center;
     justify-content: center;
 
     &:hover {
@@ -191,17 +164,9 @@ export const NavLinkStyled = styled(NavLink)`
         text-underline-offset: 5px; /* ajusta la separación */
     }
 
-    img{
-        width: 1rem;
-    }
-
-
     @media (max-width: 882px){
-        //background: #04a3d4ff;
-        display: grid;
-        flex-wrap: unset;
-        grid-template-columns: repeat(auto-fit, 120px);
         width: 100%;
+        padding: 10px;
     }
 
     @media (max-width: 576px){
@@ -210,15 +175,18 @@ export const NavLinkStyled = styled(NavLink)`
         justify-content: start;
         width: 100%;
     }
-
 `;
 
 export const NavLinkContainerStyled = styled.div`
-    padding: 10px 20px;
-    font-weight: 700;
-    font-size: 1rem;
-    text-align: center;
-    color: white;
+    padding: 10px 25px;
+    cursor: pointer;
+
+    p{
+        font-weight: 700;
+        color: white;
+        font-family: montserrat;
+        text-align: center;
+    }
     
     &:hover {
         transition: all .5s;
@@ -230,7 +198,7 @@ export const NavLinkContainerStyled = styled.div`
 
     div{
         display: none;
-        grid-template-columns: repeat(auto-fit, minmax(100px, 120px));
+        grid-template-columns: repeat(auto-fit, minmax(100px, 140px));
         width: 500px;
         max-width: 100%;
         justify-content: center;
@@ -241,6 +209,7 @@ export const NavLinkContainerStyled = styled.div`
         background: #921a05;
         border-radius: 10px;
         position: absolute;
+        left: 40%;
     }
 
     &:hover div{
@@ -249,6 +218,14 @@ export const NavLinkContainerStyled = styled.div`
 
     a{
         border: 1px solid white;
+    }
+
+    @media (max-width: 882px){
+        padding: 10px;
+
+        div{
+            left: 15%;
+        }
     }
 `;
 
@@ -288,6 +265,8 @@ export const IconsContainerStyled = styled.div`
 
 export const ContainerStyled = styled(motion.div)`
     display: flex;
+    justify-content: center;
+    align-items: center;
     justify-content: space-between;
     gap: 30px;
     width: 100%;
@@ -320,40 +299,8 @@ export const IconNavLinkStyled = styled(NavLink)`
     padding: 15px;
 
     @media (max-width: 576px){
-    padding: 10px 0px;
+        padding: 10px 0px;
     }
-`;
-
-export const SearchContainer = styled.div`
-
-    //background: #03d826ff;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    //padding: 5px;
-    //border: 1px solid black;
-    border-radius: 10px;
-    width: 100%;
-    min-width: 200px;
-    max-width: 700px;
-
-    @media (max-width: 882px){
-        max-width: 200px;
-    }
-    
-    @media (max-width: 576px){
-        width: 100%;
-        max-width: unset;
-        padding: 0px;
-    }
-`;
-
-export const SearchBar = styled.input`
-    width: 100%;
-    padding: 5px 10px;
-    font-size: .8rem;
-    border-radius: 5px;
 `;
 
 export const LinksContainerStyled = styled.div`

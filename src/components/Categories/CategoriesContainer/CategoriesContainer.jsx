@@ -4,23 +4,31 @@ import { CategoriesContainerStyled, CategoryContainerStyled, ImageContainerStyle
 import typeIcons from "../../../utils/setIcon";
 import SliderButtonLeft from "../../UI/SliderButtons/SliderButtonLeft";
 import SliderButtonRight from "../../UI/SliderButtons/SliderButtonRight";
+import { useDispatch, useSelector } from "react-redux";
+import { isError, isFetching, success } from "../../../redux/slice/categoriesSlice";
 
 const CategoriesContainer = () => {
 
-    const [categoriesList, setCategoriesList] = useState([]);
+    const dispatch = useDispatch();
+    const { categories,  error } = useSelector((state) => state.categories);
+    //const [categoriesList, setCategoriesList] = useState([]);
     const containerRef = useRef(null);
 
     const [scrollPos, setScrollPos] = useState(0);
 
     const fectchCategories = async () => {
         try {
-            const categories = await getAllCategoriesFromApi();
+            dispatch(isFetching());
+            const categoriesList = await getAllCategoriesFromApi();
             //console.log("Fetched categories:", categories);
-            setCategoriesList(categories);
-            return categories;
+            //setCategoriesList(categoriesList);
+            dispatch(success(categoriesList));
+            return categoriesList;
         }
         catch (error) {
             console.error("Error fetching categories:", error);
+            console.error("Error fetching categories:", error.message);
+            dispatch(isError(error.message));
             throw error;
         }
     };
@@ -73,7 +81,7 @@ const CategoriesContainer = () => {
                 ref={containerRef}
             >
                 {
-                    categoriesList.map((category, index) => (
+                    categories.map((category, index) => (
                         <CategoryContainerStyled key={index} to={`/pagecategory/${category.name}`}>
                             <ImageContainerStyled>
                                 <img src={ typeIcons[category.name] } alt={category.name} />

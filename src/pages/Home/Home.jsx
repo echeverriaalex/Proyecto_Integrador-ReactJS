@@ -1,4 +1,4 @@
-import { CardsContainerStyled, CardWrapperStyled, HomeWrapper, LinkButtonStyled, SectionWrapper, TitleSectionStyled } from "./HomeStyles"
+import { CardsContainerStyled, CardWrapperStyled, HomeWrapper, LinkButtonStyled, SectionWrapper, TextContainerStyled, TitleSectionStyled } from "./HomeStyles"
 import Hero from "../../components/Hero/Hero"
 import CategoriesContainer from "../../components/Categories/CategoriesContainer/CategoriesContainer";
 import CategoriesRecommended from "../../components/CategoriesRecommended/CategoriesRecommended";
@@ -12,50 +12,49 @@ const Home = () => {
     return (
         <HomeWrapper>
             <Hero />
-
             <SectionWrapper>
                 <CategoriesContainer />
             </SectionWrapper>
-
-
             <SectionWrapper>
                 <TitleSectionStyled>Hello Pokemon trainer!</TitleSectionStyled>
                 <CardsContainerStyled>
                     <CardWrapperStyled>
-                        <img src={entrenamiento} alt="entrenamiento Pokemon" />
-                        <h2>Entrena a tus Pokemones</h2>
-                        <p>
-                            Mejora las habilidades de tus Pokémon con 
-                            entrenamientos personalizados. ¡Haz que tus 
-                            Pokémon sean más fuertes y listos para la batalla!
-                        </p>
+                        <img src={batalla} alt="Pokemon Battle" />
+                        <TextContainerStyled>
+                            <h2>Win battles solo and in teams</h2>
+                            <p>
+                                Participate in exciting Pokémon battles and
+                                show off your skills as a trainer.
+                                Challenge other players and become the best!
+                            </p>
+                        </TextContainerStyled>
                     </CardWrapperStyled>
                     <CardWrapperStyled>
-                        <img src={batalla} alt="Pokemon Battle" />
-                        <h2>Gana batallas contra otros</h2>
-                        <p>
-                            Participa en emocionantes batallas Pokémon y 
-                            demuestra tu habilidad como entrenador. 
-                            ¡Desafía a otros jugadores y conviértete en el mejor!
-                        </p>
+                        <img src={entrenamiento} alt="entrenamiento Pokemon" />
+                        <TextContainerStyled>
+                            <h2>Discover your Pokémon</h2>
+                            <p>
+                                Discover all his tricks by combining 
+                                attack and defense skills
+                            </p>
+                        </TextContainerStyled>
                     </CardWrapperStyled>
                     <CardWrapperStyled>
                         <img src={campeonato} alt="campeonato Pokemon" />
-                        <h2>Gana el campoenato Pokemon</h2>
-                        <p>
-                            Compite en el campeonato Pokémon y lucha por 
-                            la gloria. ¡Demuestra que eres el mejor entrenador 
-                            y gana el título de campeón!
-                        </p>
+                        <TextContainerStyled>
+                            <h2>Win the Pokémon Cup </h2>
+                            <p>
+                                Compete in the Pokémon championship and fight for
+                                glory. Show that you are the best trainer
+                                and win the title of champion!
+                            </p>
+                        </TextContainerStyled>
                     </CardWrapperStyled>
                 </CardsContainerStyled>
-                <LinkButtonStyled href="/about">Learn more</LinkButtonStyled>
+                <LinkButtonStyled to="/about">Learn more</LinkButtonStyled>
             </SectionWrapper>
-
-
-
             <SectionWrapper>
-                <TitleSectionStyled>Some recommended categories</TitleSectionStyled>
+                <TitleSectionStyled>Our suggestions</TitleSectionStyled>
                 <CategoriesRecommended />
             </SectionWrapper>
         </HomeWrapper>

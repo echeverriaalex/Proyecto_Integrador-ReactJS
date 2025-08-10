@@ -6,6 +6,7 @@ import { CloseIcon, LinksContainerStyled } from "../NavbarStyled";
 import { useEffect, useState } from "react";
 import { getAllCategoriesFromApi } from "../../../axios/axios-categories";
 import typeIcons from "../../../utils/setIcon";
+import CategoryCard from "../../Categories/CategoryCard/CategoryCard";
 
 const ModalMenu = () => {
 
@@ -69,13 +70,7 @@ const ModalMenu = () => {
                                     {
                                         categories.length > 0 ? (
                                             categories.map((category, index) => (
-                                                <NavLinkMobileStyled 
-                                                    key={ index }
-                                                    to={`/pagecategory/${category.name}`}
-                                                >
-                                                    { category.name.charAt(0).toUpperCase() + category.name.slice(1) }
-                                                    <img src={ typeIcons[category.name] } alt={category.name} />
-                                                </NavLinkMobileStyled>
+                                                <CategoryCard category={category} key={index} />
                                             ))
                                         )
                                         :(
@@ -85,7 +80,6 @@ const ModalMenu = () => {
                                 </div>
                             </NavLinkContainerStyled>
                             <NavLinkMobileStyled to="/about">About</NavLinkMobileStyled>
-                            <NavLinkMobileStyled to="/services">Services</NavLinkMobileStyled>
                             <NavLinkMobileStyled to="/contact">Contact</NavLinkMobileStyled>                            
                         </LinksContainerStyled>
                     </ContainerStyled>

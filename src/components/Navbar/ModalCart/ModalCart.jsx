@@ -1,8 +1,8 @@
 import { AnimatePresence } from "framer-motion";
 import { clearCart, removeFromCart, toggleCartHidden } from "../../../redux/cart/cartSlice";
-import { ButtonContainerStyled, CardCartStyled, ContainerStyled, DataContainerStyled, HeadContainerStyled, MainContainerStyled, ModalOverLayStyled, ProductsCartContainerStyled, TotalContainerStyled } from "./ModalCartStyles";
+import { ButtonContainerStyled, CardCartStyled, ContainerStyled, DataContainerStyled, EmptyContainerStyled, HeadContainerStyled, MainContainerStyled, ModalOverLayStyled, ProductsCartContainerStyled, TotalContainerStyled } from "./ModalCartStyles";
 import { useDispatch, useSelector } from "react-redux";
-
+import cart from "../../../assets/images/cart.png";
 import { FaTrashAlt } from "react-icons/fa";
 import { IoIosCloseCircle } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
@@ -45,13 +45,17 @@ const ModalCart = () => {
                                 whileTap={{ scale: 0.90 }}
                                 onClick={() => dispatch(toggleCartHidden())}
                             />
-                            <h2>Carrito</h2>
+                            <h2>Ir al carrito</h2>
                         </HeadContainerStyled>
 
                         <MainContainerStyled>
                             <ProductsCartContainerStyled>
                                 {cartItems.length === 0 ? (
-                                    <p>No hay productos en el carrito</p>
+                                    <EmptyContainerStyled>
+                                        <img src={cart} alt="Cart is empty" />
+                                        <p>No hay productos en el carrito</p>
+                                    </EmptyContainerStyled>
+                                    
                                 ) :
                                 (
                                     cartItems.map((item) => (
@@ -106,6 +110,10 @@ const ModalCart = () => {
                                 <FaTrashAlt />
                             </Button>
                             <Button
+                                onClick={() => {
+                                    dispatch(toggleCartHidden());
+                                    navigate("/checkout");
+                                }}
                                 background = "#0f78a8"
                             >
                                 Finalizar compra

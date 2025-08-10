@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import { getInfoPokemonByID } from "../../../axios/axios-pokemons";
 import TypeLabelContainer from "../../../components/Products/Card/Components/TypeLabelContainer/TypeLabelContainer";
@@ -18,6 +18,7 @@ const CardPage = () => {
     const dispatch = useDispatch();
     const location = useLocation();
     const { price, typeSelected, stats } = location.state || {};
+    const containerRef = useRef(null);
 
     const fetchData = async () => {
         try {
@@ -27,13 +28,35 @@ const CardPage = () => {
             console.error("Error fetching categories:", error);
         }
     };
+
+    const scroll = () => {
+        const container = containerRef.current;
+        if (container) {
+            //const scrollAmount = (container.clientWidth - 50); // ancho visible del contenedor
+            
+            /*
+            const newPos = direction === 'right'
+                ? container.scrollLeft + scrollAmount
+                : container.scrollLeft - scrollAmount;
+            */
+
+            container.scrollTo({
+                //left: newPos,
+                top: 0,
+                behavior: 'smooth',
+            });
+        }
+    };
     
     useEffect(() => {
         fetchData();
+        scroll();
     }, [id]);
     
     return (
-        <CardPageContainer>
+        <CardPageContainer
+            ref={containerRef}
+        >
             <ProductContainerStyled
                 typeSelected={ typeSelected }
             >

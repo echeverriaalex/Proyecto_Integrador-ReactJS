@@ -6,8 +6,8 @@ import { getData, getInfoPokemonByURLFromApi } from "../../../axios/axios-pokemo
 import Card from "../Card/Card";
 
 import Button from "../../UI/Button/Button";
-import { data, pre } from "framer-motion/client";
 import CardsCatalog from "../CardsCatalog/CardsCatalog";
+import Loader from "../../Loader/Loader";
 
 const CardsContainer = () => {
     const dispatch = useDispatch()    
@@ -90,6 +90,10 @@ const CardsContainer = () => {
     
     return(
         <>
+            { isLoading && <Loader isLoading={isLoading} />}
+
+            <Loader isLoading={isLoading} />
+
             <CardsCatalog ref={containerRef} productsList = {pokemonsList} />
 
             <div style={{ display: "flex", justifyContent: "center", gap: "1rem", marginTop: "1rem" }}>
