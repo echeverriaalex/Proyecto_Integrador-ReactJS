@@ -3,7 +3,7 @@ import { IoIosArrowBack } from "react-icons/io";
 
 const SliderButtonLeft = ({ onClick }) => {
     return (
-        <SliderButtonContainerStyled onClick={onClick}>
+        <SliderButtonContainerStyled onClick={onClick} whileTap={{ scale: 0.8 }}>
             <IoIosArrowBack />
         </SliderButtonContainerStyled>
     );
