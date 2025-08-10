@@ -4,7 +4,7 @@
 import Pokemon from "../../assets/images/pikachu.gif"
 
 import InputContainer from "../../components/UI/InputContainer/InputContainer"
-import { ButtonStyled, FormBox, FormStyled, HeaderStyled, RegisterWrapper } from "./RegisterStyles";
+import { ButtonStyled, FormBox, FormStyled, HeaderStyled, LoginWrapper, RegisterWrapper } from "./RegisterStyles";
 import{ useFormik } from "formik";
 import { NavLink } from "react-router-dom";
 
@@ -21,23 +21,25 @@ const Register = () => {
     });
 
     return(
-        <FormBox>
-            <HeaderStyled>
-                <img src={Pokemon} alt="pikachu" />
-            </HeaderStyled>
-            <FormStyled>
-                <InputContainer label="Name" type="text" name="name" value={values.name} onChange={handleChange} isError={errors.name}/>
-                <InputContainer label="Email" type="email" name="email" value={values.email} onChange={handleChange} isError={errors.email}/>
-                <InputContainer label="Password" type="password" name="password" value={values.password} onChange={handleChange} isError={errors.password}/>
-                <ButtonStyled type="submit" onClick={handleSubmit}>Registrarse</ButtonStyled>
-            </FormStyled>
-            <RegisterWrapper>
-                <p>¿Ya tenés cuenta?</p>
-                <NavLink to="/login">
-                    <ButtonStyled type="button">Iniciar sesión</ButtonStyled>
-                </NavLink>
-            </RegisterWrapper>
-        </FormBox>
+        <RegisterWrapper>
+            <FormBox>
+                <HeaderStyled>
+                    <img src={Pokemon} alt="pikachu" />
+                </HeaderStyled>
+                <FormStyled>
+                    <InputContainer label="Name" type="text" name="name" value={values.name} onChange={handleChange} isError={errors.name}/>
+                    <InputContainer label="Email" type="email" name="email" value={values.email} onChange={handleChange} isError={errors.email}/>
+                    <InputContainer label="Password" type="password" name="password" value={values.password} onChange={handleChange} isError={errors.password}/>
+                    <ButtonStyled type="submit" onClick={handleSubmit}>Register</ButtonStyled>
+                </FormStyled>
+                <LoginWrapper>
+                    <p>Do you already have an account?</p>
+                    <NavLink to="/login">
+                        <ButtonStyled type="button">Login</ButtonStyled>
+                    </NavLink>
+                </LoginWrapper>
+            </FormBox>
+        </RegisterWrapper>
     )
 }
 

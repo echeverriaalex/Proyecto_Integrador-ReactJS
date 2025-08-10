@@ -1,6 +1,15 @@
 
 import styled from "styled-components";
 
+export const RegisterWrapper = styled.div`
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+`;
+
 export const FormBox = styled.div`
     display: flex;
     flex-direction: column;
@@ -14,10 +23,7 @@ export const FormBox = styled.div`
     border-radius: 10px;
     border: 1px solid #000;
     margin: 30px;
-
-    /*
-    padding: 10px;
-    */
+    padding: 15px;
 `;
 
 export const HeaderStyled = styled.div`
@@ -27,18 +33,7 @@ export const HeaderStyled = styled.div`
     justify-content: center;
     align-items: center;
     gap: 30px;
-    //background: #8daed2;
     border-radius: 10px;
-    //border: 2px solid black;
-
-    /*
-    h2{
-        font-family: "Bruno Ace SC", sans-serif;
-        font-family: "Tagesschrift", system-ui;
-        color: white;
-        font-style: normal;
-    }
-    */
 
     img{
         height: 150px;
@@ -58,19 +53,7 @@ export const FormStyled = styled.form`
     */
 `;
 
-export const RegisterWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 0px;
-    width: 100%;
 
-    p{
-        font-size: 1.2rem;
-        color: white;
-    }
-`;
 
 export const ButtonStyled = styled.button`
     width: 100%;
@@ -84,23 +67,22 @@ export const ButtonStyled = styled.button`
     border: none;
 `;
 
-/*
-export const RegisterWrapper = styled.div`
-    background: #c59382;
+export const LoginWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    justify-content: space-evenly;
     align-items: center;
+    gap: 15px;
+    padding: 10px 0px;
     width: 100%;
-    max-width: 500px;
-    padding: 20px;
-    min-height: 60vh;
 
-    h2{
-        font-size: 2rem;
+    p{
+        font-size: 1.2rem;
+        color: white;
     }
 `;
+
+/*
+
 
 export const HeaderStyled = styled.div`
     display: flex;
