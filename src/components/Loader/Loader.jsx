@@ -1,12 +1,17 @@
-import { LoaderWrapper } from "./LoaderStyles";
+import { ImageContainerStyled, LoaderWrapper, TextContainerStyled } from "./LoaderStyles";
 
-const Loader = () => {
+const Loader = (props) => {
   return (
     <LoaderWrapper>
-
-
-      <img src="https://i.gifer.com/Y8HK.gif" />
-      <h2>Loading ...</h2>
+      <ImageContainerStyled>
+        <img src="https://i.gifer.com/Y8HK.gif" />
+      </ImageContainerStyled>
+      <TextContainerStyled>
+        <h2>Loading ...</h2>
+        {
+          props.message && <p>{props.message}</p>
+        }
+      </TextContainerStyled>
     </LoaderWrapper>
   );
 }
