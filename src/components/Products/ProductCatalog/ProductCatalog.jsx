@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { ProductsContainer } from "./CardsContainerStyles";
+import { CatalogPageWrapper, CatalogWrapper, ProductsContainer } from "./ProductCatalogStyles";
 import { useDispatch, useSelector } from "react-redux";
 import { isError, isFetching, success } from "../../../redux/slice/pokemonsSlice";
 import { getData, getInfoPokemonByURLFromApi } from "../../../axios/axios-pokemons";
@@ -9,7 +9,7 @@ import Button from "../../UI/Button/Button";
 import CardsCatalog from "../CardsCatalog/CardsCatalog";
 import Loader from "../../Loader/Loader";
 
-const CardsContainer = () => {
+const ProductCatalog = () => {
     const dispatch = useDispatch()    
     const { pokemonsList, isLoading, error } = useSelector((state) => state.pokemons)
     //const [pokemonListInfo, setPokemonListInfo] = useState([])
@@ -90,22 +90,33 @@ const CardsContainer = () => {
     
     return(
         <>
-            { isLoading && <Loader isLoading={isLoading} />}
-
-            <Loader isLoading={isLoading} />
-
-            <CardsCatalog ref={containerRef} productsList = {pokemonsList} />
-
-            <div style={{ display: "flex", justifyContent: "center", gap: "1rem", marginTop: "1rem" }}>
-                <Button onClick={handlePrevious} disabled={!prevUrl}>
-                    Anterior
-                </Button>
-                <Button onClick={handleNext} disabled={!nextUrl}>
-                    Siguiente
-                </Button>
-            </div>
+            {
+                isLoading ? 
+                    <Loader
+                        message={`All existing pokemons`}
+                        isLoading={isLoading} 
+                    /> 
+                    :
+                    <CatalogPageWrapper>
+                        {pokemonsList ? (
+                            <CatalogWrapper>
+                                <CardsCatalog ref={containerRef} productsList = {pokemonsList} />
+                                <div style={{ display: "flex", justifyContent: "center", gap: "1rem", marginTop: "1rem" }}>
+                                    <Button onClick={handlePrevious} disabled={!prevUrl}>
+                                        Anterior
+                                    </Button>
+                                    <Button onClick={handleNext} disabled={!nextUrl}>
+                                        Siguiente
+                                    </Button>
+                                </div>
+                            </CatalogWrapper>
+                            ) : (
+                            <p>No Pokémon found.</p>
+                        )}
+                    </CatalogPageWrapper>
+            }
         </>
     )
 }
 
-export default CardsContainer;
+export default ProductCatalog;

@@ -1,11 +1,15 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import { colorCategory } from "../../../utils/setColorBackground";
 
 export const CardPageContainer = styled.div`
     width: 100%;
     max-width: 1200px;
     display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 15px;
+    min-height: 60vh;
 
     @media (max-width: 576px){
         padding: 5px;
@@ -17,7 +21,7 @@ export const ProductContainerStyled = styled.div`
     gap: 20px;
     padding: 15px;
     border-radius: 10px;
-    background: ${({ typeSelected }) => colorCategory[typeSelected]};
+    background: ${({ typeselected }) => colorCategory[typeselected]};
 
     @media (max-width: 576px) {
         flex-direction: column;
@@ -53,9 +57,10 @@ export const ThumbnailContainerStyled = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     padding: 10px;
+    cursor: pointer;
 
     img{
         width: 100%;
@@ -64,8 +69,8 @@ export const ThumbnailContainerStyled = styled.div`
 
     @media (max-width: 576px){
 
-        width: 100px;
-        height: 100px;
+        width: 80px;
+        height: 80px;
     }
 `;
 
@@ -80,8 +85,8 @@ export const ImageContainerStyled = styled.div`
     max-height: 700px;
 
     img {
-        width: 650px;
-        height: 650px;
+        width: 600px;
+        height: 600px;
         max-width: 100%;
         max-height: 100%;
     }
@@ -95,8 +100,8 @@ export const ImageContainerStyled = styled.div`
         padding: 10px;
 
         img {
-            width: 300px;
-            height: 300px;
+            width: 200px;
+            height: 200px;
             width: 100%;
             max-width: 100%;
         }
@@ -108,17 +113,16 @@ export const DetailsContainerStyled = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 25px;
+    gap: 10px;
     padding: 10px;
     background-color: #d1d1d1;
     width: 50%;
     max-width: 400px;
     border-radius: 5px;
-    border: 2px solid #000;
-    height: 100%;
-    
+
     @media (max-width: 576px) {
         width: 100%;
+        max-width: unset;
     }
 `;
 
@@ -128,30 +132,55 @@ export const InfoContainerStyled = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 25px;
+    gap: 10px;
     width: 100%;
     max-width: 400px;
-    height: 100%;
     border-radius: 5px;
-    border: 2px solid #000;
-    
-    h2, h3{
-        font-size: 1.5rem;
+    padding: 10px;
+
+    h2, p{
         font-family: monospace, 'Arial', sans-serif;
     }
 
-    h3, p{
+    h2{
+        font-size: 2rem;
+        font-weight: bolder;
+    }
+    
+    p{
         font-size: 1.2rem;
         font-weight: 700;
-        font-family: monospace, 'Arial', sans-serif;
     }
 
-    h3{
-        display: block;
-        color: white;
-        background: #000;
-        padding: 8px;
-        width: 100%;
-        text-align: center;
+    @media (max-width: 576px) {
+        max-width: unset;
+
+        h2{
+            font-size: 1.5rem;
+        }
+
+        p{
+            font-size: 1.2rem;
+        }
+    }
+`;
+
+export const ButtonStyled = styled(motion.button)`
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 200px;
+    font-size: 1rem;
+    padding: 5px;
+    border-radius: 10px;
+    background: #000;
+    color: white;
+    cursor: pointer;
+    border: none;
+
+    img{
+        height: 1.2rem;
     }
 `;

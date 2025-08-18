@@ -1,5 +1,14 @@
 import styled from "styled-components";
 
+export const CatalogPageWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    min-height: 100vh;
+`;
+
 export const ProductsContainer = styled.div`
     display: grid;
     justify-content: center;
@@ -16,4 +25,14 @@ export const ProductsContainer = styled.div`
         padding: 10px;
         grid-template-columns: repeat(auto-fit, minmax(200px, 100%));
     }
+`;
+
+
+export const CatalogWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    //background: pink;
 `;
