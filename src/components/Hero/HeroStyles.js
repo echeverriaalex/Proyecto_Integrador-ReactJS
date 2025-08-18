@@ -9,11 +9,10 @@ export const HeroContainer = styled.section`
     align-items: center;
     gap: 10px;
     width: 100%;
-    min-height: 90vh;
+    min-height: 60vh;
     background-image: url(${wallpaper});
-    background-size: cover;
     background-position: bottom;
-    
+
     h1{
         font-size: 2rem;
         font-weight: 800;

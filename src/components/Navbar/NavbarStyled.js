@@ -57,6 +57,37 @@ export const UserIcon = styled(HiUser)`
     align-items: center;
 `;
 
+export const IconContainerStyled = styled(motion.div)`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    p{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: #fff;
+        background: #000;
+        padding: 5px 8px;
+        border-radius: 10px;
+        font-size: 0.8rem;
+    }
+
+    @media (max-width: 1000px){
+        p{
+            top: 15px;
+            right: 8px;
+        }
+    }
+
+    @media (max-width: 576px){
+        p{
+            top: 10px;
+            right: 0px;
+        }
+    }
+`;
+
 export const CartIconStyled = styled(HiOutlineShoppingCart)`
     font-size: 2rem;
     color: white;

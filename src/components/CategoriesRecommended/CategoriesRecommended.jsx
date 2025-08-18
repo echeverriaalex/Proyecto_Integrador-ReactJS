@@ -11,6 +11,10 @@ import PriceContainer from "../Products/Card/Components/PriceContainer/PriceCont
 import SliderButtonRight from "../UI/SliderButtons/SliderButtonRight";
 import SliderButtonLeft from "../UI/SliderButtons/SliderButtonLeft";
 
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
+import { calculateProductPrice } from "../../utils/setPricePokemonByType";
+
 
 const CategoriesRecommended = () => {
 
@@ -35,7 +39,8 @@ const CategoriesRecommended = () => {
                 const dataCategory = await Promise.all(
                     response.pokemon.map(async item => {
                         const pokemonInfo = await getInfoPokemonByURLFromApi(item.pokemon.url);
-                        return { type: categoriesList[i], ...pokemonInfo };
+                        const price = calculateProductPrice(pokemonInfo.types);
+                        return { type: categoriesList[i], ...pokemonInfo, price };
                     })
                 );
 
@@ -118,9 +123,9 @@ const CategoriesRecommended = () => {
                                             <ImgContainerStyled>
                                                 <img src={pokemon.sprites.other["dream_world"].front_default || pokemon.sprites.other["official-artwork"].front_default} />
                                             </ImgContainerStyled>
-                                            <h2>{pokemon.name}</h2>
+                                            <h2>{pokemon.name ||<Skeleton />}</h2>
                                             <TypeLabelContainer types={pokemon.types} />
-                                            <PriceContainer types={pokemon.types}/>
+                                            <PriceContainer price={pokemon.price}/>
                                         </CardContainerStyled>
                                     ))
                                 }

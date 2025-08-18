@@ -1,6 +1,6 @@
 import { AnimatePresence } from "framer-motion";
 import { clearCart, removeFromCart, toggleCartHidden } from "../../../redux/cart/cartSlice";
-import { ButtonContainerStyled, CardCartStyled, ContainerStyled, DataContainerStyled, EmptyContainerStyled, HeadContainerStyled, MainContainerStyled, ModalOverLayStyled, ProductsCartContainerStyled, TotalContainerStyled } from "./ModalCartStyles";
+import { CardCartStyled, ContainerStyled, EmptyContainerStyled, HeadContainerStyled, LinkCartStyled, MainContainerStyled, ModalOverLayStyled, ProductsCartContainerStyled, TotalContainerStyled } from "./ModalCartStyles";
 import { useDispatch, useSelector } from "react-redux";
 import cart from "../../../assets/images/cart.png";
 import { FaTrashAlt } from "react-icons/fa";
@@ -37,15 +37,14 @@ const ModalCart = () => {
                         transition={{ type: "spring", damping: 27 }}
                         key="cart-modal"
                     >
-                        <HeadContainerStyled>
+                        <HeadContainerStyled onClick={() => dispatch(toggleCartHidden())}>
                             <CloseIcon 
                                 size={30} 
                                 color= "white"
                                 className="close_modal"
                                 whileTap={{ scale: 0.90 }}
-                                onClick={() => dispatch(toggleCartHidden())}
                             />
-                            <h2>Ir al carrito</h2>
+                            <LinkCartStyled to="/mycart">Ir al carrito</LinkCartStyled>
                         </HeadContainerStyled>
 
                         <MainContainerStyled>
@@ -79,46 +78,6 @@ const ModalCart = () => {
                             </ProductsCartContainerStyled>
 
                         </MainContainerStyled>
-
-                        <TotalContainerStyled>
-
-                            <DataContainerStyled>
-                                <p>Subtotal:</p>
-                                <p> $ 1400 </p>
-                            </DataContainerStyled>
-
-                            <DataContainerStyled>
-                                <p>Services:</p>
-                                <p> $ 200 </p>
-                            </DataContainerStyled>
-
-                            <DataContainerStyled>
-                                <p>Total:</p>
-                                <p> $ 1600 </p>
-                            </DataContainerStyled>
-                            
-                            
-                        </TotalContainerStyled>
-
-
-                        <ButtonContainerStyled>
-                            <Button                                
-                                onClick={()=> dispatch(clearCart())}
-                                background = "#a81106"
-                            >
-                                Vaciar carrito
-                                <FaTrashAlt />
-                            </Button>
-                            <Button
-                                onClick={() => {
-                                    dispatch(toggleCartHidden());
-                                    navigate("/checkout");
-                                }}
-                                background = "#0f78a8"
-                            >
-                                Finalizar compra
-                            </Button>
-                        </ButtonContainerStyled>
                     </ContainerStyled>
                 )}
             </AnimatePresence>

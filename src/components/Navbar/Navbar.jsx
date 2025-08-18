@@ -1,5 +1,6 @@
 import { HeaderStyled, NavbarStyled, IconsContainerStyled, UserIcon, MenuContainerStyled, LogoLinkContainer, NavbarContainerStyled, NavLinkStyled, IconNavLinkStyled, 
-    NavLinkContainerStyled, NavbarMobileContainerStyled, ContainerStyled, MobileContainerStyled } from "./NavbarStyled"
+    NavLinkContainerStyled, NavbarMobileContainerStyled, ContainerStyled, MobileContainerStyled, 
+    IconContainerStyled} from "./NavbarStyled"
 import logo from "../../assets/images/Pokemon_logo.png";
 import { motion } from "framer-motion";
 import ModalCart from "./ModalCart/ModalCart";
@@ -16,6 +17,7 @@ export const Navbar = () => {
 
     const dispatch = useDispatch();
     const hiddenMenu = useSelector((state) => state.menu.hidden);
+    const { cartItems } = useSelector((state) => state.cart);
     const [categories, setCategories] = useState([]);
 
     const fetchAllCategories = async () => {
@@ -49,14 +51,15 @@ export const Navbar = () => {
                     </motion.div>
                     <SearchBar/>
                     <IconsContainerStyled>
-                        <motion.div whileTap={{ scale: 0.8 }}>
+                        <IconContainerStyled whileTap={{ scale: 0.8 }}>
                             <IconNavLinkStyled to="/login">
                                 <UserIcon />
                             </IconNavLinkStyled >
-                        </motion.div>
-                        <motion.div whileTap={{ scale: 0.8 }}>
+                        </IconContainerStyled>
+                        <IconContainerStyled whileTap={{ scale: 0.8 }}>
                             <CartIcon/>
-                        </motion.div>
+                            <p>{cartItems.length}</p>
+                        </IconContainerStyled>
                     </IconsContainerStyled>
                 </ContainerStyled>
                 <NavbarStyled>
@@ -93,14 +96,15 @@ export const Navbar = () => {
                         </LogoLinkContainer>
                     </motion.div>
                     <IconsContainerStyled>
-                        <motion.div whileTap={{ scale: 0.8 }}>
+                        <IconContainerStyled whileTap={{ scale: 0.8 }}>
                             <IconNavLinkStyled to="/login">
                                 <UserIcon />
                             </IconNavLinkStyled >
-                        </motion.div>
-                        <motion.div whileTap={{ scale: 0.8 }}>
+                        </IconContainerStyled>
+                        <IconContainerStyled whileTap={{ scale: 0.8 }}>
                             <CartIcon/>
-                        </motion.div>
+                            <p>{cartItems.length}</p>
+                        </IconContainerStyled>
                     </IconsContainerStyled>
                 </MobileContainerStyled>
 

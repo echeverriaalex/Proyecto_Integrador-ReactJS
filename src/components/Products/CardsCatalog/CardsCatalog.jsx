@@ -1,6 +1,7 @@
 import { forwardRef } from "react";
 import Card from "../Card/Card";
 import { CardsCatalogStyled } from "./CardsCatalogStyle";
+import { calculateProductPrice } from "../../../utils/setPricePokemonByType";
 
 const CardsCatalog = forwardRef(({ productsList }, ref) => {
     return(
@@ -13,10 +14,11 @@ const CardsCatalog = forwardRef(({ productsList }, ref) => {
                             id = {item.id}
                             name = {item.name}
                             sprites = {item.sprites}
-                            weight ={ item.weight }
+                            weight = {item.weight}
                             types = {item.types}
-                            height = { item.height }
-                            stats = { item.stats }
+                            height = {item.height}
+                            stats = {item.stats}
+                            price = { calculateProductPrice(item.types) }
                         /> 
                     )))
                 : 

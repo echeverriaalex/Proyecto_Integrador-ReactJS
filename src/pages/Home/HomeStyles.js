@@ -7,6 +7,7 @@ export const HomeWrapper = styled.div`
     align-items: center;
     gap: 30px;
     width: 100%;
+    max-width: 2000px;
 `;
 
 export const SectionWrapper = styled.section`
@@ -17,12 +18,19 @@ export const SectionWrapper = styled.section`
     gap: 20px;
     /*min-height: 90px;*/
     width: 100%;
-    padding: 40px;
+    max-width: 1600px;
+    padding: 20px;
+
+    //padding: 40px; // quito padding porque hacia quedar mal el componente loader
 
     //background-color: #a1a1a1ff;
 
+    @media (max-width: 1000px){
+        //padding: 15px; // quito padding porque hacia quedar mal el componente loader
+    }
+
     @media (max-width: 576px) {
-        padding: 8px;
+        //padding: 8px; // quito padding porque hacia quedar mal el componente loader
     }
 `;
 
@@ -32,6 +40,10 @@ export const TitleSectionStyled = styled.h2`
     font-size: 4rem;
     width: 100%;
     //background-color: #c52d07ff;
+
+    @media (max-width: 1000px){
+        font-size: 2.7rem;
+    }
 
     @media (max-width: 576px) {
         font-size: 1.2rem;
@@ -53,7 +65,20 @@ export const CardsContainerStyled = styled.div`
             border-radius: 70px 10px 190px 70px;
         }
     }
-    
+
+    @media (max-width: 1000px){
+        & > :nth-child(even) {
+            border-radius: 10px 100px 30px 100px;
+            gap: 5px;
+
+            img{
+                width: 55%;
+                height: 450px;
+                border-radius: 10px 100px 30px 100px;
+            }
+        }
+    }
+
     @media (max-width: 576px){
         flex-direction: column;
         gap: 20px;
@@ -63,6 +88,8 @@ export const CardsContainerStyled = styled.div`
             border-radius: 10px;
 
             img{
+                width: 100%;
+                height: auto;
                 border-radius: 10px;
             }
         }
@@ -90,6 +117,7 @@ export const CardWrapperStyled = styled.div`
         gap: 5px;
         img{
             width: 55%;
+            height: 450px;
             border-radius: 10px 100px 30px 100px;
         }
     }

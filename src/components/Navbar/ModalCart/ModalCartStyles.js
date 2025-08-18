@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { NavLink } from "react-router-dom";
 import styled, { css } from "styled-components";
 
 
@@ -70,6 +71,21 @@ export const HeadContainerStyled = styled.div`
     color: white;
 `;
 
+export const LinkCartStyled = styled(NavLink)`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 10px;
+    
+    color: white;
+    text-decoration: none;
+
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+`;
+
 export const MainContainerStyled = styled.div`
     width: 100%;
     height: 100%;
@@ -85,7 +101,7 @@ export const ProductsCartContainerStyled = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 10px;
     overflow-y: auto;
 
@@ -190,36 +206,5 @@ export const DataContainerStyled = styled.div`
         font-size: 1.1rem;
         font-weight: 700;
         color: #333;
-    }
-`;
-
-
-export const ButtonContainerStyled = styled.div`
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-
-    button{
-        display: flex;
-        justify-content: center;
-        gap: 5px;
-        width: 100%;
-        padding: 10px;
-        border-radius: 10px;
-        color: white;
-    }
-
-
-    @media (max-width: 576px){
-        flex-direction: column;
-        gap: 10px
-
-        button{
-            width: 100%;
-            padding: 10px;
-            border-radius: 10px;
-            font-weight: 400;
-        }
     }
 `;

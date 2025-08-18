@@ -1,11 +1,29 @@
 
+import { useEffect, useState } from "react";
 import CategoryCard from "../Categories/CategoryCard/CategoryCard";
 import { CategoriesFooterContainer, CategoriesFooterSection, DeveloperContainer, FooterStyled, Project, ProjectContainer } from "./FooterStyles"
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllCategoriesFromApi } from "../../axios/axios-categories";
 
 const Footer = () => {
+    const dispatch = useDispatch();
+    const [categories, setCategories] = useState([]);
 
-    const { categories } = useSelector((state) => state.categories);
+    const fetchAllCategories = async () => {
+        try {
+            const categoriesList = await getAllCategoriesFromApi();
+            setCategories(categoriesList);
+            //console.log("Fetched categories:", categoriesList);
+        }
+        catch (error) {
+            console.error("Error fetching categories:", error);
+            setCategories([]);
+        }
+    };
+
+    useEffect(() => {
+        fetchAllCategories();
+    }, []);
 
     //console.log(categories);
 

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { motion } from "framer-motion";
 import { cardColorByCategory } from "../../../utils/setColorBackground";
 
 export const ContentCardStyled = styled.a`
@@ -13,7 +12,7 @@ export const ContentCardStyled = styled.a`
     border-radius: 10px;
     cursor: pointer;
     height: 100%;
-    background: ${({ typeSelected }) => cardColorByCategory[typeSelected]};
+    background: ${({ category }) => cardColorByCategory[category]};
 
     &:hover {
         transform: scale(0.95);
@@ -57,12 +56,13 @@ export const ContentCardStyled = styled.a`
     }};
     */
    
-    @media(max-width: 576px){
+    @media(max-width: 1000px){
+        flex-direction: row;
         gap: 5px;
         padding: 10px 5px;
 
         h3{
-            font-size: 1rem;
+            font-size: 1.2rem;
             padding: 0px;
         }
 
@@ -72,16 +72,24 @@ export const ContentCardStyled = styled.a`
     }
 `;
 
+export const PresentationBlockStyled = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    gap: 8px;
+    border-radius: 10px;
+    background: #00000099;
+`;
+
 export const ImageContainer = styled.div`
     width: 100%;
     height: 170px;
-    /*background: #d902cd;*/
-    border-radius: 10px;
-    background:rgba(95, 95, 95, 0.45);
     display: flex;
     justify-content: center;
-
-    background: transparent;
 
     img{
         max-width: 100%;
@@ -97,32 +105,4 @@ export  const InfoContainerStyled = styled.div`
     gap: 10px;
     border-radius: 10px;
     padding: 10px 5px;
-
-   
-`;
-
-export const CategoryContainerStyled = styled.div`
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-`;
-
-export const ButtonStyled = styled(motion.button)`
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
-    height: 50px;
-    width: 200px;
-    font-size: 1rem;
-    padding: 5px;
-    border-radius: 10px;
-    background: #000;
-    color: white;
-    cursor: pointer;
-    border: none;
-
-    img{
-        height: 1.2rem;
-    }
 `;

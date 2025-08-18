@@ -5,13 +5,13 @@ export const SliderCategoriesContainerStyled = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15px;
+    gap: 5px;
     width: 100%;
 `;
 
 export const CategoriesContainerStyled = styled.div`
     display: flex;
-    gap: 15px;
+    gap: 10px;
     width: 100%;
     padding: 20px 10px;
     overflow: auto;
@@ -54,6 +54,12 @@ export const CategoryContainerStyled = styled(NavLink)`
     &:hover {
         background-color: #202020;
         border-radius: 50%;
+    }
+
+    @media (max-width: 1000px) {
+        min-width: 110px;
+        min-height: 110px;
+        border-radius: 35px 15px 40px 10px;
     }
 
     @media (max-width: 576px) {
