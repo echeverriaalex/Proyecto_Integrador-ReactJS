@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addItemToCart, removeItemFromCart, resetShippingCost } from './cartUtils';
+import { addItemToCart, deleteItemCart, removeItemFromCart, resetShippingCost } from './cartUtils';
 import { SHIPPING_COST } from '../../utils/constants';
 
 const INITIAL_STATE = {
@@ -12,11 +12,12 @@ const cartSlice = createSlice({
     name: 'cart',
     initialState: INITIAL_STATE,
     reducers: {
+        // Agrego un producto al carrito (unidad)
         addToCart: (state, action) => {
             return {
                 ...state,
                 cartItems: addItemToCart(state.cartItems, action.payload),
-                shippingCost: state.shippingCost,
+                shippingCost: SHIPPING_COST
             }
         },
         removeFromCart: (state, action) => {
@@ -25,6 +26,13 @@ const cartSlice = createSlice({
             return {
                 ...state,
                 cartItems: removeItemFromCart(state.cartItems, action.payload.id),
+                shippingCost: resetShippingCost(state.cartItems, SHIPPING_COST),
+            }
+        },
+        deleteItem: (state, action) => {
+            return {
+                ...state,
+                cartItems: deleteItemCart(state.cartItems, action.payload),
                 shippingCost: resetShippingCost(state.cartItems, SHIPPING_COST),
             }
         },
@@ -51,4 +59,4 @@ const cartSlice = createSlice({
 })
 
 export default cartSlice.reducer;
-export const { addToCart, removeFromCart, clearCart, toggleCartHidden } = cartSlice.actions;
+export const { addToCart, removeFromCart, deleteItem, clearCart, toggleCartHidden } = cartSlice.actions;
