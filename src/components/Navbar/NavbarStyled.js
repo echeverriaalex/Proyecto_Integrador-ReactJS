@@ -1,27 +1,19 @@
 import styled from "styled-components";
 import { HiMenu   } from "react-icons/hi";
 import { HiUser } from "react-icons/hi";
-import { HiOutlineShoppingCart } from "react-icons/hi";
 import { HiOutlineSearch } from "react-icons/hi";
 import { IoIosCloseCircle } from "react-icons/io";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Navbar } from "./Navbar";
+import { MdClose } from "react-icons/md";
 
-export const CloseIcon = styled(IoIosCloseCircle)`
-    font-size: 2rem;
+export const CloseIcon = styled(MdClose)`
+    font-size: 3rem;
     color: white;
     cursor: pointer;
     user-select: none;
-    
-    padding: 0px;
-    margin: 0px;
-    height: 100%;
-    max-height: 20px;
-    width: 100%
-    max-width: 20px;
     display: flex;
-    align-items: center;    
+    align-items: center;
 `;
 
 export const MenuIconStyled = styled(HiMenu)`
@@ -29,83 +21,19 @@ export const MenuIconStyled = styled(HiMenu)`
     color: white;
     cursor: pointer;
     user-select: none;
-
-    padding: 0px;
-    margin: 0px;
-    height: 100%;
-    max-height: 20px;
-    width: 100%
-    max-width: 20px;
     display: flex;
     align-items: center;
 `;
 
 export const UserIcon = styled(HiUser)`
-    font-size: 2rem;
-    color: white;
-    cursor: pointer;
-    min-width: 50px;
-    user-select: none;
-
-    padding: 0px;
-    margin: 0px;
-    height: 100%;
-    max-height: 20px;
-    width: 100%
-    max-width: 20px;
-    display: flex;
-    align-items: center;
-`;
-
-export const IconContainerStyled = styled(motion.div)`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    p{
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        color: #fff;
-        background: #000;
-        padding: 5px 8px;
-        border-radius: 10px;
-        font-size: 0.8rem;
-    }
-
-    @media (max-width: 1000px){
-        p{
-            top: 15px;
-            right: 8px;
-        }
-    }
-
-    @media (max-width: 576px){
-        p{
-            top: 10px;
-            right: 0px;
-        }
-    }
-`;
-
-export const CartIconStyled = styled(HiOutlineShoppingCart)`
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: white;
     cursor: pointer;
     user-select: none;
-
-    padding: 0px;
-    margin: 0px;
-    height: 100%;
-    max-height: 20px;
-    width: 100%
-    max-width: 20px;
-    display: flex;
-    align-items: center;
 `;
 
 export const HeaderStyled = styled.header`
-    /*position: fixed;*/
+    //position: fixed;
     z-index: 70;
     width: 100%;
     display: flex;
@@ -116,12 +44,14 @@ export const HeaderStyled = styled.header`
     border-bottom: 1px solid white;
     padding: 5px 20px;
 
+    backdrop-filter: blur(8px);
+
     @media (max-width: 768px){
         padding: 10px;
     }
 
     @media (max-width: 576px){
-        padding: 5px 0px;
+        padding: 5px;
     }
 `;
 
@@ -135,11 +65,14 @@ export const NavbarContainerStyled = styled.div`
     width: 100%;
     //background: #d404d4ff;
 
+
     @media (max-width: 576px){
         display: none;
     }
 `;
 
+
+// Estilos para Mobile
 export const NavbarMobileContainerStyled = styled.div`
     display: none;
     flex-direction: column;
@@ -281,17 +214,21 @@ export const MenuContainerStyled = styled(motion.div)`
 `;
 
 export const IconsContainerStyled = styled.div`
-
-    //background: #0346d8ff;
-
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    gap: 10px;
+`;
+
+export const IconContainerStyled = styled(motion.div)`
+    display: flex;
     align-items: center;
-    gap: 5px;
-    cursor: pointer;
-    /*padding: 10px;*/
-    height: 100%;
+    justify-content: center;
+    padding: 10px;
+
+    &:hover {
+        transition: all .5s;
+        border-radius: 5px;
+        background: #571105ff;
+    }
 `;
 
 export const ContainerStyled = styled(motion.div)`
@@ -310,12 +247,19 @@ export const ContainerStyled = styled(motion.div)`
 
 export const LogoLinkContainer = styled(NavLink)`
     display: flex;
-    height: 50px;
+    height: 60px;
     margin: 5px;
+    padding: 5px;
 
     img{
         max-width: 100%;
         max-height: 100%;
+    }
+
+    &:hover {
+        transition: all .5s;
+        border-radius: 5px;
+        background: #571105ff;
     }
     
     @media (max-width: 576px){
@@ -326,12 +270,7 @@ export const LogoLinkContainer = styled(NavLink)`
 export const IconNavLinkStyled = styled(NavLink)`
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 15px;
-
-    @media (max-width: 576px){
-        padding: 10px 0px;
-    }
+    justify-content: center;
 `;
 
 export const LinksContainerStyled = styled.div`
@@ -353,9 +292,4 @@ export const LinksContainerStyled = styled.div`
         /*background: lightcoral;*/
         padding: 0px;
     }
-`;
-
-export const LinkContainerStyled = styled.div`    
-    font-size: 1.2rem;
-    display: flex;
 `;

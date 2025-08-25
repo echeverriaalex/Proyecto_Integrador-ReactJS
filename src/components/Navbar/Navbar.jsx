@@ -1,23 +1,22 @@
 import { HeaderStyled, NavbarStyled, IconsContainerStyled, UserIcon, MenuContainerStyled, LogoLinkContainer, NavbarContainerStyled, NavLinkStyled, IconNavLinkStyled, 
     NavLinkContainerStyled, NavbarMobileContainerStyled, ContainerStyled, MobileContainerStyled, 
-    IconContainerStyled} from "./NavbarStyled"
-import logo from "../../assets/images/Pokemon_logo.png";
+    IconContainerStyled } from "./NavbarStyled"
+import logo_pokemon from "../../assets/images/Pokemon_logo.png";
+import logo_pokeworld from "../../assets/images/logo-pokeworld.png";
+import logo_pw from "../../assets/images/logo-pw.png";
 import { motion } from "framer-motion";
 import ModalCart from "./ModalCart/ModalCart";
-import CartIcon from "./CartIcon/CartIcon";
+import CartIcon from "./Components/CartIcon/CartIcon";
 import ModalMenu from "./ModalMenu/ModalMenu";
-import MenuIcon from "./MenuIcon/MenuIcon"
+import MenuIcon from "./Components/MenuIcon/MenuIcon"
 import { useDispatch, useSelector } from "react-redux";
 import { getAllCategoriesFromApi } from "../../axios/axios-categories";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import SearchBar from "../UI/SearchBar/SearchBar";
 import CategoryCard from "../Categories/CategoryCard/CategoryCard";
 
 export const Navbar = () => {
-
-    const dispatch = useDispatch();
-    const hiddenMenu = useSelector((state) => state.menu.hidden);
-    const { cartItems } = useSelector((state) => state.cart);
+    
     const [categories, setCategories] = useState([]);
 
     const fetchAllCategories = async () => {
@@ -31,11 +30,10 @@ export const Navbar = () => {
             setCategories([]);
         }
     };
-
+    
     useEffect(() => {
         fetchAllCategories();
     }, []);
-    
 
     return(
         <HeaderStyled>
@@ -46,7 +44,7 @@ export const Navbar = () => {
                 <ContainerStyled>                    
                     <motion.div whileTap={{ scale: 0.8 }}>
                         <LogoLinkContainer to="/">
-                            <img src={logo} alt="Logo" />
+                            <img src={logo_pokeworld} alt="Logo" />
                         </LogoLinkContainer>
                     </motion.div>
                     <SearchBar/>
@@ -58,7 +56,6 @@ export const Navbar = () => {
                         </IconContainerStyled>
                         <IconContainerStyled whileTap={{ scale: 0.8 }}>
                             <CartIcon/>
-                            <p>{cartItems.length}</p>
                         </IconContainerStyled>
                     </IconsContainerStyled>
                 </ContainerStyled>
@@ -85,16 +82,18 @@ export const Navbar = () => {
 
             <NavbarMobileContainerStyled>
                 <MobileContainerStyled>
-                    <MenuContainerStyled
-                        whileTap={{ scale: 0.8 }}
-                    >
-                        <MenuIcon />
-                    </MenuContainerStyled>
-                    <motion.div whileTap={{ scale: 0.8 }}>
-                        <LogoLinkContainer to="/">
-                            <img src={logo} alt="Logo" />
-                        </LogoLinkContainer>
-                    </motion.div>
+                    <IconsContainerStyled>
+                        <MenuContainerStyled
+                            whileTap={{ scale: 0.8 }}
+                        >
+                            <MenuIcon />
+                        </MenuContainerStyled>
+                        <motion.div whileTap={{ scale: 0.8 }}>
+                            <LogoLinkContainer to="/">
+                                <img src={logo_pokeworld} alt="Logo" />
+                            </LogoLinkContainer>
+                        </motion.div>
+                    </IconsContainerStyled>
                     <IconsContainerStyled>
                         <IconContainerStyled whileTap={{ scale: 0.8 }}>
                             <IconNavLinkStyled to="/login">
@@ -103,7 +102,6 @@ export const Navbar = () => {
                         </IconContainerStyled>
                         <IconContainerStyled whileTap={{ scale: 0.8 }}>
                             <CartIcon/>
-                            <p>{cartItems.length}</p>
                         </IconContainerStyled>
                     </IconsContainerStyled>
                 </MobileContainerStyled>
