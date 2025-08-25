@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addItemToCart, removeItemFromCart } from "../../../../../redux/cart/cartUtils";
 import { IconQuantityContainerStyled, QuantityContainerStyled } from "./QuantityStyles";
+import { addToCart, removeFromCart } from "../../../../../redux/cart/cartSlice";
 
-const Quantity = ( { quantity, id } ) => {
+const Quantity = ({ product }) => {
     
     const { cartItems } = useSelector((state) => state.cart) || { cartItems: [] };
     const dispatch = useDispatch();
@@ -11,14 +11,14 @@ const Quantity = ( { quantity, id } ) => {
         <QuantityContainerStyled>
             <IconQuantityContainerStyled
                 whileTap={{ scale: 0.90 }}
-                onClick={() => dispatch(removeItemFromCart(cartItems, id))}
+                onClick={() => dispatch(removeFromCart(product))}
             >
                 <span> - </span>
             </IconQuantityContainerStyled>
-            <p>{ quantity }</p>
+            <p>{ product?.quantity }</p>
             <IconQuantityContainerStyled 
                 whileTap={{ scale: 0.90 }}
-                onClick={() => dispatch(addItemToCart(cartItems, id ))}
+                onClick={() => dispatch(addToCart(product))}
             >
                 <span> + </span>
             </IconQuantityContainerStyled>
