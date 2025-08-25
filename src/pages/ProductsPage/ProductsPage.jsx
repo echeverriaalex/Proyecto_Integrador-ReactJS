@@ -20,7 +20,7 @@ const ProductsPage = () => {
   const goToStart = () => {
     if (containerRef.current) {
       containerRef.current.scrollIntoView({ behavior: "smooth" });
-      containerRef.current.style.margin = "0px";
+      containerRef.current.style.margin = "0rem";
     }
   }
 
@@ -73,7 +73,7 @@ const ProductsPage = () => {
 
   useEffect(() => {
     fetchPokemons(currentUrl);
-  }, [currentUrl, dispatch, error]);
+  }, [currentUrl]);
 
   return (
     <>
