@@ -128,54 +128,7 @@ export const PriceQuantityContainerStyled = styled.div`
   }
 `;
 
-export const QuantityContainerStyled = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  border: 1px solid #afafafff;
-  //max-width: 100px;
 
-  padding: 5px;
-  background: #4c0974ff;
-
-  p{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #e9a30cd0;
-    height: 100%;
-    width: 50px;
-  }
-
-  span{
-    background: #fff;
-    color: #991de0d0;
-    width: 35px;
-    height: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-    cursor: pointer;
-    user-select: none;
-  }
-
-  @media (max-width: 1000px){
-    //flex-direction: column;
-    //flex-wrap: wrap;
-
-    p{
-      width: 40px;
-    }
-  }
-
-`;
-
-export const IconQuantityContainerStyled = styled(motion.div)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
 
 export const ItemName = styled.span`
   font-weight: bold;

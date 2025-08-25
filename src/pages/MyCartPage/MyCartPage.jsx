@@ -1,17 +1,18 @@
 import { useDispatch, useSelector } from "react-redux";
-import { ButtonContainerStyled, CartContainerStyled, CartItemContainerStyled, CartItemsContainerStyled, DescriptionTotalContainerStyled, EmptyCartContainerStyled, IconQuantityContainerStyled, IdentityContainerStyled, ItemDetailsContainerStyled, MycartPageWrapper, NavLinkContainerStyled, NavLinksContainerStyled, PriceContainerStyled, PriceQuantityContainerStyled, QuantityContainerStyled, TextContainerStyled, TotalContainerStyled } from "./MyCartPageStyles";
-
+import { ButtonContainerStyled, CartContainerStyled, CartItemContainerStyled, CartItemsContainerStyled, DescriptionTotalContainerStyled, EmptyCartContainerStyled, IdentityContainerStyled, ItemDetailsContainerStyled, MycartPageWrapper, NavLinkContainerStyled, NavLinksContainerStyled, PriceContainerStyled, PriceQuantityContainerStyled, TextContainerStyled, TotalContainerStyled } from "./MyCartPageStyles";
 import { FaTrashAlt } from "react-icons/fa";
 import Button from "../../components/UI/Button/Button";
-import { clearCart, removeFromCart, toggleCartHidden } from "../../redux/cart/cartSlice";
-import { addItemToCart, removeItemFromCart } from "../../redux/cart/cartUtils";
-
-import { motion } from "framer-motion";
+import { clearCart, deleteItem, removeFromCart, toggleCartHidden } from "../../redux/cart/cartSlice";
+//import { addItemToCart, removeItemFromCart } from "../../redux/cart/cartUtils";
+//import { IconQuantityContainerStyled, QuantityContainerStyled } from "../../components/Navbar/ModalCart/Components/Quantity/QuantityStyles";
+import Quantity from "../../components/Navbar/ModalCart/Components/Quantity/Quantity";
+import { useNavigate } from "react-router-dom";
 
 const MyCartPage = () => {
 
     const { cartItems, shippingCost,  } = useSelector((state) => state.cart) || { cartItems: [] };
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     return (
         <MycartPageWrapper>
@@ -23,25 +24,21 @@ const MyCartPage = () => {
                                 <CartItemContainerStyled key={item.id}>
                                     <ItemDetailsContainerStyled >
                                         <IdentityContainerStyled>
-                                            <img src={item.image} alt="Product" />
+                                            <img src={item.image} alt={item.name} />
                                             <TextContainerStyled>
-                                                <h3>{ item.name.toUpperCase() }</h3>
+                                                <h3>{ item.name?.toUpperCase() }</h3>
                                             </TextContainerStyled>
                                         </IdentityContainerStyled>
-                                        <Button background="#a81106">Delete</Button>
+                                        <Button 
+                                            onClick={() => dispatch(deleteItem(item.id))}
+                                            background="#a81106">
+                                            Delete
+                                        </Button>
                                     </ItemDetailsContainerStyled>
                                     <PriceQuantityContainerStyled>
-                                        <QuantityContainerStyled>
-                                            <IconQuantityContainerStyled whileTap={{ scale: 0.90 }} onClick={() => dispatch(removeItemFromCart(item))}>
-                                                <span> - </span>
-                                            </IconQuantityContainerStyled>
-                                            <p>{ item.quantity }</p>
-                                            <IconQuantityContainerStyled whileTap={{ scale: 0.90 }} onClick={() => dispatch(addItemToCart(item))}>
-                                                <span> + </span>
-                                            </IconQuantityContainerStyled>
-                                        </QuantityContainerStyled>
+                                        <Quantity product={{ ...item }} />
                                         <PriceContainerStyled>
-                                            <p>$ { (item.price).toFixed(2) }</p>
+                                            <p>$ { (item.price)?.toFixed(2) }</p>
                                         </PriceContainerStyled>
                                     </PriceQuantityContainerStyled>
                                 </CartItemContainerStyled>
