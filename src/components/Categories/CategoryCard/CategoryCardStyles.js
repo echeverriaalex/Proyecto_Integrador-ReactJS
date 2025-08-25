@@ -22,20 +22,8 @@ export const NavLinkStyled = styled(NavLink)`
         width: 1rem;
     }
 
-    /*
-    @media (max-width: 882px){
-        //background: #04a3d4ff;
-        display: grid;
-        flex-wrap: unset;
-        grid-template-columns: repeat(auto-fit, 120px);
+    p{
         width: 100%;
+        text-align: left;
     }
-
-    @media (max-width: 576px){
-        flex-direction: column;
-        text-align: start;
-        justify-content: start;
-        width: 100%;
-    }
-    */
 `;
