@@ -1,44 +1,61 @@
-
-//import { FormStyled, HeaderStyled, LoginWrapper, RegisterWrapper } from "./RegisterStyles"
-//import Pokemon from "../../assets/images/pikachu.png"
+import { Formik } from "formik";
 import Pokemon from "../../assets/images/pikachu.gif"
-
 import InputContainer from "../../components/UI/InputContainer/InputContainer"
-import { ButtonStyled, FormBox, FormStyled, HeaderStyled, LoginWrapper, RegisterWrapper } from "./RegisterStyles";
-import{ useFormik } from "formik";
+import { registerInitialValues } from "../../formik/initialValue";
+import { registerValidationSchema } from "../../formik/validationSchema";
+import { Form, FormContainerStyled, HeaderStyled, LoginWrapper, RegisterWrapper } from "./RegisterStyles";
 import { NavLink } from "react-router-dom";
+import { createUser } from "../../axios/axios-users";
+import { useDispatch } from "react-redux";
+import { setCurrentUser } from "../../redux/users/userSlice";
+import useRedirect from "../../hooks/useRedirect";
+import { ButtonStyled } from "../../components/UI/Button/ButtonStyled";
 
 const Register = () => {
-    const { values, handleChange, handleSubmit, errors } = useFormik({
-        initialValues: {
-            name: "",
-            email: "",
-            password: ""
-        },
-        onSubmit: (values) => {
-            console.log("Form submitted with values:", values);
-        }
-    });
+
+    const dispatch = useDispatch();
+    useRedirect("/");
 
     return(
         <RegisterWrapper>
-            <FormBox>
+            <FormContainerStyled>
                 <HeaderStyled>
                     <img src={Pokemon} alt="pikachu" />
                 </HeaderStyled>
-                <FormStyled>
-                    <InputContainer label="Name" type="text" name="name" value={values.name} onChange={handleChange} isError={errors.name}/>
-                    <InputContainer label="Email" type="email" name="email" value={values.email} onChange={handleChange} isError={errors.email}/>
-                    <InputContainer label="Password" type="password" name="password" value={values.password} onChange={handleChange} isError={errors.password}/>
-                    <ButtonStyled type="submit" onClick={handleSubmit}>Register</ButtonStyled>
-                </FormStyled>
-                <LoginWrapper>
-                    <p>Do you already have an account?</p>
+                {/* Form Section, Formik solo permite un unico hijo un form de Formik*/}
+                <Formik
+                    initialValues={ registerInitialValues }
+                    validationSchema={ registerValidationSchema }
+                    onSubmit={async (values, actions) => {
+                        console.log("Form submitted with values:", values);
+                        const user = await createUser(
+                            values.name,
+                            values.email,
+                            values.password
+                        )
+
+                        if(user){
+                            console.log("user de la api --> " ,user);
+                            dispatch(setCurrentUser({...user.usuario}))
+                        }
+
+                        actions.resetForm();
+                    }}
+                >   
+                    <Form>
+                        <InputContainer name='name' type="text" placeholder="Name" />
+                        <InputContainer name='email' type="email" placeholder="Email" />
+                        <InputContainer name='password' type="password" placeholder="Password" />
+                        <ButtonStyled type="submit">Register</ButtonStyled>
+                    </Form>
+                </Formik>
+                <LoginWrapper>                    
                     <NavLink to="/login">
-                        <ButtonStyled type="button">Login</ButtonStyled>
+                        <p>Do you already have an account?</p>
+                        <span>Login</span>
                     </NavLink>
                 </LoginWrapper>
-            </FormBox>
+            </FormContainerStyled>
         </RegisterWrapper>
     )
 }

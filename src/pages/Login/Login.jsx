@@ -1,41 +1,51 @@
 import InputContainer from "../../components/UI/InputContainer/InputContainer"
-import { ButtonStyled, FormBox, FormStyled, HeaderStyled, LoginWrapper, RegisterWrapper } from "./LoginStyles";
-import{ useFormik } from "formik";
+import { Form, FormContainerStyled, HeaderStyled, LoginWrapper, RegisterWrapper } from "./LoginStyles";
+import{ Formik } from "formik";
 import Pokemon from "../../assets/images/Mew-gif.gif";
 import { NavLink } from "react-router-dom";
+import useRedirect from "../../hooks/useRedirect";
+import { useDispatch } from "react-redux";
+import { loginInitialValues } from "../../formik/initialValue";
+import { loginValidationSchema } from "../../formik/validationSchema";
+import { loginUser } from "../../axios/axios-users";
+import { setCurrentUser } from "../../redux/users/userSlice";
+import { ButtonStyled } from "../../components/UI/Button/ButtonStyled";
 
 const Login = () => {
 
-    const { values, handleChange, handleSubmit, errors } = useFormik({
-        initialValues: {
-            email: "",
-            password: ""
-        },
-        onSubmit: (values) => {
-            console.log("Form submitted with values:", values);
-        }
-    });
-
-    console.log("LoginForm values:", values);    
+    const dispatch = useDispatch();
+    useRedirect("/profile");  
 
     return(
         <LoginWrapper>
-            <FormBox>
+            <FormContainerStyled>
                 <HeaderStyled>
                     <img src={Pokemon} alt="Mew" />
                 </HeaderStyled>
-                <FormStyled>
-                    <InputContainer label="Email" type="email" name="email" value={values.email} onChange={handleChange} isError={errors.email}/>
-                    <InputContainer label="Password" type="password" name="password" value={values.password} onChange={handleChange} isError={errors.password}/>
-                    <ButtonStyled type="submit" onClick={handleSubmit}>Log in</ButtonStyled>
-                </FormStyled>
+                <Formik
+                    initialValues={ loginInitialValues }
+                    validationSchema={ loginValidationSchema }
+                    onSubmit={async (values) => {
+                        const user = await loginUser(values.email, values.password)
+                        dispatch(setCurrentUser({
+                            ...user.usuario,
+                            token: user.token
+                        }))
+                    }}
+                >
+                    <Form>
+                        <InputContainer name="email" type="email" placeholder="Email" />
+                        <InputContainer name="password" type="password" placeholder="Password" />
+                        <ButtonStyled>Log in</ButtonStyled>
+                    </Form>
+                </Formik>
                 <RegisterWrapper>
-                    <p>Are you new?</p>
                     <NavLink to="/register">
-                        <ButtonStyled type="button">Register</ButtonStyled>
+                        <p>Don't have an account yet?</p>
+                        <span>Sign up</span>
                     </NavLink>
                 </RegisterWrapper>
-            </FormBox>
+            </FormContainerStyled>
         </LoginWrapper>
     );
 }

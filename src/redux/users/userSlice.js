@@ -11,6 +11,18 @@ export const userSlice = createSlice({
     name: 'user',
     initialState: INITIAL_STATE,
     reducers: {
+        setCurrentUser: (state, action) =>{
+            return{
+                ...state,
+                currentUser: action.payload
+            }
+        },
+        toggleHiddenMenu: (state) => {
+            return {
+                ...state,
+                hiddenMenu: !state.hiddenMenu
+            };
+        },
         isFetching: (state) => {
             return{
                 ...state,
@@ -25,27 +37,13 @@ export const userSlice = createSlice({
                 isLoading: false,
                 error: false,
             }
-        },
-        setCurrentUser: (state, action) =>{
-            return{
-                ...state,
-                currentUser: action.payload,
-                isLoading: false,
-                error: false,
-            }
-        },
+        },        
         isError: (state) =>{      
             return{
                 ...state,
                 isLoading: false,
                 error: "Error en Pokemons Slice al cargar los pokemones",
             }
-        },
-        toggleHiddenMenu: (state) => {
-            return {
-                ...state,
-                hiddenMenu: !state.hiddenMenu
-            };
         }
     },
 });

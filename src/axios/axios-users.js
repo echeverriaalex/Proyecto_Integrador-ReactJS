@@ -11,7 +11,22 @@ export const createUser = async (nombre, email, password) => {
         return response.data;
     } catch (error) {
         console.error("Error creating user:", error);
-        return alert("Error creating user. Please try again", error.response.data.error[0],msg);
+        return alert("Error creating user. Please try again", error.response.data.errors[0].msg);
         //throw error;
     }
-};
+}; 
+
+
+export const loginUser = async (email, password) => {
+    try {
+        const { data } = await axios.post(`${BASE_URL}/auth/login`, {
+            email,
+            password
+        });
+        return data;
+    } catch (error) {
+        console.error("Error creating user:", error);
+        return alert("Error creating user. Please try again", error.response.data.errors[0].msg);
+        //throw error;
+    }
+}; 

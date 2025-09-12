@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Form as FormikForm } from 'formik';
 
 export const LoginWrapper = styled.div`
     width: 100%;
@@ -9,7 +10,7 @@ export const LoginWrapper = styled.div`
     flex-direction: column;
 `;
 
-export const FormBox = styled.div`
+export const FormContainerStyled = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,6 +22,7 @@ export const FormBox = styled.div`
     background-color: #575757ff;
     border-radius: 10px;
     border: 1px solid #000;
+    margin: 30px;
     padding: 15px;
 `;
 
@@ -34,16 +36,16 @@ export const HeaderStyled = styled.div`
     border-radius: 10px;
 
     img{
-        height: 150px;
+        height: 100px;
     }
 `;
 
-export const FormStyled = styled.form`
+export const Form = styled(FormikForm)`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 15px;
-    padding: 10px 0px;
     width: 100%;
 `;
 
@@ -52,23 +54,25 @@ export const RegisterWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 15px;
-    padding: 10px 0px;
+    margin-top: 20px;
+    padding: 20px 0px;
     width: 100%;
 
-    p{
-        font-size: 1.2rem;
-        color: white;
+    a{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        cursor: pointer;
     }
-`;
 
-export const ButtonStyled = styled.button`
-    width: 100%;
-    max-width: 200px;
-    font-size: 1.2rem;
-    padding: 10px;
-    border-radius: 10px;
-    background: #d98321;
-    color: white;
-    cursor: pointer;
-    border: none;
+    a, p, span{
+        color: #fff;
+        text-decoration: none;
+        font-family: Montserrat, sans-serif;
+    }
+
+    span{
+        font-weight: 700;        
+    }
 `;

@@ -1,15 +1,24 @@
-import { InputContainerStyled, InputStyled, LabelStyled } from "./InputContainerStyles";
+import { ErrorMessage, Field } from "formik";
+import { InputContainerStyled, InputStyled, ErrorMessageStyled } from "./InputContainerStyles";
 
-const InputContainer = ({ label, type, name, ...field }) => {
+const InputContainer = ({ type, placeholder, name }) => {
   return (
-    <InputContainerStyled>
-        { /* <LabelStyled htmlFor={label}>{label}</LabelStyled> */ }
-        
-        <InputStyled type={type} id={label} placeholder={label} name={name} {...field} />
-                
-        { type == "password" && <p>Mostrar</p> }
-        { false && <ErrorStyled>Error</ErrorStyled>}
-    </InputContainerStyled>
+    <Field name={name}>
+      {( { field, form: { errors, touched } } ) => (
+        <InputContainerStyled>
+          <InputStyled
+            type={type}
+            placeholder={placeholder}
+            {...field}
+            isError={errors[field.name] && touched[field.name]}
+          />
+
+          <ErrorMessage name={field.name}>
+            {(message) => <ErrorMessageStyled>{message}</ErrorMessageStyled>}
+          </ErrorMessage>
+        </InputContainerStyled>
+      )}
+    </Field>
   );
 }
 
