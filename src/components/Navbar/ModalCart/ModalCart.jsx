@@ -1,6 +1,6 @@
 import { AnimatePresence } from "framer-motion";
 import { toggleCartHidden } from "../../../redux/cart/cartSlice";
-import { ContainerStyled, EmptyContainerStyled, HeadContainerStyled, LinkCartStyled, MainContainerStyled, ModalOverLayStyled, ProductsCartContainerStyled } from "./ModalCartStyles";
+import { ContainerStyled, EmptyContainerStyled, HeadContainerStyled, LinkCartStyled, MainContainerStyled, ModalOverLayStyled, ProductsWrapperStyled } from "./ModalCartStyles";
 import { useDispatch, useSelector } from "react-redux";
 import cart from "../../../assets/images/cart.png";
 import { CloseIcon } from "../NavbarStyled";
@@ -25,44 +25,44 @@ const ModalCart = () => {
                 {!hiddenCart && (
                     <ContainerStyled
                         initial={{ translateX: 600 }}
-                        animate={{ translateX: 0 }}
+                        animate={{ translateX: -100 }}
                         exit={{ translateX: 600 }}
                         transition={{ type: "spring", damping: 27 }}
                         key="cart-modal"
                     >
-                        <HeadContainerStyled onClick={() => dispatch(toggleCartHidden())}>
+                        <HeadContainerStyled
+                            className="close_modal"
+                            whileTap={{ scale: 0.90 }}
+                        >
                             <CloseIcon 
                                 size={30} 
                                 color= "white"
-                                className="close_modal"
                                 whileTap={{ scale: 0.90 }}
+                                onClick={() => dispatch(toggleCartHidden())}
                             />
                             <LinkCartStyled to="/mycart">Ir al carrito</LinkCartStyled>
                         </HeadContainerStyled>
-
                         <MainContainerStyled>
-                            <ProductsCartContainerStyled>
+                            <ProductsWrapperStyled>
                                 {
-                                    cartItems.length
-                                        ?(
+                                    cartItems.length ? (
                                             cartItems.map((item) => (
                                                 <ItemCard key={item.id} {...item} />
                                             ))
-                                        ) 
-                                        :(
+                                        ) : (
                                             <EmptyContainerStyled>
                                                 <img src={cart} alt="Cart is empty" />
                                                 <p>No hay productos en el carrito</p>
                                             </EmptyContainerStyled>
                                         )
                                 }
-                            </ProductsCartContainerStyled>
-
+                            </ProductsWrapperStyled>
                         </MainContainerStyled>
                     </ContainerStyled>
                 )}
             </AnimatePresence>
         </>
     );
-}
+};
+
 export default ModalCart;

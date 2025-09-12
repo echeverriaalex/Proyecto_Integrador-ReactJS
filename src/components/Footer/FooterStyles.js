@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export const FooterStyled = styled.footer`
@@ -10,24 +11,19 @@ export const FooterStyled = styled.footer`
     background: #a01c05;
     border-top: 1px solid white;
     
-    
-    h2{
-        color: white;
-        font-size: 1.5rem;
-        text-align: center;
-    }
-    
     p{
         color: white;
         font-size: 1.4rem;
         text-align: center;
     }
 
+    /*
     a{
         font-size: 1.5rem;
         color: #fff;
         font-family: "Bruno Ace", sans-serif;
     }
+    */
 `;
 
 export const ProjectContainer = styled.div`
@@ -110,16 +106,14 @@ export const CategoriesFooterSection = styled.section`
     flex-direction: column;
     gap: 10px;
     padding: 10px;
-    //background: #53af15ff;
     max-width: 530px;
+`;
 
-    h2{
-        color: #fff;
-        font-size: 1.2rem;
-        text-align: left;
-        //background: #1598afff;
-        font-family: "Montserrat", sans-serif;
-    }
+export const TitleFooterSectionStyled = styled.h2`
+    color: #fff;
+    font-size: 1.2rem;
+    text-align: left;
+    font-family: "Montserrat", sans-serif;
 `;
 
 export const CategoriesFooterContainer = styled.div`
@@ -129,13 +123,43 @@ export const CategoriesFooterContainer = styled.div`
     gap: 10px;
 
     p{
-        color: #fff;
+        color: #ffffffff;
         font-size: 1rem;
-        text-align: center;
+        //text-align: center;
         font-family: "Montserrat", sans-serif;
+        //background: #0c0501ff;
     }
 
     @media (max-width: 576px) {
         grid-template-columns: repeat(auto-fill, minmax(100px, 120px));
+    }
+`;
+
+export const LinksFooterContainerStyled = styled.div`
+    //width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    //max-width: 530px;
+`;
+
+export const NavLinkFooterStyled = styled(NavLink)`
+    padding: 10px 20px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-align: center;
+    color: white;
+    display: flex;
+    gap: 8px;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    
+    &:hover {
+        transition: all .5s;
+        border-radius: 5px;
+        background: #571105ff;
+        text-decoration: underline;
+        text-underline-offset: 5px; /* ajusta la separación */
     }
 `;

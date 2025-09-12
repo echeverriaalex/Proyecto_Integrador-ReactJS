@@ -26,29 +26,34 @@ export const ContainerStyled = styled(motion.div)`
     z-index: 99;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     gap: 8px;
+    justify-content: space-between;
+    
     width: 450px;
-    /* height: calc(100vh - 4rem); */
+    //height: calc(100vh - 4rem);
     height: calc( 100vh - 40px);
     padding: 15px;
     background: #494949ff;
+    background: #000;
     border-radius: 1rem;
     box-shadow: 0 0 50px 20px rgba(0, 0, 0, 0.3);
+
+    //overflow-y: auto;
 
     @media (max-width: 576px){
         top: 0px;
         right: 0px;
         border-radius: 0px;
-        width: 100vw;
-        height: calc( 100vh - 50px);
+        width: 90%;
+        //height: calc( 100vh - 50px);
+        height: 100vh;
     }
 `;
 
 export const HeadContainerStyled = styled.div`    
     display: flex;
-    gap: 15px;
     align-items: center;
+    gap: 15px;    
     outline: none;
 `;
 
@@ -68,20 +73,34 @@ export const LinkCartStyled = styled(NavLink)`
 export const MainContainerStyled = styled.div`
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    overflow-y: auto;
+    // para que los contenidos no sobresalgan del carrito 
+    overflow-y: auto; 
 `;
 
-export const ProductsCartContainerStyled = styled.div`
-    width: 100%;
-    height: 100%;
+export const ProductsWrapperStyled = styled.div`    
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 10px;    
+    width: 100%;
+    height: 100%;
     overflow-y: auto;
+    padding: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: #2c2c2cd6 transparent;
+
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #2c2c2cd6;
+        border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
 `;
 
 export const EmptyContainerStyled = styled.div`

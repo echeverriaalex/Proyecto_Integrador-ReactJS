@@ -1,8 +1,8 @@
 
 import { useEffect, useState } from "react";
 import CategoryCard from "../Categories/CategoryCard/CategoryCard";
-import { CategoriesFooterContainer, CategoriesFooterSection, DeveloperContainer, FooterStyled, Project, ProjectContainer } from "./FooterStyles"
-import { useDispatch, useSelector } from "react-redux";
+import { CategoriesFooterContainer, CategoriesFooterSection, DeveloperContainer, FooterStyled, LinksFooterContainerStyled, NavLinkFooterStyled, Project, ProjectContainer, TitleFooterSectionStyled } from "./FooterStyles"
+import { useDispatch } from "react-redux";
 import { getAllCategoriesFromApi } from "../../axios/axios-categories";
 
 const Footer = () => {
@@ -30,7 +30,7 @@ const Footer = () => {
     return(
         <FooterStyled>
             <CategoriesFooterSection>
-                <h2>Categories</h2>
+                <TitleFooterSectionStyled>Categories</TitleFooterSectionStyled>
                 <CategoriesFooterContainer>
                     {
                         categories.map((category) => (
@@ -42,8 +42,15 @@ const Footer = () => {
                 </CategoriesFooterContainer>
             </CategoriesFooterSection>
 
+            <LinksFooterContainerStyled>
+                <TitleFooterSectionStyled>Menu</TitleFooterSectionStyled>
+                <NavLinkFooterStyled to="/">Home</NavLinkFooterStyled>
+                <NavLinkFooterStyled to="/about">About</NavLinkFooterStyled>
+                <NavLinkFooterStyled to="/products">Products</NavLinkFooterStyled>
+            </LinksFooterContainerStyled>
+
             <ProjectContainer>
-                <h2>Explora mis otros Proyectos</h2>
+                <TitleFooterSectionStyled>Explora mis otros Proyectos</TitleFooterSectionStyled>
                 <Project>
                     <img src="https://carstorepremium.vercel.app/assets/images/logo.webp"/>
                     <p>Luxury vehículos de lujo</p>

@@ -5,7 +5,6 @@ import { toggleMenuHidden } from "../../../redux/menu/menuSlice"
 import { CloseIcon, LinksContainerStyled } from "../NavbarStyled";
 import { useEffect, useState } from "react";
 import { getAllCategoriesFromApi } from "../../../axios/axios-categories";
-import typeIcons from "../../../utils/setIcon";
 import CategoryCard from "../../Categories/CategoryCard/CategoryCard";
 
 const ModalMenu = () => {
@@ -54,13 +53,12 @@ const ModalMenu = () => {
                         >
                             <h2>Menu</h2>
                             <CloseIcon
-                                size={50} 
+                                size={30} 
                                 color= "white"
                                 whileTap={{ scale: 0.90 }}
                                 onClick={() => dispatch(toggleMenuHidden())}
                             />
                         </HeadContainerStyled>
-
                         <LinksContainerStyled onClick={() => dispatch(toggleMenuHidden())}>
                             <NavLinkMobileStyled to="/">Home</NavLinkMobileStyled>
                             <NavLinkMobileStyled to="/products">Products</NavLinkMobileStyled>
@@ -85,7 +83,7 @@ const ModalMenu = () => {
                     </ContainerStyled>
                 )}
             </AnimatePresence>
-       </>
+        </>
     );
 };
 

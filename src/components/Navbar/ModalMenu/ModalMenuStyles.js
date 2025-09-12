@@ -17,15 +17,6 @@ export const ModalOverLayStyled = styled(motion.div)`
         css`
             backdrop-filter: blur(4px);
     `}
-
-    @media (max-width: 576px) {
-        /*
-        width: 100vw;
-        height: 100vh;
-        background: pink;
-        height: 100%;
-        */
-    }
 `;
 
 export const ContainerStyled = styled(motion.div)`
@@ -36,20 +27,22 @@ export const ContainerStyled = styled(motion.div)`
     display: flex;
     flex-direction: column;
     gap: 20px;
+
     width: 250px;
     /* height: calc(100vh - 4rem); */
     height: calc( 100vh - 40px);
     padding: 15px;
     background: #3c3c3d;
+    background: #000;
     border-radius: 1rem;
     box-shadow: 0 0 50px 20px rgba(0, 0, 0, 0.3);
 
-    overflow-y: auto;
+    //overflow-y: auto;
 
     @media (max-width: 576px){
         top: 0px;
         left: 0px;
-        width: 100vw;
+        width: 90%;
         border-radius: 0px;
         height: 100vh;
     }
@@ -57,14 +50,10 @@ export const ContainerStyled = styled(motion.div)`
 
 export const HeadContainerStyled = styled.div`    
     display: flex;
-    gap: 15px;
+    align-items: center;
     justify-content: space-between;
-    width: 2rem;
-    /*height: 2rem;*/
+    gap: 15px;
     outline: none;
-    border: none;
-    /*border-radius: 10px;*/
-    width: 100%;
     color: white;
 `;
 

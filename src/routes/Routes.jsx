@@ -9,6 +9,7 @@ import CardPage from "../pages/ProductsPage/CardPage/CardPage";
 import Checkout from "../pages/Checkout/Checkout";
 import ProductsPage from "../pages/ProductsPage/ProductsPage";
 import MyCartPage from "../pages/MyCartPage/MyCartPage";
+import UserPage from "../pages/UserPage/UserPage";
 
 function Routes(){
     return(
@@ -16,6 +17,7 @@ function Routes(){
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/profile" element={<UserPage />} />
             <Route path="/about" element={<About />} />
             <Route path="/products" element={<ProductsPage />} />
             <Route path="/checkout" element={<Checkout />} />
