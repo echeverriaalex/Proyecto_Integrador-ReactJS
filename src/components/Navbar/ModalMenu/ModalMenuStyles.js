@@ -57,6 +57,29 @@ export const HeadContainerStyled = styled.div`
     color: white;
 `;
 
+export const LinksContainerStyled = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-height: 100%;
+
+    background: #f10bdeff;
+
+    a{
+        width: 100%;
+        font-size: 1.2rem;
+        color: white;
+    }
+
+    @media (max-width: 576px){
+        padding: 0px;
+    }
+`;
+
+
+
+
 export const NavLinkMobileStyled = styled(NavLink)`
     width: 100%;
     padding: 10px 20px;
