@@ -1,8 +1,8 @@
 import { AnimatePresence } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
-import { ModalOverLayStyled, ContainerStyled, HeadContainerStyled, NavLinkContainerStyled, NavLinkMobileStyled } from "./ModalMenuStyles";
+import { ModalOverLayStyled, ContainerStyled, HeadContainerStyled, NavLinkContainerStyled, NavLinkMobileStyled, LinksContainerStyled } from "./ModalMenuStyles";
 import { toggleMenuHidden } from "../../../redux/menu/menuSlice"
-import { CloseIcon, LinksContainerStyled } from "../NavbarStyled";
+import { CloseIcon } from "../NavbarStyled";
 import { useEffect, useState } from "react";
 import { getAllCategoriesFromApi } from "../../../axios/axios-categories";
 import CategoryCard from "../../Categories/CategoryCard/CategoryCard";
