@@ -1,87 +1,52 @@
-import styled, { css } from 'styled-components';
-//import styled from "styled-components";
+import styled from "styled-components";
 import { HiMenu   } from "react-icons/hi";
 import { HiUser } from "react-icons/hi";
-import { HiOutlineSearch } from "react-icons/hi";
 import { IoIosCloseCircle } from "react-icons/io";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 import { MdClose } from "react-icons/md";
+import { HiOutlineShoppingCart } from "react-icons/hi";
+import { HiOutlineSearch } from "react-icons/hi";
 
-export const ModalOverlayStyled = styled(motion.div)`
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 50;
-  width: calc(100vw - 450px);
-  height: 100vh;
-
-  ${({ isHidden }) =>
-    !isHidden &&
-    css`
-      backdrop-filter: blur(4px);
-    `}
-`;
-
-export const CloseIcon = styled(MdClose)`
-    font-size: 3rem;
-    color: white;
-    cursor: pointer;
-    user-select: none;
+export const CloseIcon = styled(IoIosCloseCircle)`
     display: flex;
-    align-items: center;
-`;
-
-export const MenuIconStyled = styled(HiMenu)`
+    align-items: center;  
     font-size: 2rem;
     color: white;
     cursor: pointer;
     user-select: none;
-    display: flex;
-    align-items: center;
 `;
 
-export const UserIcon = styled(HiUser)`
-    font-size: 1.5rem;
+export const MenuIconStyled = styled(HiMenu)`
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
     color: white;
     cursor: pointer;
     user-select: none;
 `;
 
-export const NavbarContainerStyled = styled.div`
+export const UserIcon = styled(HiUser)`
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+`;
+
+export const IconContainerStyled = styled(motion.div)`
+    display: flex;
     align-items: center;
     justify-content: center;
-    //gap: 10px;
-    //max-width: 1400px;
-    width: 100%;
-    //background: #d404d4ff;
+    gap: 10px;
+    padding: 10px;
+    height: 30px;
 
-
-    @media (max-width: 576px){
-        //display: none;
-    }
-
-
-
-
-
-
-
-
-    // esto era el header
-
-
-
-    background: #a01c05;
-    border-bottom: 1px solid white;
-    padding: 5px 20px;
-
-    backdrop-filter: blur(8px);
-
-    @media (max-width: 768px){
-        padding: 10px;
+    &:hover {
+        transition: all .5s;
+        border-radius: 5px;
+        background: #571105ff;
     }
 
     @media (max-width: 576px){
@@ -89,8 +54,16 @@ export const NavbarContainerStyled = styled.div`
     }
 `;
 
+export const NavbarContainerStyled = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px 20px;
+    background: #a01c05;
+`;
 
-// Estilos para Mobile
 export const NavbarMobileContainerStyled = styled.div`
     display: none;
     flex-direction: column;
@@ -104,24 +77,19 @@ export const NavbarMobileContainerStyled = styled.div`
     }
 `;
 
+// barra de navegacion movil
 export const MobileContainerStyled = styled.div`
     display: none;
-    //display: flex;
+    gap: 10px;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    padding: 10px;
 
     @media (max-width: 576px){
         display: flex;
     }
-`;
-
-export const MobileMenuContainerStyled = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
 `;
 
 export const NavbarStyled = styled.nav`
@@ -140,7 +108,7 @@ export const NavbarStyled = styled.nav`
     }
 `;
 
-/* Nav Link cumple la misma funcion que un a con href */
+// Nav Link cumple la misma funcion que un a con href
 export const NavLinkStyled = styled(NavLink)`
     font-weight: 700;
     color: white;
@@ -175,7 +143,7 @@ export const NavLinkStyled = styled(NavLink)`
 export const NavLinkContainerStyled = styled.div`
     padding: 10px 25px;
     cursor: pointer;
-
+    
     p{
         font-weight: 700;
         color: white;
@@ -225,13 +193,12 @@ export const NavLinkContainerStyled = styled.div`
 `;
 
 export const MenuContainerStyled = styled(motion.div)`
-    //display: none;
+    display: none;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 5px;
     cursor: pointer;
-    /*padding: 10px;*/
 
     h2{
         font-size: 1.2rem;
@@ -246,49 +213,17 @@ export const MenuContainerStyled = styled(motion.div)`
 
 export const IconsContainerStyled = styled.div`
     display: flex;
-    gap: 10px;
+    gap: 15px;
 `;
 
-export const IconContainerStyled = styled(motion.div)`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 10px;
-
-    &:hover {
-        transition: all .5s;
-        border-radius: 5px;
-        background: #571105ff;
-    }
-
-    @media (max-width: 576px){
-        padding: 5px;
-    }
-`;
-
-export const BodyNavContainerStyled = styled(motion.div)`
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-
-    //background: #1fa005ff;
-
-    @media (max-width: 576px){
-        //background: #04a3d4ff;
-        padding: 0px;
-        display: none;
-    }
-`;
-
-export const ContainerStyled = styled(motion.div)`
+// Container para logo, search e icons
+export const ContainerStyled = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
     justify-content: space-between;
     gap: 30px;
     width: 100%;
-    //background: #0346d8ff;
 
     @media (max-width: 576px){
         justify-content: space-between;
@@ -297,15 +232,14 @@ export const ContainerStyled = styled(motion.div)`
 
 export const LogoLinkContainer = styled(NavLink)`
     display: flex;
-    height: 60px;
+    height: 50px;
     margin: 5px;
-    padding: 5px;
 
     img{
         max-width: 100%;
         max-height: 100%;
     }
-
+        
     &:hover {
         transition: all .5s;
         border-radius: 5px;
@@ -317,18 +251,34 @@ export const LogoLinkContainer = styled(NavLink)`
     }
 `;
 
-export const IconNavLinkStyled = styled.div`
+export const IconNavLinkStyled = styled(NavLink)`
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 10px;
-    padding: 0px 15px;
-    cursor: pointer;
 
     @media (max-width: 576px){
-        gap: 5px;
-        padding: 0px 5px;
+        padding: 10px 0px;
     }
+`;
+
+// Navbar completo para escritorio
+export const BodyNavContainerStyled = styled(motion.div)`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1600px;
+
+    @media (max-width: 576px){
+        padding: 0px;
+        display: none;
+    }
+`;
+
+export const MobileMenuContainerStyled = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 `;
 
 export const SpanStyled = styled.span`
@@ -336,25 +286,4 @@ export const SpanStyled = styled.span`
     color: white;
     font-family: montserrat;
     text-align: center;
-`;
-
-export const LinksContainerStyled = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%
-    min-height: 100%;
-
-    a{
-        width: 100%;
-        font-size: 1.2rem;
-        color: white;
-        /* padding: 1rem 1.5rem;*/
-        /*background: red;*/
-    }
-
-    @media (max-width: 576px){
-        /*background: lightcoral;*/
-        padding: 0px;
-    }
 `;
