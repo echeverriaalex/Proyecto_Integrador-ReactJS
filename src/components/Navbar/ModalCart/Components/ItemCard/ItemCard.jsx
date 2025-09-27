@@ -1,22 +1,24 @@
 import Quantity from "../Quantity/Quantity";
-import { ButtonsContainerStyled, CardCartStyled, DetailsItemContainerStyled } from "./ItemCardStyles";
+import { ButtonsContainerStyled, CardCartStyled, DetailsItemContainerStyled, ImageContainerStyled } from "./ItemCardStyles";
 import { FaTrashAlt } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import Button from "../../../../UI/Button/Button";
 import { deleteItem } from "../../../../../redux/cart/cartSlice";
 
-const ItemCard = ({ id, name, image, quantity, price }) => {
+const ItemCard = ({ id, title, img, quantity, price }) => {
 
     const dispatch = useDispatch();
 
     return (
         <CardCartStyled key={id}>
-            <img src={image} alt={name} />
+            <ImageContainerStyled>
+                <img src={img} alt={name} />
+            </ImageContainerStyled>            
             <DetailsItemContainerStyled>
                 <h3>{name}</h3>
                 <p>$ { (quantity * price)?.toFixed(2) }</p>
                 <ButtonsContainerStyled>
-                    <Quantity product={{ id, name, image, quantity, price }} />
+                    <Quantity product={{ id, title, img, quantity, price }} />
                     <Button
                         onClick={() => dispatch(deleteItem(id))}
                         background = "#a81106"
