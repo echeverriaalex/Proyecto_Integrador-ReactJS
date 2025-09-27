@@ -1,14 +1,12 @@
-import { CardsContainerStyled, CardWrapperStyled, HomeWrapper, LinkButtonStyled, SectionWrapper, TextContainerStyled, TitleSectionStyled } from "./HomeStyles"
+import { CardsContainerStyled, CardWrapperStyled, HomeWrapper, LinkButtonStyled, SectionWrapper, TextContainerStyled, TitleSectionStyled } from "./HomePageStyles"
 import Hero from "../../components/Hero/Hero"
 import CategoriesContainer from "../../components/Categories/CategoriesContainer/CategoriesContainer";
 import CategoriesRecommended from "../../components/CategoriesRecommended/CategoriesRecommended";
-
 import batalla from "../../assets/images/batalla-pokemon.webp";
 import campeonato from "../../assets/images/campeonato-pokemon.jpg";
 import entrenamiento from "../../assets/images/entrenamiento-pokemon.jpg";
 
-
-const Home = () => {
+const HomePage = () => {
     return (
         <HomeWrapper>
             <Hero />
@@ -61,4 +59,4 @@ const Home = () => {
     )
 }
 
-export default Home;
+export default HomePage;

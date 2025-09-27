@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
-import { CardContainerStyled, CheckoutWrapper, ImageContainerStyled, ProductsContainerStyled } from "./CheckoutStyles";
+import { CardContainerStyled, CheckoutWrapper, ImageContainerStyled, ProductsContainerStyled } from "./CheckoutPageStyles";
 
-const Checkout = () => {
+const CheckoutPage = () => {
 
     const { cartItems, shippingCost } = useSelector((state) => state.cart);
 
@@ -33,4 +33,4 @@ const Checkout = () => {
     );
 };
 
-export default Checkout;
+export default CheckoutPage;
