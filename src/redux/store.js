@@ -9,6 +9,7 @@ import menuReducer from './menu/menuSlice';
 import recommendedReducer  from './recommended/recommendedSlice';
 import userReducer from './users/userSlice';
 import categoriesSlice from './slice/categoriesSlice';
+import orderReducer from './orders/orderSlice';
 
 const reducers = combineReducers({ 
     pokemons: pokemonsReducer,
@@ -18,6 +19,7 @@ const reducers = combineReducers({
     menu: menuReducer,
     user: userReducer,
     categories: categoriesSlice,
+    orders: orderReducer,
 });
 
 const persistConfig = {
