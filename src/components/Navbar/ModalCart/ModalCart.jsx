@@ -40,7 +40,12 @@ const ModalCart = () => {
                                 whileTap={{ scale: 0.90 }}
                                 onClick={() => dispatch(toggleCartHidden())}
                             />
-                            <LinkCartStyled to="/mycart">Ir al carrito</LinkCartStyled>
+                            <LinkCartStyled 
+                                onClick={() => dispatch(toggleCartHidden())} 
+                                to="/mycart"
+                            >
+                                Ir al carrito
+                            </LinkCartStyled>
                         </HeadContainerStyled>
                         <MainContainerStyled>
                             <ProductsWrapperStyled>

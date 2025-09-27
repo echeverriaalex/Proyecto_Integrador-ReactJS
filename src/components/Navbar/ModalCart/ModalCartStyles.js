@@ -32,7 +32,7 @@ export const ContainerStyled = styled(motion.div)`
     width: 450px;
     //height: calc(100vh - 4rem);
     height: calc( 100vh - 40px);
-    padding: 15px;
+    padding: 10px;
     background: #494949ff;
     background: #000;
     border-radius: 1rem;
@@ -44,7 +44,7 @@ export const ContainerStyled = styled(motion.div)`
         top: 0px;
         right: 0px;
         border-radius: 0px;
-        width: 90%;
+        width: 85%;
         //height: calc( 100vh - 50px);
         height: 100vh;
     }
