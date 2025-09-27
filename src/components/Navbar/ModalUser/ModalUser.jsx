@@ -1,13 +1,14 @@
 import { AnimatePresence } from "framer-motion";
-import { HrStyled, LinkStyled, ModalContainerStyled } from "./ModalUserStyles";
+import { HrStyled, LinksContainerStyled, LinkStyled, ModalContainerStyled, SpanStyled, UsernameStyled } from "./ModalUserStyles";
 import { useDispatch, useSelector } from "react-redux";
-import { setCurrentUser, toggleHiddenMenu } from "../../../redux/users/userSlice";
+import { setCurrentUser, toggleMenuHidden } from "../../../redux/users/userSlice";
 import { formatUserName } from "../../../utils/functions";
-import { ButtonStyled } from "../../UI/Button/ButtonStyled";
+import { useNavigate } from "react-router-dom";
 
 const ModalUser = () => {
-    const { hiddenMenu, currentUser } = useSelector((state) => state.user);
+    const { hiddenMenu, currentUser } = useSelector(state => state.user);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     return (
         <AnimatePresence>
@@ -15,17 +16,21 @@ const ModalUser = () => {
                 <ModalContainerStyled
                     initial={{ translateX: 600 }}
                     animate={{ translateX: 0 }}
-                    exit={{ translateX: 0 }}
+                    exit={{ translateX: 600 }}
                     transition={{ duration: 0.5 }}
                     key="cart-user"
                 >
-                    <h2>Hola! { currentUser ? formatUserName(currentUser.nombre) : "" }</h2>
+                    <UsernameStyled>Hello { formatUserName(currentUser.nombre) } ! </UsernameStyled>
                     <HrStyled />
-                    <LinkStyled to="/profile">View Profile</LinkStyled>
-                    <ButtonStyled background="red" onClick={() => {
+                    <LinksContainerStyled>
+                        <LinkStyled to="/profile">View Profile</LinkStyled>
+                        <LinkStyled to="/mypurchases">My Purchases</LinkStyled>
+                    </LinksContainerStyled>
+                    <SpanStyled onClick={() => {
                         dispatch(setCurrentUser(null))
-                        dispatch(toggleHiddenMenu())
-                    }}>Logout</ButtonStyled>
+                        dispatch(toggleMenuHidden())
+                        navigate('/')
+                    }}>Logout</SpanStyled>
             </ModalContainerStyled>
             )}
         </AnimatePresence>
