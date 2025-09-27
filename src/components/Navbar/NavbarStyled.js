@@ -50,7 +50,7 @@ export const IconContainerStyled = styled(motion.div)`
     }
 
     @media (max-width: 576px){
-        padding: 5px;
+        padding: 10px 0px;
     }
 `;
 
@@ -62,6 +62,10 @@ export const NavbarContainerStyled = styled.div`
     width: 100%;
     padding: 10px 20px;
     background: #a01c05;
+
+    @media (max-width: 576px){
+        padding: 10px;
+    }
 `;
 
 export const NavbarMobileContainerStyled = styled.div`
@@ -85,7 +89,7 @@ export const MobileContainerStyled = styled.div`
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 10px;
+    padding: 10px 5px;
 
     @media (max-width: 576px){
         display: flex;
@@ -251,15 +255,7 @@ export const LogoLinkContainer = styled(NavLink)`
     }
 `;
 
-export const IconNavLinkStyled = styled(NavLink)`
-    display: flex;
-    align-items: center;
-    gap: 10px;
 
-    @media (max-width: 576px){
-        padding: 10px 0px;
-    }
-`;
 
 // Navbar completo para escritorio
 export const BodyNavContainerStyled = styled(motion.div)`
@@ -286,4 +282,5 @@ export const SpanStyled = styled.span`
     color: white;
     font-family: montserrat;
     text-align: center;
+    cursor: pointer;
 `;

@@ -1,9 +1,4 @@
-import { NavbarStyled, IconsContainerStyled, UserIcon, MenuContainerStyled, LogoLinkContainer, NavbarContainerStyled, NavLinkStyled, IconNavLinkStyled, 
-    NavLinkContainerStyled, ContainerStyled, MobileContainerStyled, 
-    IconContainerStyled, 
-    SpanStyled,
-    BodyNavContainerStyled,
-    MobileMenuContainerStyled} from "./NavbarStyled"
+import { NavbarStyled, IconsContainerStyled, UserIcon, MenuContainerStyled, LogoLinkContainer, NavbarContainerStyled, NavLinkStyled, NavLinkContainerStyled, ContainerStyled, MobileContainerStyled, IconContainerStyled, SpanStyled, BodyNavContainerStyled, MobileMenuContainerStyled} from "./NavbarStyled"
 import logo_pokeworld from "../../assets/images/logo-pokeworld.png";
 import { motion } from "framer-motion";
 import ModalCart from "./ModalCart/ModalCart";
@@ -18,9 +13,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { formatUserName } from "../../utils/functions";
 import { useNavigate } from "react-router-dom";
 import ModalUser from "./ModalUser/ModalUser";
-import { toggleHiddenMenu } from "../../redux/users/userSlice";
+import { toggleMenuHidden } from "../../redux/users/userSlice";
 import logo_pw from "../../assets/images/logo-pw.png";
-import logo_pokemon from "../../assets/images/Pokemon_logo.png";
 
 export const Navbar = () => {
     
@@ -28,8 +22,6 @@ export const Navbar = () => {
     const { currentUser } = useSelector((state) => state.user);
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
-    currentUser? console.log("Current User in Navbar:", currentUser) : console.log("No user logged in");
 
     const fetchAllCategories = async () => {
         try {
@@ -51,10 +43,7 @@ export const Navbar = () => {
             <ModalCart/>
             <ModalMenu/>
             <ModalUser/>
-
             <BodyNavContainerStyled>
-                
-
                 <ContainerStyled>
                     <MenuContainerStyled
                         whileTap={{ scale: 0.8 }}
@@ -68,17 +57,14 @@ export const Navbar = () => {
                     </motion.div>
                     <SearchBar/>
                     <IconsContainerStyled>
-                        <IconContainerStyled whileTap={{ scale: 0.8 }}>
-                            <IconNavLinkStyled onClick={()=>{
-                                currentUser? dispatch(toggleHiddenMenu()) : navigate('/login')
-                            }}>
-                                <SpanStyled>
-                                    {
-                                        currentUser ? formatUserName(currentUser.nombre) : "Login"
-                                    }
-                                </SpanStyled>
+                        <IconContainerStyled 
+                            whileTap={{ scale: 0.8 }}
+                            onClick={()=>{
+                                currentUser ? dispatch(toggleMenuHidden()) : navigate('/login')
+                            }}
+                        >
+                                <SpanStyled> {currentUser ? formatUserName(currentUser.nombre) : 'Login'}</SpanStyled>
                                 <UserIcon />
-                            </IconNavLinkStyled >
                         </IconContainerStyled>
                         <IconContainerStyled whileTap={{ scale: 0.8 }}>
                             <CartIcon/>
@@ -94,8 +80,8 @@ export const Navbar = () => {
                         <div>
                             {
                                 categories.length > 0 ? (
-                                    categories.map((category, index) => (
-                                        <CategoryCard category={category} key={index} />
+                                    categories.map((category) => (
+                                        <CategoryCard category={category} key={category.name} />
                                     ))
                                 ) : (
                                     <SpanStyled>No categories available</SpanStyled>
@@ -106,13 +92,7 @@ export const Navbar = () => {
                     <NavLinkStyled to="/contact">Contact</NavLinkStyled>
                 </NavbarStyled>
             </BodyNavContainerStyled>
-
-
-
-
-
             <MobileContainerStyled>
-
                 <MobileMenuContainerStyled>
                     <IconsContainerStyled>
                         <MenuContainerStyled
@@ -127,41 +107,25 @@ export const Navbar = () => {
                         </motion.div>
                     </IconsContainerStyled>
                     <IconsContainerStyled>
-                        <IconContainerStyled whileTap={{ scale: 0.8 }}>
-                            <IconNavLinkStyled onClick={()=>{
-                                currentUser? dispatch(toggleHiddenMenu()) : navigate('/login')
-                            }}>
-                                <SpanStyled>
-                                    {
-                                        currentUser ? formatUserName(currentUser.nombre) : "Login"
-                                    }
-                                </SpanStyled>
-                                <UserIcon />
-                            </IconNavLinkStyled >
+                        <IconContainerStyled whileTap={{ scale: 0.8 }}
+                            onClick={()=>{
+                                currentUser? dispatch(toggleMenuHidden()) : navigate('/login')
+                            }}
+                        >
+                            <SpanStyled>
+                                {
+                                    currentUser ? formatUserName(currentUser.nombre) : "Login"
+                                }
+                            </SpanStyled>
+                            <UserIcon />
                         </IconContainerStyled>
                         <IconContainerStyled whileTap={{ scale: 0.8 }}>
                             <CartIcon/>
                         </IconContainerStyled>
                     </IconsContainerStyled>
                 </MobileMenuContainerStyled>
-
-
                 <SearchBar/>
-                { /*
-                <SearchContainer>
-                    <SearchBar type="text" placeholder="Buscar"/>
-                    <motion.div whileTap={{ scale: 0.8 }}>
-                        <SearchIcon/>
-                    </motion.div>
-                </SearchContainer>
-                
-                </SearchContainer>
-                */ }
             </MobileContainerStyled>
-
-
-            
-
         </NavbarContainerStyled>
     );
 };
