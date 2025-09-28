@@ -3,7 +3,8 @@ import { getOrders } from "../../axios/axios-order";
 import { MyPurchasesPageWrapper } from "./MyPurchasesPageStyles";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import OrderCards from "../../components/Orders/OrderCards";
+import OrderCards from "../../components/Orders/OrdersCards/OrderCards";
+import { clearError, fetchOrderFail } from "../../redux/orders/orderSlice";
 
 const MyPurchasesPage = () => {
 

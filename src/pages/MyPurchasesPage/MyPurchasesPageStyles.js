@@ -5,8 +5,9 @@ export const  MyPurchasesPageWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 70vh;
+    min-height: 70vh;
     width: 100%;
     max-width: 1600px;
-    padding: 10px;
+    padding: 5px;
+    //background-color: #60b90dff;
 `;
