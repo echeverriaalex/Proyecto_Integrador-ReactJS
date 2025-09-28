@@ -92,7 +92,7 @@ const CardPage = () => {
                     )}                    
                 </OthersImagesContainerStyled>
                 <ImageContainerStyled>
-                    <img src={pokemon?.sprites?.other?.dream_world?.front_default || pokemon?.sprites?.other["official-artwork"].front_default} alt={pokemon?.name} />
+                    <img src={ pokemon?.sprites?.other?.dream_world?.front_default || pokemon?.sprites?.other["official-artwork"].front_default } alt={ pokemon?.name } />
                 </ImageContainerStyled>
                 <DetailsContainerStyled>
                     <InfoContainerStyled>
@@ -108,10 +108,11 @@ const CardPage = () => {
                     </InfoContainerStyled>
                     <ButtonStyled whileTap={{ scale: 0.9 }} onClick={() => {
                         dispatch(addToCart({
-                            id, 
-                            name: pokemon?.name,
-                            image: pokemon?.sprites?.other?.dream_world?.front_default,
+                            desc: "Height: " + pokemon?.height + ", Weight: " + pokemon?.weight,
+                            id,
+                            img: pokemon?.sprites?.other?.dream_world?.front_default,
                             price: pokemon?.price,
+                            title: pokemon?.name,
                         }))}
                     }>
                         Add to Cart

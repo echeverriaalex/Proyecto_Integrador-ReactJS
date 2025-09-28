@@ -9,12 +9,15 @@ import { loginInitialValues } from "../../formik/initialValue";
 import { loginValidationSchema } from "../../formik/validationSchema";
 import { loginUser } from "../../axios/axios-users";
 import { setCurrentUser } from "../../redux/users/userSlice";
-import { ButtonStyled } from "../../components/UI/Button/ButtonStyled";
+import Button from "../../components/UI/Button/Button";
+import { useState } from "react";
 
 const Login = () => {
 
     const dispatch = useDispatch();
-    useRedirect("/profile");  
+    const [isFetching, setIsFetching] = useState(false);
+    //useRedirect("/profile");
+    useRedirect("/mypurchases");
 
     return(
         <LoginWrapper>
@@ -26,7 +29,7 @@ const Login = () => {
                     initialValues={ loginInitialValues }
                     validationSchema={ loginValidationSchema }
                     onSubmit={async (values) => {
-                        const user = await loginUser(values.email, values.password)
+                        const user = await loginUser(values.email, values.password)                        
                         dispatch(setCurrentUser({
                             ...user.usuario,
                             token: user.token
@@ -36,7 +39,9 @@ const Login = () => {
                     <Form>
                         <InputContainer name="email" type="email" placeholder="Email" />
                         <InputContainer name="password" type="password" placeholder="Password" />
-                        <ButtonStyled>Log in</ButtonStyled>
+                        <Button> 
+                            Login
+                        </Button>
                     </Form>
                 </Formik>
                 <RegisterWrapper>

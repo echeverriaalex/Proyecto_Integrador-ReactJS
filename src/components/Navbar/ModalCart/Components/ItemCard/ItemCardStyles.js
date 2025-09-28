@@ -1,18 +1,27 @@
 import styled from "styled-components";
 
 export const CardCartStyled = styled.div`
-    background: white;
-    width: 100%;
     display: flex;
     align-items: center;
-    gap: 20px;
-    padding: 10px;
+    gap: 15px;
+    width: 100%;
+    height: 140px;
+    padding: 5px;
     border-radius: 10px;
-    background:rgba(39, 39, 39, 1);
+    background: #272727ff;
+`;
 
+export const ImageContainerStyled = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35%;
+    height: 100%;
+    
     img{
-        width: 80px;
-        height: 80px;
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;    
     }
 `;
 
@@ -20,6 +29,8 @@ export const DetailsItemContainerStyled = styled.div`
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: 100%;
+    height: 100%;
     
     h3{
         text-transform: capitalize;

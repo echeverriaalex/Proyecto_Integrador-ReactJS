@@ -17,7 +17,7 @@ export const userSlice = createSlice({
                 currentUser: action.payload
             }
         },
-        toggleHiddenMenu: (state) => {
+        toggleMenuHidden: (state) => {
             return {
                 ...state,
                 hiddenMenu: !state.hiddenMenu
@@ -48,5 +48,5 @@ export const userSlice = createSlice({
     },
 });
 
-export const { isFetching, success, setCurrentUser, isError, toggleHiddenMenu } = userSlice.actions;
+export const { isFetching, success, setCurrentUser, isError, toggleMenuHidden } = userSlice.actions;
 export default userSlice.reducer;
