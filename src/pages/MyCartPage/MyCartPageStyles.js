@@ -1,9 +1,10 @@
 import { NavLink } from "react-router-dom";
-import styled from "styled-components"
-import { motion } from "framer-motion";
+import styled from "styled-components";
 
 export const MycartPageWrapper = styled.div`
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 20px;
   width: 100%;
   max-width: 1400px;
@@ -17,13 +18,30 @@ export const MycartPageWrapper = styled.div`
   }
 `;
 
-export const CartContainerStyled = styled.div`
+export const CartProcessContainerStyled = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 20px;
   width: 100%;
 
+  @media (max-width: 576px){
+    flex-direction: column-reverse;
+    padding: 10px;
+    gap: 10px;
+    min-height: 80vh;
+  }
+`;
+
+export const CartContainerStyled = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 50%;
+  height: 80vh;
+
   @media(max-width: 576px){
-    flex-direction: column;  
+    width: 100%;
   }
 `;
 
@@ -33,22 +51,32 @@ export const CartItemsContainerStyled = styled.div`
   align-items: center;
   gap: 10px;
   width: 100%;
+  padding: 10px;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #000;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
 `;
 
 export const CartItemContainerStyled = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  
   gap: 10px;
   width: 100%;
   border-bottom: 1px solid #eee;
-
   padding-bottom: 15px;
-
   
-
   @media (max-width: 1000px){
     padding-bottom: 10px;
   }
@@ -58,7 +86,6 @@ export const CartItemContainerStyled = styled.div`
     //flex-wrap: wrap;
     padding-bottom: 5px;
   }
-
 `;
 
 export const PriceContainerStyled = styled.div`
@@ -97,6 +124,7 @@ export const ItemDetailsContainerStyled = styled.div`
 
 export const IdentityContainerStyled = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 10px;
 
@@ -106,15 +134,25 @@ export const IdentityContainerStyled = styled.div`
   }
 `;
 
-export const TextContainerStyled = styled.div`
-  
+export const ImageContainerStyled = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  gap: 10px;
+
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+`;
+
+export const TextContainerStyled = styled.div`  
   h3{
     font-size: 1rem;
   }
-  
-
-
-
 `;
 
 export const PriceQuantityContainerStyled = styled.div`
@@ -128,15 +166,13 @@ export const PriceQuantityContainerStyled = styled.div`
   }
 `;
 
-
-
 export const ItemName = styled.span`
   font-weight: bold;
-`
+`;
 
 export const ItemPrice = styled.span`
   color: #888;
-`
+`;
 
 export const TotalPrice = styled.div`
   margin-top: 20px;
@@ -154,9 +190,12 @@ export const TotalContainerStyled = styled.div`
   border-radius: 10px;
   padding: 20px;
   width: 100%;
-  min-width: 200px;
-  max-width: 250px;
+  
   height: fit-content;
+  
+  //min-width: 200px;
+  //max-width: 250px;
+  
 
   @media (max-width: 1000px){
     padding: 20px 10px;
@@ -179,9 +218,10 @@ export const DescriptionTotalContainerStyled = styled.div`
 export const ButtonContainerStyled = styled.div`
   width: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  //flex-direction: column;
+  gap: 20px;
 
   button{
     display: flex;

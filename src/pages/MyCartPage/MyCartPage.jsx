@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { ButtonContainerStyled, CartContainerStyled, CartItemContainerStyled, CartItemsContainerStyled, DescriptionTotalContainerStyled, EmptyCartContainerStyled, IdentityContainerStyled, ItemDetailsContainerStyled, MycartPageWrapper, NavLinkContainerStyled, NavLinksContainerStyled, PriceContainerStyled, PriceQuantityContainerStyled, TextContainerStyled, TotalContainerStyled } from "./MyCartPageStyles";
+import { ButtonContainerStyled, CartContainerStyled, CartItemContainerStyled, CartItemsContainerStyled, CartProcessContainerStyled, DescriptionTotalContainerStyled, EmptyCartContainerStyled, IdentityContainerStyled, ImageContainerStyled, ItemDetailsContainerStyled, MycartPageWrapper, NavLinkContainerStyled, NavLinksContainerStyled, PriceContainerStyled, PriceQuantityContainerStyled, TextContainerStyled, TotalContainerStyled } from "./MyCartPageStyles";
 import { FaTrashAlt } from "react-icons/fa";
 import Button from "../../components/UI/Button/Button";
 import { clearCart, deleteItem, removeFromCart, toggleCartHidden } from "../../redux/cart/cartSlice";
@@ -7,69 +7,86 @@ import { clearCart, deleteItem, removeFromCart, toggleCartHidden } from "../../r
 //import { IconQuantityContainerStyled, QuantityContainerStyled } from "../../components/Navbar/ModalCart/Components/Quantity/QuantityStyles";
 import Quantity from "../../components/Navbar/ModalCart/Components/Quantity/Quantity";
 import { useNavigate } from "react-router-dom";
+import { totalPrice } from "../../utils/functions";
+import CheckoutForm from "../../components/Checkout/CheckoutForm/CheckoutForm";
 
 const MyCartPage = () => {
 
-    const { cartItems, shippingCost,  } = useSelector((state) => state.cart) || { cartItems: [] };
+    const { cartItems, shippingCost } = useSelector((state) => state.cart) || { cartItems: [] };
+    const cartTotalPrice = totalPrice(cartItems);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     return (
         <MycartPageWrapper>
             {cartItems.length > 0 ? (
-                <CartContainerStyled>
-                    <CartItemsContainerStyled>
-                        {
-                            cartItems.map((item) => (
-                                <CartItemContainerStyled key={item.id}>
-                                    <ItemDetailsContainerStyled >
-                                        <IdentityContainerStyled>
-                                            <img src={item.image} alt={item.name} />
-                                            <TextContainerStyled>
-                                                <h3>{ item.name?.toUpperCase() }</h3>
-                                            </TextContainerStyled>
-                                        </IdentityContainerStyled>
-                                        <Button 
-                                            onClick={() => dispatch(deleteItem(item.id))}
-                                            background="#a81106">
-                                            Delete
-                                        </Button>
-                                    </ItemDetailsContainerStyled>
-                                    <PriceQuantityContainerStyled>
-                                        <Quantity product={{ ...item }} />
-                                        <PriceContainerStyled>
-                                            <p>$ { (item.price)?.toFixed(2) }</p>
-                                        </PriceContainerStyled>
-                                    </PriceQuantityContainerStyled>
-                                </CartItemContainerStyled>
-                            ))
-                        }
-                    </CartItemsContainerStyled>
-                    <TotalContainerStyled>
-                        <DescriptionTotalContainerStyled>
-                            <span>Total: </span>
-                            <span>$ { (cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0) + shippingCost).toFixed(2) }</span>
-                        </DescriptionTotalContainerStyled>
-                        <ButtonContainerStyled>
-                            <Button
-                                onClick={()=> dispatch(clearCart())}
-                                background = "#a81106"
-                            >
-                                Vaciar carrito
-                                <FaTrashAlt />
-                            </Button>
-                            <Button
-                                onClick={() => {
-                                    dispatch(toggleCartHidden());
-                                    navigate("/checkout");
-                                }}
-                                background = "#0f78a8"
-                            >
-                                Finalizar compra
-                            </Button>
-                        </ButtonContainerStyled>
-                    </TotalContainerStyled>
-                </CartContainerStyled>
+                <CartProcessContainerStyled>
+                    <CheckoutForm
+                        cartItems={cartItems}
+                        shippingCost={shippingCost}
+                        price={cartTotalPrice}
+                    />
+                    <CartContainerStyled>
+                        <CartItemsContainerStyled>
+                            {
+                                cartItems.map((item) => (
+                                    <CartItemContainerStyled key={item.id}>
+                                        <ItemDetailsContainerStyled >
+                                            <IdentityContainerStyled>
+                                                <ImageContainerStyled>
+                                                    <img src={item.image} alt={item.name} />
+                                                </ImageContainerStyled>                                            
+                                                <TextContainerStyled>
+                                                    <h3>{ item.name?.toUpperCase() }</h3>
+                                                </TextContainerStyled>
+                                            </IdentityContainerStyled>
+                                            <Button 
+                                                onClick={() => dispatch(deleteItem(item.id))}
+                                                maxWidth="120px"
+                                                background="#a81106"
+                                            >
+                                                Delete
+                                            </Button>
+                                        </ItemDetailsContainerStyled>
+                                        <PriceQuantityContainerStyled>
+                                            <Quantity product={{ ...item }} />
+                                            <PriceContainerStyled>
+                                                <p>$ { (item.price)?.toFixed(2) }</p>
+                                            </PriceContainerStyled>
+                                        </PriceQuantityContainerStyled>
+                                    </CartItemContainerStyled>
+                                ))
+                            }
+                        </CartItemsContainerStyled>
+                        <TotalContainerStyled>
+                            <DescriptionTotalContainerStyled>
+                                <span>Total: </span>
+                                <span>$ { (cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0) + shippingCost).toFixed(2) }</span>
+                            </DescriptionTotalContainerStyled>
+
+                            { /*
+                            <ButtonContainerStyled>
+                                <Button
+                                    onClick={()=> dispatch(clearCart())}
+                                    background = "#a81106"
+                                >
+                                    Vaciar
+                                    <FaTrashAlt />
+                                </Button>
+                                <Button
+                                    onClick={() => {
+                                        dispatch(toggleCartHidden());
+                                        navigate("/checkout");
+                                    }}
+                                    background = "#0f78a8"
+                                >
+                                    Finalizar
+                                </Button>
+                            </ButtonContainerStyled>
+                            */ }
+                        </TotalContainerStyled>
+                    </CartContainerStyled>
+                </CartProcessContainerStyled>
             ) : (
                 <EmptyCartContainerStyled>
                     <h2>Your shopping cart is empty.</h2>
