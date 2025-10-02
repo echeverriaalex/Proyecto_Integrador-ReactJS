@@ -1,8 +1,8 @@
-import { AboutWrapper, CardsContainerStyled, CardWrapperStyled, LinkButtonStyled, TextContainerStyled } from "./AboutStyles";
+import { AboutPageWrapper, CardsContainerStyled, CardWrapperStyled, LinkButtonStyled, TextContainerStyled } from "./AboutPageStyles";
 
-const About = () => {
+const AboutPage = () => {
   return (
-    <AboutWrapper>
+    <AboutPageWrapper>
       <CardsContainerStyled>
         <CardWrapperStyled>
           <img src="https://www.yourcentralvalley.com/wp-content/uploads/sites/54/2024/08/2024_Pokemon_World_Championships_Event_Photo_6.jpg?w=2560&h=1440&crop=1" alt="About Us" />
@@ -60,8 +60,8 @@ const About = () => {
         </CardWrapperStyled>
       </CardsContainerStyled>
       <LinkButtonStyled to="/">Go Start</LinkButtonStyled>
-    </AboutWrapper>
+    </AboutPageWrapper>
   );
 }
 
-export default About;
+export default AboutPage;

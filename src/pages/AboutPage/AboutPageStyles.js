@@ -1,19 +1,25 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import { themePage } from "../../components/styles/GlobalStyles";
 
-export const AboutWrapper = styled.div`
+export const AboutPageWrapper = styled.div`
+
+  margin-top: ${ themePage.dimensions.marginTop };
+  width: ${ themePage.dimensions.width };
+  min-height: ${ themePage.dimensions.minHeight };
+
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
   padding: 2rem;
-  width: 100%;
 
   @media (max-width: 1000px){
     padding: 10px;
   }
 
   @media (max-width: 576px) {
+    margin-top: ${ themePage.dimensions.marginTopMobile };
     padding: 10px;
     gap: 15px;
   }

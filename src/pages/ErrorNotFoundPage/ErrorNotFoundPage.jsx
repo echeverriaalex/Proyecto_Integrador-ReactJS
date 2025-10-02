@@ -1,13 +1,13 @@
 import { useNavigate } from "react-router-dom";
-import { ErrorWrapper, ImagesContainerStyled, LinksContainerStyled, TextContainerStyled } from "./ErrorNotFoundStyles";
+import { ErrorPageWrapper, ImagesContainerStyled, LinksContainerStyled, TextContainerStyled } from "./ErrorNotFoundPageStyles";
 import Button from "../../components/UI/Button/Button"
 
-const ErrorNotFound = () => {
+const ErrorNotFoundPage = () => {
 
     const navigate = useNavigate();
 
     return(
-        <ErrorWrapper>
+        <ErrorPageWrapper>
             <ImagesContainerStyled>
                 <img src="https://i.gifer.com/5SvD.gif" alt="404 Not Found" />
             </ImagesContainerStyled>
@@ -18,8 +18,8 @@ const ErrorNotFound = () => {
             <LinksContainerStyled>
                 <Button onClick={() => navigate("/")}>Go Home</Button>
             </LinksContainerStyled>
-        </ErrorWrapper>
+        </ErrorPageWrapper>
     )
 }
 
-export default ErrorNotFound;
+export default ErrorNotFoundPage;

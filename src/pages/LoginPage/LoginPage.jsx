@@ -1,5 +1,5 @@
 import InputContainer from "../../components/UI/InputContainer/InputContainer"
-import { Form, FormContainerStyled, HeaderStyled, LoginWrapper, RegisterWrapper } from "./LoginStyles";
+import { Form, FormContainerStyled, HeaderStyled, LoginPageWrapper, RegisterWrapper } from "./LoginPageStyles";
 import{ Formik } from "formik";
 import Pokemon from "../../assets/images/Mew-gif.gif";
 import { NavLink } from "react-router-dom";
@@ -12,7 +12,7 @@ import { setCurrentUser } from "../../redux/users/userSlice";
 import Button from "../../components/UI/Button/Button";
 import { useState } from "react";
 
-const Login = () => {
+const LoginPage = () => {
 
     const dispatch = useDispatch();
     const [isFetching, setIsFetching] = useState(false);
@@ -20,7 +20,7 @@ const Login = () => {
     useRedirect("/mypurchases");
 
     return(
-        <LoginWrapper>
+        <LoginPageWrapper>
             <FormContainerStyled>
                 <HeaderStyled>
                     <img src={Pokemon} alt="Mew" />
@@ -51,8 +51,8 @@ const Login = () => {
                     </NavLink>
                 </RegisterWrapper>
             </FormContainerStyled>
-        </LoginWrapper>
+        </LoginPageWrapper>
     );
 }
 
-export default Login;
+export default LoginPage;

@@ -3,7 +3,7 @@ import Pokemon from "../../assets/images/pikachu.gif"
 import InputContainer from "../../components/UI/InputContainer/InputContainer"
 import { registerInitialValues } from "../../formik/initialValue";
 import { registerValidationSchema } from "../../formik/validationSchema";
-import { Form, FormContainerStyled, HeaderStyled, LoginWrapper, RegisterWrapper } from "./RegisterStyles";
+import { Form, FormContainerStyled, HeaderStyled, LoginWrapper, RegisterWrapper } from "./RegisterPageStyles";
 import { NavLink } from "react-router-dom";
 import { createUser } from "../../axios/axios-users";
 import { useDispatch } from "react-redux";
@@ -11,7 +11,7 @@ import { setCurrentUser } from "../../redux/users/userSlice";
 import useRedirect from "../../hooks/useRedirect";
 import { ButtonStyled } from "../../components/UI/Button/ButtonStyled";
 
-const Register = () => {
+const RegisterPage = () => {
 
     const dispatch = useDispatch();
     useRedirect("/");
@@ -60,4 +60,4 @@ const Register = () => {
     )
 }
 
-export default Register
+export default RegisterPage;

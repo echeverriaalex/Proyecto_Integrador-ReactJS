@@ -1,13 +1,16 @@
 import styled from "styled-components";
+import { themePage } from "../../components/styles/GlobalStyles";
 
-export const ErrorWrapper = styled.div`
-    width: 100%;
+export const ErrorPageWrapper = styled.div`
+    margin-top: ${ themePage.dimensions.marginTop };
+    width: ${ themePage.dimensions.width };
+    min-height: ${ themePage.dimensions.minHeight };
+    max-width: ${ themePage.dimensions.maxWidth };
     display: flex;
     flex-direction: column;
     gap: 40px;
     justify-content: center;
     align-items: center;
-    min-height: 70vh;
     padding: 10px;
 `;
 

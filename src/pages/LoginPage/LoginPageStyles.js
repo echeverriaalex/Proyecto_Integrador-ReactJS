@@ -1,8 +1,12 @@
 import styled from "styled-components";
 import { Form as FormikForm } from 'formik';
+import { themePage } from "../../components/styles/GlobalStyles";
 
-export const LoginWrapper = styled.div`
-    width: 100%;
+export const LoginPageWrapper = styled.div`
+    margin-top: ${ themePage.dimensions.marginTop };
+    width: ${ themePage.dimensions.width };
+    min-height: ${ themePage.dimensions.minHeight };
+    max-width: ${ themePage.dimensions.maxWidth };
     padding: 10px;
     display: flex;
     justify-content: center;
