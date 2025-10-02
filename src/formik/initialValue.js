@@ -9,6 +9,13 @@ export const loginInitialValues = {
     password: ""
 };
 
+export const contactInitialValues = {
+    name: '',
+    surname: '',
+    email: '',
+    issue: ''
+}
+
 export const checkoutInitialValues = {
     name: '',
     cellphone: '',
