@@ -1,13 +1,16 @@
 import styled from "styled-components";
+import { themePage } from "../../components/styles/GlobalStyles";
 
 export const ProductsPageWrapper = styled.div`
+    margin-top: ${ themePage.dimensions.marginTop };
+    width: ${ themePage.dimensions.width };
+    min-height: ${ themePage.dimensions.minHeight };
+    max-width: ${ themePage.dimensions.maxWidth };
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 100%;
+    align-items: center;    
     gap: 10px;
-    min-height: 90vh;
-
+    
     @media (max-width: 576px){
         gap: 5px;
     }

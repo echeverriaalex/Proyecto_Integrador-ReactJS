@@ -1,7 +1,12 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import { themePage } from "../../components/styles/GlobalStyles";
 
-export const HomeWrapper = styled.div`
+export const HomePageWrapper = styled.div`
+    margin-top: ${ themePage.dimensions.marginTop };
+    width: ${ themePage.dimensions.width };
+    min-height: ${ themePage.dimensions.minHeight };
+    max-width: ${ themePage.dimensions.maxWidth };
     display: flex;
     flex-direction: column;
     align-items: center;

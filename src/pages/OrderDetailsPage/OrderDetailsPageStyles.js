@@ -1,14 +1,16 @@
 import styled from "styled-components";
+import { themePage } from "../../components/styles/GlobalStyles";
 
 export const OrderDetailsPageWrapper = styled.div`
+    margin-top: ${ themePage.dimensions.marginTop };
+    width: ${ themePage.dimensions.width };
+    min-height: ${ themePage.dimensions.minHeight };
+    max-width: ${ themePage.dimensions.maxWidth };
     display: flex;
     flex-direction: column;
     gap: 30px;
-    min-height: 80vh;
-    width: 100%;
     color: #fff;
-    margin: 50px 0px;
-    max-width: 1600px;
+    //margin: 50px 0px;
     padding: 20px;
 `;
 

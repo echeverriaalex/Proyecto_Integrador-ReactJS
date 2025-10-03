@@ -1,14 +1,16 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import { themePage } from "../../components/styles/GlobalStyles";
 
 export const MycartPageWrapper = styled.div`
+  margin-top: ${ themePage.dimensions.marginTop };
+  width: ${ themePage.dimensions.width };
+  min-height: ${ themePage.dimensions.minHeight };
+  max-width: ${ themePage.dimensions.maxWidth };
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 20px;
-  width: 100%;
-  max-width: 1400px;
-  min-height: 60vh;
   padding: 20px;
 
   h2, h3, p, span{
@@ -36,6 +38,7 @@ export const CartProcessContainerStyled = styled.div`
 export const CartContainerStyled = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 20px;
   width: 50%;
   height: 80vh;
@@ -49,9 +52,8 @@ export const CartItemsContainerStyled = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
   width: 100%;
-  padding: 10px;
   overflow: auto;
 
   &::-webkit-scrollbar {
@@ -70,44 +72,37 @@ export const CartItemsContainerStyled = styled.div`
 
 export const CartItemContainerStyled = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   gap: 10px;
   width: 100%;
   border-bottom: 1px solid #eee;
-  padding-bottom: 15px;
-  
-  @media (max-width: 1000px){
-    padding-bottom: 10px;
-  }
-
-  @media (max-width: 576px){
-    //flex-direction: column;
-    //flex-wrap: wrap;
-    padding-bottom: 5px;
-  }
+  padding: 10px;
 `;
 
 export const PriceContainerStyled = styled.div`
   display: flex;
+  flex-direction: column;
+  gap: 20px;
   align-items: center;
-  justify-content: center;
-  background: rgba(9, 93, 104, 1);
   padding: 5px;
-  min-width: 100px;
+
+  p{
+    font-size: 1.2rem;
+  }
 `;
 
 export const ItemDetailsContainerStyled = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   gap: 20px;
   width: 100%;
-  max-width: 400px;
+  max-width: 120px;
 
   img{
-    width: 70px;
-    height: 70px;
+    width: 100%;
+    height: 100%;
     padding: 5px;
   }
 
@@ -126,6 +121,7 @@ export const IdentityContainerStyled = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 10px;
 
   @media (max-width: 1000px){

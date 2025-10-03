@@ -1,12 +1,15 @@
 import styled from "styled-components";
+import { themePage } from "../../components/styles/GlobalStyles";
 
 export const CategoryPageWrapper = styled.div`
+    margin-top: ${ themePage.dimensions.marginTop };
+    width: ${ themePage.dimensions.width };
+    min-height: ${ themePage.dimensions.minHeight };
+    max-width: ${ themePage.dimensions.maxWidth };
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    width: 100%;
-    min-height: 100vh;
 `;
 
 export const HeroCategoryPage = styled.div`
