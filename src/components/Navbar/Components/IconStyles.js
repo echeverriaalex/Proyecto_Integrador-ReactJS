@@ -25,5 +25,7 @@ export const IconContainerStyled = styled.div`
         padding: 5px 8px;
         border-radius: 10px;
         font-size: 0.8rem;
+        cursor: pointer;
+        user-select: none;
     }
 `;

@@ -62,9 +62,11 @@ export const LinksContainerStyled = styled.div`
     flex-direction: column;
     align-items: center;
     width: 100%;
-    min-height: 100%;
+    height: 90%;
+    overflow-y: auto;
+    //margin: 30px 0px;
 
-    background: #f10bdeff;
+    //background: #f10bdeff;
 
     a{
         width: 100%;
@@ -147,6 +149,7 @@ export const NavLinkContainerStyled = styled.div`
         color: white;
         padding: 10px 20px;
         border-bottom: none;
+        overflow-y: auto;
     }
 
     &:hover div{

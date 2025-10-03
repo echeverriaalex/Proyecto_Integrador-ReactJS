@@ -9,6 +9,7 @@ export const ItemCardContainerStyled = styled.div`
   width: 100%;
   max-height: 280px;
   gap: 15px;
+  border: 2px solid #d98321;
 `;
 
 export const ImageContainerStyled = styled.div`

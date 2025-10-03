@@ -27,6 +27,14 @@ const MyCartPage = () => {
                         price={cartTotalPrice}
                     />
                     <CartContainerStyled>
+                        <Button 
+                            onClick={() => dispatch(clearCart())}
+                            maxWidth="180px"
+                            background="#a81106"
+                        >
+                            Clear cart
+                            <FaTrashAlt />
+                        </Button>
                         <CartItemsContainerStyled>
                             {
                                 cartItems.map((item) => (
@@ -34,26 +42,25 @@ const MyCartPage = () => {
                                         <ItemDetailsContainerStyled >
                                             <IdentityContainerStyled>
                                                 <ImageContainerStyled>
-                                                    <img src={item.image} alt={item.name} />
+                                                    <img src={item.img} alt={item.title} />
                                                 </ImageContainerStyled>                                            
                                                 <TextContainerStyled>
-                                                    <h3>{ item.name?.toUpperCase() }</h3>
+                                                    <h3>{ item.title?.toUpperCase() }</h3>
                                                 </TextContainerStyled>
-                                            </IdentityContainerStyled>
-                                            <Button 
-                                                onClick={() => dispatch(deleteItem(item.id))}
-                                                maxWidth="120px"
-                                                background="#a81106"
-                                            >
-                                                Delete
-                                            </Button>
+                                            </IdentityContainerStyled>                                            
                                         </ItemDetailsContainerStyled>
-                                        <PriceQuantityContainerStyled>
-                                            <Quantity product={{ ...item }} />
-                                            <PriceContainerStyled>
-                                                <p>$ { (item.price)?.toFixed(2) }</p>
-                                            </PriceContainerStyled>
-                                        </PriceQuantityContainerStyled>
+                                        <PriceContainerStyled>
+                                            <PriceQuantityContainerStyled>
+                                                <Quantity product={{ ...item }} />
+                                                <Button
+                                                    onClick={() => dispatch(deleteItem(item.id))}
+                                                    background = "#a81106"
+                                                >
+                                                    <FaTrashAlt />
+                                                </Button>
+                                            </PriceQuantityContainerStyled>
+                                            <p>$ { (item.price)?.toFixed(2) }</p>
+                                        </PriceContainerStyled>
                                     </CartItemContainerStyled>
                                 ))
                             }

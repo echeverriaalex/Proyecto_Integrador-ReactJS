@@ -55,6 +55,9 @@ export const IconContainerStyled = styled(motion.div)`
 `;
 
 export const NavbarContainerStyled = styled.div`
+    position: fixed;
+    top: 0;
+    left: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -62,6 +65,7 @@ export const NavbarContainerStyled = styled.div`
     width: 100%;
     padding: 10px 20px;
     background: #a01c05;
+    z-index: 100;
 
     @media (max-width: 576px){
         padding: 10px;

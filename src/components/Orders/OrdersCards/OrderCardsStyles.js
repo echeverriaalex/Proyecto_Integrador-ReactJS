@@ -8,6 +8,10 @@ export const PurchasesContainerStyled = styled.div`
     width: 100%;
     min-height: 60vh;
     padding: 20px 0px;
+
+    @media (max-width: 576px) {
+        grid-template-columns: repeat(auto-fill, minmax(45%, 350px));
+    }
 `;
 
 export const OrderContainerStyled = styled.div`

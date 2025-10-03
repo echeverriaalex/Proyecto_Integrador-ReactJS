@@ -49,6 +49,7 @@ const Footer = () => {
                 <NavLinkFooterStyled to="/products">Products</NavLinkFooterStyled>
             </LinksFooterContainerStyled>
 
+            {/*
             <ProjectContainer>
                 <TitleFooterSectionStyled>Explora mis otros Proyectos</TitleFooterSectionStyled>
                 <Project>
@@ -61,6 +62,7 @@ const Footer = () => {
                 </Project>
                 <a href="https://github.com/echeverriaalex">👉 Más de mis proyectos 👈</a>
             </ProjectContainer>
+            */}
 
             <DeveloperContainer>
                 <p>Developed with ReactJS by <a href="https://alexnahuelecheverria.vercel.app/">Alex Nahuel Echeverria</a></p>

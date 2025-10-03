@@ -1,4 +1,4 @@
-import { CardsContainerStyled, CardWrapperStyled, HomeWrapper, LinkButtonStyled, SectionWrapper, TextContainerStyled, TitleSectionStyled } from "./HomePageStyles"
+import { CardsContainerStyled, CardWrapperStyled, HomePageWrapper, LinkButtonStyled, SectionWrapper, TextContainerStyled, TitleSectionStyled } from "./HomePageStyles"
 import Hero from "../../components/Hero/Hero"
 import CategoriesContainer from "../../components/Categories/CategoriesContainer/CategoriesContainer";
 import CategoriesRecommended from "../../components/CategoriesRecommended/CategoriesRecommended";
@@ -8,7 +8,7 @@ import entrenamiento from "../../assets/images/entrenamiento-pokemon.jpg";
 
 const HomePage = () => {
     return (
-        <HomeWrapper>
+        <HomePageWrapper>
             <Hero />
             <SectionWrapper>
                 <CategoriesContainer />
@@ -55,7 +55,7 @@ const HomePage = () => {
                 <TitleSectionStyled>Our suggestions</TitleSectionStyled>
                 <CategoriesRecommended />
             </SectionWrapper>
-        </HomeWrapper>
+        </HomePageWrapper>
     )
 }
 

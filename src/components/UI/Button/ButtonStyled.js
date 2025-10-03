@@ -2,6 +2,10 @@ import { line } from "framer-motion/client";
 import styled from "styled-components";
 
 export const ButtonStyled = styled.button`
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
     padding: 10px 15px;
     border-radius: 10px;
     color: white;
