@@ -15,6 +15,7 @@ import { useNavigate } from "react-router-dom";
 import ModalUser from "./ModalUser/ModalUser";
 import { toggleMenuHidden } from "../../redux/users/userSlice";
 import logo_pw from "../../assets/images/logo-pw.png";
+import ModalMessage from "./ModalMessage/ModalMessage";
 
 export const Navbar = () => {
     
@@ -43,6 +44,7 @@ export const Navbar = () => {
             <ModalCart/>
             <ModalMenu/>
             <ModalUser/>
+            <ModalMessage/>
             <BodyNavContainerStyled>
                 <ContainerStyled>
                     <MenuContainerStyled

@@ -13,6 +13,8 @@ import { ButtonStyled } from "./CardPageStyles";
 import { calculateProductPrice } from "../../../utils/setPricePokemonByType";
 import { isError, isFetching, success } from "../../../redux/slice/pokemonSlice";
 import Loader from "../../../components/Loader/Loader";
+import { toggleMessageShow } from "../../../redux/slice/messageSlice";
+import { capitalizeText } from "../../../utils/functions";
 
 const CardPage = () => {
 
@@ -110,10 +112,11 @@ const CardPage = () => {
                         dispatch(addToCart({
                             desc: "Height: " + pokemon?.height + ", Weight: " + pokemon?.weight,
                             id,
-                            img: pokemon?.sprites?.other?.dream_world?.front_default,
+                            img: pokemon?.sprites?.other?.dream_world?.front_default || pokemon?.sprites?.other["official-artwork"].front_default,
                             price: pokemon?.price,
                             title: pokemon?.name,
-                        }))}
+                        }), 
+                        dispatch(toggleMessageShow(`${capitalizeText( pokemon?.name)} added to cart`)))}
                     }>
                         Add to Cart
                         <img src={pokebola} alt="pokebola"/>
