@@ -10,8 +10,11 @@ export const OrderDetailsPageWrapper = styled.div`
     flex-direction: column;
     gap: 30px;
     color: #fff;
-    //margin: 50px 0px;
     padding: 20px;
+
+    @media (max-width: 576px) {
+        margin-top: ${ themePage.dimensions.marginTopMobile };
+    }
 `;
 
 export const OrderContainerStyled = styled.div`
@@ -25,19 +28,6 @@ export const DataContainerStyled = styled.div`
     display: flex;
     gap: 20px;
 
-    h2, h3, p{
-        font-weight: 700;
-        font-family: Montserrat, sans-serif;
-    }
-
-    h2{
-        font-size: 2rem;
-    }
-
-    h3, p{
-        font-size: 1.5rem;
-    }
-
     @media (max-width: 576px) {
         flex-direction: column;
     }
@@ -48,12 +38,8 @@ export const DetailsSectionStyled = styled.section`
     flex-direction: column;
     gap: 20px;
     width: 100%;
-    
-    padding: 20px 0px;
     padding: 10px;
-
     border-radius: 8px;
-    border: 2px solid #fff;
 
     h2, h3, p{
         font-weight: 700;
@@ -61,15 +47,15 @@ export const DetailsSectionStyled = styled.section`
     }
 
     h2{
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 
     h3, p{
-        font-size: 1.5rem;
+        font-size: 1rem;
     }
 `;
 
-export const DetailsContainerStyled = styled.div`
+export const TextContainerStyled = styled.div`
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -90,58 +76,9 @@ export const ItemContainerStyled = styled.div`
     padding: 20px 0px;
     width: 100%;
     gap: 15px;
-    
-    //background-color: #5e8504ff;
 `;
-
 
 export const HrStyled = styled.hr`
     border: 1px solid #ccc;
     width: 100%;
-`;
-
-export const UserDataSectionStyled = styled.section`
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    justify-content: center;
-    width: 100%;
-    border-radius: 8px;
-    border: 2px solid #fff;
-    padding: 10px;
-`;
-
-export const UserDataContainerStyled = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-`;
-
-export const PaymentDetailsSectionStyled = styled.section`
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    justify-content: center;
-    width: 100%;
-
-    padding: 10px 0px;
-
-    h2, h3, p{
-        font-weight: 700;
-        font-family: Montserrat, sans-serif;
-    }
-
-    h2{
-        font-size: 2rem;
-    }
-
-    h3, p{
-        font-size: 1.5rem;
-    }
-`;
-
-export const PaymentDetailsContainerStyled = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 10px;  
 `;

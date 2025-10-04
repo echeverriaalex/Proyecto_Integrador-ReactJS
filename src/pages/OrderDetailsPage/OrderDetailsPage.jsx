@@ -1,10 +1,11 @@
 import { useParams } from "react-router-dom";
-import { DataContainerStyled, DetailsContainerStyled, DetailsSectionStyled, HrStyled, ItemContainerStyled, OrderContainerStyled, OrderDetailsContainerStyled, OrderDetailsPageWrapper, PaymentDetailsContainerStyled, PaymentDetailsSectionStyled, UserDataContainerStyled, UserDataSectionStyled } from "./OrderDetailsPageStyles";
+import { DataContainerStyled, DetailsSectionStyled, HrStyled, ItemContainerStyled, OrderContainerStyled, OrderDetailsContainerStyled, OrderDetailsPageWrapper, TextContainerStyled } from "./OrderDetailsPageStyles";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getOrders } from "../../axios/axios-order";
 import OrderItemCard from "../../components/Orders/OrderItemCard/OrderItemCard";
 import { shortenId } from "../../utils/functions";
+import Loader from "../../components/Loader/Loader";
 
 const OrderDetailsPage = () => {
 
@@ -15,13 +16,10 @@ const OrderDetailsPage = () => {
     const [visitedOrder, setVisitedOrder] = useState(null)
 
     useEffect(() => {
-
         if(!orders){
             getOrders(dispatch, currentUser);
         }
-
         setVisitedOrder(orders?.find((order) => order._id === id))
-        console.log("Orden visitada:", visitedOrder);
     }, [id, currentUser, dispatch, orders]);
 
     return(
@@ -30,23 +28,23 @@ const OrderDetailsPage = () => {
                 <OrderContainerStyled>
                     <DataContainerStyled>
                         <DetailsSectionStyled>
-                            <h2>Order details: #{ shortenId(id) }</h2>
+                            <h2>Order #{ shortenId(id) }</h2>
                             <HrStyled />
-                            <DetailsContainerStyled>
+                            <TextContainerStyled>
                                 <p>Date: {new Date(visitedOrder?.createdAt)?.toLocaleString()}</p>
                                 <p>Items: {visitedOrder?.items.length}</p>
-                            </DetailsContainerStyled>
+                            </TextContainerStyled>
                         </DetailsSectionStyled>
-                        <UserDataSectionStyled>
-                            <h2>User Information</h2>
+                        <DetailsSectionStyled>
+                            <h2>Destination</h2>
                             <HrStyled />
-                            <UserDataContainerStyled>
+                            <TextContainerStyled>
                                 <p>Name: {visitedOrder?.shippingDetails?.name}</p>
                                 <p>Cellphone: {visitedOrder?.shippingDetails?.cellphone}</p>
                                 <p>Location: {visitedOrder?.shippingDetails?.location}</p>
                                 <p>Address: {visitedOrder?.shippingDetails?.address}</p>
-                            </UserDataContainerStyled>
-                        </UserDataSectionStyled>
+                            </TextContainerStyled>
+                        </DetailsSectionStyled>
                     </DataContainerStyled>
                     <OrderDetailsContainerStyled>
                         <ItemContainerStyled>
@@ -56,21 +54,23 @@ const OrderDetailsPage = () => {
                                 ))
                             }
                         </ItemContainerStyled>
-                        <PaymentDetailsSectionStyled>
+                        <DetailsSectionStyled>
                             <h2>Payment Details</h2>
                             <HrStyled />
-                            <PaymentDetailsContainerStyled>
+                            <TextContainerStyled>
                                 <p>Status: {visitedOrder.status}</p>
                                 <p>Price: ${visitedOrder.price} </p>
                                 <p>Shipping cost: ${visitedOrder.shippingCost} </p>
                                 <HrStyled />
                                 <p>Total: ${visitedOrder.total}</p>
-                            </PaymentDetailsContainerStyled>
-                        </PaymentDetailsSectionStyled>                
+                            </TextContainerStyled>
+                        </DetailsSectionStyled>                
                     </OrderDetailsContainerStyled>
                 </OrderContainerStyled>
             ) : (
-                <p>Loading...</p>
+                <Loader
+                    message={`Loading order #${shortenId(id)} details`}
+                />
             )}
         </OrderDetailsPageWrapper>
     );
