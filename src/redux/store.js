@@ -10,6 +10,7 @@ import recommendedReducer  from './recommended/recommendedSlice';
 import userReducer from './users/userSlice';
 import categoriesSlice from './slice/categoriesSlice';
 import orderReducer from './orders/orderSlice';
+import messageSlice from './slice/messageSlice';
 
 const reducers = combineReducers({ 
     pokemons: pokemonsReducer,
@@ -20,6 +21,7 @@ const reducers = combineReducers({
     user: userReducer,
     categories: categoriesSlice,
     orders: orderReducer,
+    message: messageSlice
 });
 
 const persistConfig = {

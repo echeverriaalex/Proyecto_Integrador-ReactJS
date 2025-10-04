@@ -10,6 +10,11 @@ export const CategoryPageWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 20px;
+
+    @media (max-width: 576px) {
+        margin-top: ${ themePage.dimensions.marginTopMobile };
+        gap: 15px;
+    }
 `;
 
 export const HeroCategoryPage = styled.div`

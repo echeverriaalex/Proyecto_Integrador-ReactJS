@@ -3,11 +3,10 @@ import styled from "styled-components";
 import { themePage } from "../../components/styles/GlobalStyles";
 
 export const AboutPageWrapper = styled.div`
-
   margin-top: ${ themePage.dimensions.marginTop };
   width: ${ themePage.dimensions.width };
   min-height: ${ themePage.dimensions.minHeight };
-
+  max-width: ${ themePage.dimensions.maxWidth };
   display: flex;
   flex-direction: column;
   align-items: center;

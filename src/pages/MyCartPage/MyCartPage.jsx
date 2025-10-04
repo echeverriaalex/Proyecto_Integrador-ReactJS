@@ -1,12 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
-import { ButtonContainerStyled, CartContainerStyled, CartItemContainerStyled, CartItemsContainerStyled, CartProcessContainerStyled, DescriptionTotalContainerStyled, EmptyCartContainerStyled, IdentityContainerStyled, ImageContainerStyled, ItemDetailsContainerStyled, MycartPageWrapper, NavLinkContainerStyled, NavLinksContainerStyled, PriceContainerStyled, PriceQuantityContainerStyled, TextContainerStyled, TotalContainerStyled } from "./MyCartPageStyles";
+import { CartContainerStyled, CartItemContainerStyled, CartItemsContainerStyled, CartProcessContainerStyled, DescriptionTotalContainerStyled, EmptyCartContainerStyled, IdentityContainerStyled, ImageContainerStyled, ItemDetailsContainerStyled, MycartPageWrapper, NavLinkContainerStyled, NavLinksContainerStyled, PriceContainerStyled, PriceQuantityContainerStyled, TextContainerStyled, TotalContainerStyled } from "./MyCartPageStyles";
 import { FaTrashAlt } from "react-icons/fa";
 import Button from "../../components/UI/Button/Button";
-import { clearCart, deleteItem, removeFromCart, toggleCartHidden } from "../../redux/cart/cartSlice";
-//import { addItemToCart, removeItemFromCart } from "../../redux/cart/cartUtils";
-//import { IconQuantityContainerStyled, QuantityContainerStyled } from "../../components/Navbar/ModalCart/Components/Quantity/QuantityStyles";
+import { clearCart, deleteItem } from "../../redux/cart/cartSlice";
 import Quantity from "../../components/Navbar/ModalCart/Components/Quantity/Quantity";
-import { useNavigate } from "react-router-dom";
 import { totalPrice } from "../../utils/functions";
 import CheckoutForm from "../../components/Checkout/CheckoutForm/CheckoutForm";
 
@@ -15,7 +12,6 @@ const MyCartPage = () => {
     const { cartItems, shippingCost } = useSelector((state) => state.cart) || { cartItems: [] };
     const cartTotalPrice = totalPrice(cartItems);
     const dispatch = useDispatch();
-    const navigate = useNavigate();
 
     return (
         <MycartPageWrapper>
@@ -70,27 +66,6 @@ const MyCartPage = () => {
                                 <span>Total: </span>
                                 <span>$ { (cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0) + shippingCost).toFixed(2) }</span>
                             </DescriptionTotalContainerStyled>
-
-                            { /*
-                            <ButtonContainerStyled>
-                                <Button
-                                    onClick={()=> dispatch(clearCart())}
-                                    background = "#a81106"
-                                >
-                                    Vaciar
-                                    <FaTrashAlt />
-                                </Button>
-                                <Button
-                                    onClick={() => {
-                                        dispatch(toggleCartHidden());
-                                        navigate("/checkout");
-                                    }}
-                                    background = "#0f78a8"
-                                >
-                                    Finalizar
-                                </Button>
-                            </ButtonContainerStyled>
-                            */ }
                         </TotalContainerStyled>
                     </CartContainerStyled>
                 </CartProcessContainerStyled>

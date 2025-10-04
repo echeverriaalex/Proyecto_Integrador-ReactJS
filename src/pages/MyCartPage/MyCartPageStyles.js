@@ -11,12 +11,16 @@ export const MycartPageWrapper = styled.div`
   align-items: center;
   justify-content: center;
   gap: 20px;
-  padding: 20px;
+  padding: 10px;
 
   h2, h3, p, span{
     color: #fff;
     font-weight: 600;
     font-family: monstserrat, sans-serif;
+  }
+
+  @media (max-width: 576px) {
+    margin-top: ${ themePage.dimensions.marginTopMobile };
   }
 `;
 
@@ -30,8 +34,7 @@ export const CartProcessContainerStyled = styled.div`
   @media (max-width: 576px){
     flex-direction: column-reverse;
     padding: 10px;
-    gap: 10px;
-    min-height: 80vh;
+    gap: 50px;
   }
 `;
 
@@ -41,7 +44,8 @@ export const CartContainerStyled = styled.div`
   align-items: center;
   gap: 20px;
   width: 50%;
-  height: 80vh;
+  max-height: 80vh;
+  overflow-x: auto;
 
   @media(max-width: 576px){
     width: 100%;

@@ -20,4 +20,8 @@ export const  MyPurchasesPageWrapper = styled.div`
         font-family: monstserrat, sans-serif;
         width: 100%;
     }
+
+    @media (max-width: 576px) {
+        margin-top: ${ themePage.dimensions.marginTopMobile };
+    }
 `;

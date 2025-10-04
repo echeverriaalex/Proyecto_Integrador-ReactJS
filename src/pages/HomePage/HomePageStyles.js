@@ -11,8 +11,6 @@ export const HomePageWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 30px;
-    width: 100%;
-    max-width: 2000px;
 `;
 
 export const SectionWrapper = styled.section`
@@ -21,22 +19,8 @@ export const SectionWrapper = styled.section`
     justify-content: center;
     align-items: center;
     gap: 20px;
-    /*min-height: 90px;*/
     width: 100%;
-    max-width: 1600px;
-    padding: 20px;
-
-    //padding: 40px; // quito padding porque hacia quedar mal el componente loader
-
-    //background-color: #a1a1a1ff;
-
-    @media (max-width: 1000px){
-        //padding: 15px; // quito padding porque hacia quedar mal el componente loader
-    }
-
-    @media (max-width: 576px) {
-        //padding: 8px; // quito padding porque hacia quedar mal el componente loader
-    }
+    padding: 10px;
 `;
 
 export const TitleSectionStyled = styled.h2`
@@ -44,7 +28,6 @@ export const TitleSectionStyled = styled.h2`
     color: #fff;
     font-size: 4rem;
     width: 100%;
-    //background-color: #c52d07ff;
 
     @media (max-width: 1000px){
         font-size: 2.7rem;

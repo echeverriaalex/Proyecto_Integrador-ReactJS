@@ -13,6 +13,7 @@ export const ProductsPageWrapper = styled.div`
     
     @media (max-width: 576px){
         gap: 5px;
+        margin-top: ${ themePage.dimensions.marginTopMobile };
     }
 `;
 

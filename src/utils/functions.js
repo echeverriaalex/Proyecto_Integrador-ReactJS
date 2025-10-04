@@ -14,3 +14,9 @@ export const totalPrice = (cartItems) => {
 export const shortenId = (id) => {
   return id.slice(0, 7);
 }
+
+export const capitalizeText = (text) => {
+    if (!text) return
+    text = text.trim().split(" ");
+    return text[0].charAt(0).toUpperCase() + text[0].slice(1).toLowerCase();
+};

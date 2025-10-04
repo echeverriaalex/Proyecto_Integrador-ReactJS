@@ -1,18 +1,20 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { colorCategory } from "../../../utils/setColorBackground";
+import { themePage } from "../../../components/styles/GlobalStyles";
 
 export const CardPageContainer = styled.div`
-    width: 100%;
-    max-width: 1200px;
+    margin-top: ${ themePage.dimensions.marginTop };
+    width: ${ themePage.dimensions.width };
+    min-height: ${ themePage.dimensions.minHeight };
+    max-width: ${ themePage.dimensions.maxWidth };
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 15px;
-    min-height: 60vh;
+    padding: 10px;
 
-    @media (max-width: 576px){
-        padding: 5px;
+    @media (max-width: 576px) {
+        margin-top: ${ themePage.dimensions.marginTopMobile };
     }
 `;
 
@@ -181,6 +183,6 @@ export const ButtonStyled = styled(motion.button)`
     border: none;
 
     img{
-        height: 1.2rem;
+        height: 1.5rem;
     }
 `;
