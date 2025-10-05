@@ -23,7 +23,6 @@ const ModalUser = () => {
                     <UsernameStyled>Hello { formatUserName(currentUser.nombre) } ! </UsernameStyled>
                     <HrStyled />
                     <LinksContainerStyled>
-                        <LinkStyled to="/profile">View Profile</LinkStyled>
                         <LinkStyled to="/mypurchases">My Purchases</LinkStyled>
                     </LinksContainerStyled>
                     <SpanStyled onClick={() => {
